@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>blyk registry</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #09090b;
+      color: #fafafa;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .container {
+      max-width: 600px;
+      padding: 2rem;
+      text-align: center;
+    }
+    h1 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: -0.025em;
+      margin-bottom: 0.5rem;
+    }
+    .subtitle {
+      color: #a1a1aa;
+      font-size: 0.875rem;
+      margin-bottom: 2rem;
+    }
+    code {
+      display: block;
+      background: #18181b;
+      border: 1px solid #27272a;
+      border-radius: 0.5rem;
+      padding: 1rem 1.25rem;
+      font-family: "JetBrains Mono", ui-monospace, monospace;
+      font-size: 0.8rem;
+      color: #e4e4e7;
+      text-align: left;
+      margin-bottom: 0.75rem;
+      overflow-x: auto;
+    }
+    .hint {
+      color: #71717a;
+      font-size: 0.75rem;
+      margin-top: 1.5rem;
+    }
+    a { color: #a1a1aa; text-decoration: underline; text-underline-offset: 2px; }
+    a:hover { color: #fafafa; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>blyk registry</h1>
+    <p class="subtitle">Custom shadcn/ui component registry by blyk.design</p>
+    <code>npx shadcn@latest add button --registry https://registry.blyk.design/r/base</code>
+    <code>npx shadcn@latest add --all --registry https://registry.blyk.design/r/base</code>
+    <p class="hint">
+      <a href="/r/base/index.json">View base registry index</a>
+    </p>
+  </div>
+</body>
+</html>

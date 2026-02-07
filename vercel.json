@@ -1,0 +1,17 @@
+{
+  "buildCommand": "pnpm build",
+  "outputDirectory": "public",
+  "installCommand": "pnpm install",
+  "framework": null,
+  "headers": [
+    {
+      "source": "/r/(.*).json",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Access-Control-Allow-Methods", "value": "GET, OPTIONS" },
+        { "key": "Content-Type", "value": "application/json; charset=utf-8" },
+        { "key": "Cache-Control", "value": "public, s-maxage=0, must-revalidate" }
+      ]
+    }
+  ]
+}

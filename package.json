@@ -1,0 +1,30 @@
+{
+  "name": "blyk-registry",
+  "version": "1.0.0",
+  "private": true,
+  "description": "blyk design system — custom shadcn/ui registry",
+  "type": "module",
+  "scripts": {
+    "build": "shadcn build && tsx scripts/build-registry.ts",
+    "build:registry": "shadcn build",
+    "build:themes": "tsx scripts/build-registry.ts",
+    "dev": "npx serve public",
+    "new-theme": "tsx scripts/new-theme.ts",
+    "sync-shadcn": "tsx scripts/sync-shadcn.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "shadcn": "^3.8.4"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "serve": "^14.0.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.7.0"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=9.0.0"
+  },
+  "packageManager": "pnpm@9.15.0"
+}
