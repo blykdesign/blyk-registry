@@ -21,11 +21,16 @@
   "include": [
     "scripts/**/*.ts",
     "registry/**/*.ts",
-    "registry/**/*.tsx"
+    "registry/**/*.tsx",
+    "stories/**/*.ts",
+    "stories/**/*.tsx",
+    "lib/**/*.ts",
+    ".storybook/**/*.ts"
   ],
   "exclude": [
     "node_modules",
     "dist",
-    "public"
+    "public",
+    "storybook-static"
   ]
 }

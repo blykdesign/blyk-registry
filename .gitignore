@@ -4,3 +4,4 @@ public/r/
 .vercel/
 *.tsbuildinfo
 .DS_Store
+storybook-static/

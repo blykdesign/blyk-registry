@@ -127,6 +127,71 @@ The registry is deployed as static files on Vercel:
 | Framework | Other |
 | Node.js Version | 20.x |
 
+## Storybook
+
+Interactive component documentation at **storybook.blyk.design**.
+
+### Features
+
+- **58 stories** covering all components with variant/state coverage
+- **Multi-theme switcher** — toggle between Base (blyk) and client themes (e.g. Acme) via the toolbar
+- **Dark mode toggle** — switch between light and dark color schemes
+- **Responsive viewports** — Mobile S/M/L, Tablet, and Desktop presets
+- **CSF3 format** — modern Component Story Format with TypeScript
+
+### Running locally
+
+```bash
+pnpm storybook         # Start dev server at http://localhost:6006
+pnpm build-storybook   # Build static site to storybook-static/
+```
+
+### Theme switching
+
+Use the toolbar at the top of Storybook:
+
+- **🖌 Theme** — Switch between design system themes (Base, Acme, etc.)
+- **🪞 Mode** — Toggle Light / Dark color scheme
+
+Themes are applied via CSS custom properties using `[data-theme]` attribute on the root element. Dark mode uses the `.dark` class, matching the `next-themes` convention.
+
+### Adding a story for a new component
+
+1. Create `stories/ui/{component-name}.stories.tsx`
+2. Import from `@/registry/base/components/ui/{component-name}`
+3. Follow CSF3 pattern:
+
+```tsx
+import type { Meta, StoryObj } from "@storybook/react"
+import { MyComponent } from "@/registry/base/components/ui/my-component"
+
+const meta = {
+  title: "UI/MyComponent",
+  component: MyComponent,
+} satisfies Meta<typeof MyComponent>
+export default meta
+type Story = StoryObj<typeof meta>
+
+export const Default: Story = {
+  args: { /* ... */ },
+}
+```
+
+### Deploying Storybook
+
+Storybook is deployed as a separate Vercel project pointing to the same repo:
+
+| Setting | Value |
+|---|---|
+| Build Command | `pnpm build-storybook` |
+| Output Directory | `storybook-static` |
+| Install Command | `pnpm install` |
+| Framework | Other |
+| Node.js Version | 20.x |
+| Domain | `storybook.blyk.design` |
+
+> **Note:** The registry (`registry.blyk.design`) and Storybook (`storybook.blyk.design`) are two separate Vercel projects from the same repo, each with its own build command and output directory.
+
 ## Components
 
 58 items total: 57 components + 1 hook (`use-mobile`).
@@ -137,6 +202,9 @@ button-group, combobox, direction, empty, field, input-group, item, kbd, native-
 ## Tech stack
 
 - **shadcn** v3.8.4 — registry build
+- **Storybook** 8.6 — component documentation
+- **Tailwind CSS** v4 — styling
+- **Vite** 6 — Storybook bundler
 - **tsx** — TypeScript script runner
 - **TypeScript** 5.x — type safety
 - **pnpm** — package manager
