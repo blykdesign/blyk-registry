@@ -17,6 +17,7 @@ const ROOT = join(__dirname, "..")
 
 const config: StorybookConfig = {
   stories: ["../stories/**/*.stories.@(ts|tsx)"],
+  staticDirs: [],
 
   addons: [
     getAbsolutePath("@storybook/addon-themes"),
