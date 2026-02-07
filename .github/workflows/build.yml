@@ -1,0 +1,69 @@
+name: Build & Validate Registry
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build registry
+        run: pnpm build
+
+      - name: Validate output
+        run: |
+          # Check that base theme was generated
+          test -f public/r/registry.json || (echo "FAIL: registry.json missing" && exit 1)
+          test -f public/r/base/index.json || (echo "FAIL: base/index.json missing" && exit 1)
+
+          # Count components
+          COMPONENT_COUNT=$(ls public/r/base/*.json | grep -v index.json | wc -l)
+          echo "Components built: $COMPONENT_COUNT"
+
+          # Validate JSON format of a sample component
+          python3 -c "
+          import json, sys
+          with open('public/r/base/button.json') as f:
+              d = json.load(f)
+          assert d.get('\$schema') == 'https://ui.shadcn.com/schema/registry-item.json', 'Missing schema'
+          assert d.get('name') == 'button', 'Wrong name'
+          assert d.get('type') == 'registry:ui', 'Wrong type'
+          assert len(d.get('files', [])) > 0, 'No files'
+          assert d['files'][0].get('path') == 'ui/button.tsx', 'Wrong path'
+          assert len(d['files'][0].get('content', '')) > 0, 'Empty content'
+          print('Validation passed')
+          "
+
+          # Check all theme directories have index.json
+          for dir in public/r/*/; do
+            theme=$(basename "$dir")
+            test -f "$dir/index.json" || (echo "FAIL: $theme/index.json missing" && exit 1)
+            echo "Theme '$theme': OK"
+          done
+
+      - name: Upload registry artifact
+        if: github.ref == 'refs/heads/main'
+        uses: actions/upload-artifact@v4
+        with:
+          name: registry-output
+          path: public/r/
+          retention-days: 7
