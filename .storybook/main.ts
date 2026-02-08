@@ -33,6 +33,11 @@ const config: StorybookConfig = {
     config.plugins = config.plugins || []
     config.plugins.push(tailwindcss())
 
+    // Prevent Vite from copying public/ into the build output.
+    // Without this, Vite's default publicDir copies public/index.html
+    // (the registry landing page) over Storybook's own index.html.
+    config.publicDir = false
+
     config.resolve = config.resolve || {}
     config.resolve.alias = {
       ...config.resolve.alias,
