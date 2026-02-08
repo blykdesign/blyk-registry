@@ -10,6 +10,16 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = { render: (args) => <Progress {...args} className="w-[60%]" /> }
-export const Complete: Story = { args: { value: 100 }, render: (args) => <Progress {...args} className="w-[60%]" /> }
-export const Empty: Story = { args: { value: 0 }, render: (args) => <Progress {...args} className="w-[60%]" /> }
+export const Default: Story = {
+  render: (args) => <Progress {...args} className="w-[60%]" />,
+}
+
+export const Complete: Story = {
+  args: { value: 100 },
+  render: (args) => <Progress {...args} className="w-[60%]" />,
+}
+
+export const Empty: Story = {
+  args: { value: 0 },
+  render: (args) => <Progress {...args} className="w-[60%]" />,
+}
