@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite"
 import { Spinner } from "@/registry/base/components/ui/spinner"
 
 const meta = {
-  title: "UI/Spinner",
+  title: "Components/Feedback/Spinner",
   component: Spinner,
 } satisfies Meta<typeof Spinner>
 export default meta

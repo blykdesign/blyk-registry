@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite"
 import { NativeSelect, NativeSelectOption } from "@/registry/base/components/ui/native-select"
 
 const meta = {
-  title: "UI/NativeSelect",
+  title: "Components/Data Entry/Native Select",
   component: NativeSelect,
 } satisfies Meta<typeof NativeSelect>
 export default meta

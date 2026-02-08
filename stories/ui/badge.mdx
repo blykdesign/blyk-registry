@@ -1,0 +1,46 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks'
+import * as Stories from './badge.stories'
+
+<Meta of={Stories} />
+
+# Badge
+
+Displays a badge or a component that looks like a badge.
+
+## Installation
+
+```bash
+npx shadcn@latest add "https://registry.blyk.design/r/base/badge.json"
+```
+
+## Usage
+
+```tsx
+import { Badge } from "@/components/ui/badge"
+```
+
+```tsx
+<Badge variant="outline">Badge</Badge>
+```
+
+## Examples
+
+### Default
+
+<Canvas of={Stories.Default} />
+
+### Secondary
+
+<Canvas of={Stories.Secondary} />
+
+### Destructive
+
+<Canvas of={Stories.Destructive} />
+
+### Outline
+
+<Canvas of={Stories.Outline} />
+
+## API Reference
+
+<ArgTypes of={Stories} />

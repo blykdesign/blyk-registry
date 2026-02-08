@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite"
 import { Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from "@/registry/base/components/ui/pagination"
 
 const meta = {
-  title: "UI/Pagination",
+  title: "Components/Navigation/Pagination",
   component: Pagination,
 } satisfies Meta<typeof Pagination>
 export default meta

@@ -3,7 +3,7 @@ import { Alert, AlertTitle, AlertDescription } from "@/registry/base/components/
 import { Terminal, AlertCircle } from "lucide-react"
 
 const meta = {
-  title: "UI/Alert",
+  title: "Components/Feedback/Alert",
   component: Alert,
   argTypes: {
     variant: { control: "select", options: ["default", "destructive"] },

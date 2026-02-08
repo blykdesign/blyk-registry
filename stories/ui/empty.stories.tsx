@@ -3,7 +3,7 @@ import { Empty, EmptyHeader, EmptyTitle, EmptyDescription, EmptyContent } from "
 import { Inbox } from "lucide-react"
 
 const meta = {
-  title: "UI/Empty",
+  title: "Components/Misc/Empty",
   component: Empty,
 } satisfies Meta<typeof Empty>
 export default meta

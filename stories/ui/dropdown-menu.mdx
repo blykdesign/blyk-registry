@@ -1,0 +1,39 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks'
+import * as Stories from './dropdown-menu.stories'
+
+<Meta of={Stories} />
+
+# Dropdown Menu
+
+Displays a menu to the user — such as a set of actions or functions — triggered by a button.
+
+## Installation
+
+```bash
+npx shadcn@latest add "https://registry.blyk.design/r/base/dropdown-menu.json"
+```
+
+## Usage
+
+```tsx
+import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem } from "@/components/ui/dropdown-menu"
+```
+
+```tsx
+<DropdownMenu>
+  <DropdownMenuTrigger>Open</DropdownMenuTrigger>
+  <DropdownMenuContent>
+    <DropdownMenuItem>Profile</DropdownMenuItem>
+  </DropdownMenuContent>
+</DropdownMenu>
+```
+
+## Examples
+
+### Default
+
+<Canvas of={Stories.Default} />
+
+## API Reference
+
+<ArgTypes of={Stories} />

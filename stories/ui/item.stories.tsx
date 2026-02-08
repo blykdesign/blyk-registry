@@ -3,7 +3,7 @@ import { Item, ItemContent, ItemTitle, ItemDescription, ItemActions } from "@/re
 import { Button } from "@/registry/base/components/ui/button"
 
 const meta = {
-  title: "UI/Item",
+  title: "Components/Data Display/Item",
   component: Item,
 } satisfies Meta<typeof Item>
 export default meta

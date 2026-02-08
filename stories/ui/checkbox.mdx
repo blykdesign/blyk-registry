@@ -1,0 +1,46 @@
+import { Meta, Canvas, Controls, ArgTypes } from '@storybook/addon-docs/blocks'
+import * as Stories from './checkbox.stories'
+
+<Meta of={Stories} />
+
+# Checkbox
+
+A control that allows the user to toggle between checked and not checked.
+
+## Installation
+
+```bash
+npx shadcn@latest add "https://registry.blyk.design/r/base/checkbox.json"
+```
+
+## Usage
+
+```tsx
+import { Checkbox } from "@/components/ui/checkbox"
+```
+
+```tsx
+<Checkbox />
+```
+
+## Examples
+
+### Default
+
+<Canvas of={Stories.Default} />
+
+### With Label
+
+<Canvas of={Stories.WithLabel} />
+
+### Checked
+
+<Canvas of={Stories.Checked} />
+
+### Disabled
+
+<Canvas of={Stories.Disabled} />
+
+## API Reference
+
+<ArgTypes of={Stories} />

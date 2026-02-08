@@ -3,7 +3,7 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import { Card, CardContent } from "@/registry/base/components/ui/card"
 
 const meta = {
-  title: "UI/Carousel",
+  title: "Components/Layout/Carousel",
   component: Carousel,
   parameters: { layout: "padded" },
 } satisfies Meta<typeof Carousel>

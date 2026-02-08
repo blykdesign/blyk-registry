@@ -3,7 +3,7 @@ import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, Command
 import { Calculator, Calendar, CreditCard, Settings, Smile, User } from "lucide-react"
 
 const meta = {
-  title: "UI/Command",
+  title: "Components/Navigation/Command",
   component: Command,
 } satisfies Meta<typeof Command>
 export default meta

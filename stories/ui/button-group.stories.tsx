@@ -3,7 +3,7 @@ import { ButtonGroup } from "@/registry/base/components/ui/button-group"
 import { Button } from "@/registry/base/components/ui/button"
 
 const meta = {
-  title: "UI/ButtonGroup",
+  title: "Components/Actions/Button Group",
   component: ButtonGroup,
 } satisfies Meta<typeof ButtonGroup>
 export default meta

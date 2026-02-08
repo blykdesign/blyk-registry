@@ -1,0 +1,34 @@
+import { Meta, Canvas, Controls, ArgTypes } from '@storybook/addon-docs/blocks'
+import * as Stories from './calendar.stories'
+
+<Meta of={Stories} />
+
+# Calendar
+
+A date field component that allows users to enter and edit date.
+
+## Installation
+
+```bash
+npx shadcn@latest add "https://registry.blyk.design/r/base/calendar.json"
+```
+
+## Usage
+
+```tsx
+import { Calendar } from "@/components/ui/calendar"
+```
+
+```tsx
+<Calendar mode="single" selected={date} onSelect={setDate} />
+```
+
+## Examples
+
+### Default
+
+<Canvas of={Stories.Default} />
+
+## API Reference
+
+<ArgTypes of={Stories} />

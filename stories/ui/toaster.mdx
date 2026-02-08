@@ -1,0 +1,34 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks'
+import * as Stories from './toaster.stories'
+
+<Meta of={Stories} />
+
+# Toaster
+
+Toast container component that renders toast notifications.
+
+## Installation
+
+```bash
+npx shadcn@latest add "https://registry.blyk.design/r/base/toaster.json"
+```
+
+## Usage
+
+```tsx
+import { Toaster } from "@/components/ui/toaster"
+```
+
+```tsx
+<Toaster />
+```
+
+## Examples
+
+### Default
+
+<Canvas of={Stories.Default} />
+
+## API Reference
+
+<ArgTypes of={Stories} />

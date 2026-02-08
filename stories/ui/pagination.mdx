@@ -1,0 +1,46 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks'
+import * as Stories from './pagination.stories'
+
+<Meta of={Stories} />
+
+# Pagination
+
+Pagination with page navigation, next and previous links.
+
+## Installation
+
+```bash
+npx shadcn@latest add "https://registry.blyk.design/r/base/pagination.json"
+```
+
+## Usage
+
+```tsx
+import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationPrevious, PaginationNext } from "@/components/ui/pagination"
+```
+
+```tsx
+<Pagination>
+  <PaginationContent>
+    <PaginationItem>
+      <PaginationPrevious href="#" />
+    </PaginationItem>
+    <PaginationItem>
+      <PaginationLink href="#">1</PaginationLink>
+    </PaginationItem>
+    <PaginationItem>
+      <PaginationNext href="#" />
+    </PaginationItem>
+  </PaginationContent>
+</Pagination>
+```
+
+## Examples
+
+### Default
+
+<Canvas of={Stories.Default} />
+
+## API Reference
+
+<ArgTypes of={Stories} />

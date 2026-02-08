@@ -1,0 +1,35 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks'
+import * as Stories from './sonner.stories'
+
+<Meta of={Stories} />
+
+# Sonner
+
+An opinionated toast component for React.
+
+## Installation
+
+```bash
+npx shadcn@latest add "https://registry.blyk.design/r/base/sonner.json"
+```
+
+## Usage
+
+```tsx
+import { Toaster } from "@/components/ui/sonner"
+import { toast } from "sonner"
+```
+
+```tsx
+<Button onClick={() => toast("Event created")}>Show Toast</Button>
+```
+
+## Examples
+
+### Default
+
+<Canvas of={Stories.Default} />
+
+## API Reference
+
+<ArgTypes of={Stories} />

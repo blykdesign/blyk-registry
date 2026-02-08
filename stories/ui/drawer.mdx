@@ -1,0 +1,41 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks'
+import * as Stories from './drawer.stories'
+
+<Meta of={Stories} />
+
+# Drawer
+
+A drawer component for React.
+
+## Installation
+
+```bash
+npx shadcn@latest add "https://registry.blyk.design/r/base/drawer.json"
+```
+
+## Usage
+
+```tsx
+import { Drawer, DrawerTrigger, DrawerContent, DrawerHeader, DrawerTitle, DrawerDescription, DrawerFooter } from "@/components/ui/drawer"
+```
+
+```tsx
+<Drawer>
+  <DrawerTrigger>Open</DrawerTrigger>
+  <DrawerContent>
+    <DrawerHeader>
+      <DrawerTitle>Title</DrawerTitle>
+    </DrawerHeader>
+  </DrawerContent>
+</Drawer>
+```
+
+## Examples
+
+### Default
+
+<Canvas of={Stories.Default} />
+
+## API Reference
+
+<ArgTypes of={Stories} />

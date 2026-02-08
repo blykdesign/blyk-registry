@@ -1,0 +1,40 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks'
+import * as Stories from './navigation-menu.stories'
+
+<Meta of={Stories} />
+
+# Navigation Menu
+
+A collection of links for navigating websites.
+
+## Installation
+
+```bash
+npx shadcn@latest add "https://registry.blyk.design/r/base/navigation-menu.json"
+```
+
+## Usage
+
+```tsx
+import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuLink } from "@/components/ui/navigation-menu"
+```
+
+```tsx
+<NavigationMenu>
+  <NavigationMenuList>
+    <NavigationMenuItem>
+      <NavigationMenuLink href="/">Home</NavigationMenuLink>
+    </NavigationMenuItem>
+  </NavigationMenuList>
+</NavigationMenu>
+```
+
+## Examples
+
+### Default
+
+<Canvas of={Stories.Default} />
+
+## API Reference
+
+<ArgTypes of={Stories} />

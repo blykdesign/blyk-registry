@@ -1,0 +1,37 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks'
+import * as Stories from './popover.stories'
+
+<Meta of={Stories} />
+
+# Popover
+
+Displays rich content in a portal, triggered by a button.
+
+## Installation
+
+```bash
+npx shadcn@latest add "https://registry.blyk.design/r/base/popover.json"
+```
+
+## Usage
+
+```tsx
+import { Popover, PopoverTrigger, PopoverContent } from "@/components/ui/popover"
+```
+
+```tsx
+<Popover>
+  <PopoverTrigger>Open</PopoverTrigger>
+  <PopoverContent>Content here.</PopoverContent>
+</Popover>
+```
+
+## Examples
+
+### Default
+
+<Canvas of={Stories.Default} />
+
+## API Reference
+
+<ArgTypes of={Stories} />

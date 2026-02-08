@@ -1,0 +1,38 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks'
+import * as Stories from './kbd.stories'
+
+<Meta of={Stories} />
+
+# Kbd
+
+Displays a keyboard shortcut or key combination.
+
+## Installation
+
+```bash
+npx shadcn@latest add "https://registry.blyk.design/r/base/kbd.json"
+```
+
+## Usage
+
+```tsx
+import { Kbd } from "@/components/ui/kbd"
+```
+
+```tsx
+<Kbd>⌘K</Kbd>
+```
+
+## Examples
+
+### Default
+
+<Canvas of={Stories.Default} />
+
+### Combination
+
+<Canvas of={Stories.Combination} />
+
+## API Reference
+
+<ArgTypes of={Stories} />

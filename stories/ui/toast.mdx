@@ -1,0 +1,39 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks'
+import * as Stories from './toast.stories'
+
+<Meta of={Stories} />
+
+# Toast
+
+A succinct message that is displayed temporarily.
+
+## Installation
+
+```bash
+npx shadcn@latest add "https://registry.blyk.design/r/base/toast.json"
+```
+
+## Usage
+
+```tsx
+import { useToast } from "@/components/ui/toast"
+```
+
+```tsx
+const { toast } = useToast()
+toast({ title: "Success" })
+```
+
+## Examples
+
+### Default
+
+<Canvas of={Stories.Default} />
+
+### Destructive
+
+<Canvas of={Stories.Destructive} />
+
+## API Reference
+
+<ArgTypes of={Stories} />

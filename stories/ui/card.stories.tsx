@@ -3,7 +3,7 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter }
 import { Button } from "@/registry/base/components/ui/button"
 
 const meta = {
-  title: "UI/Card",
+  title: "Components/Data Display/Card",
   component: Card,
 } satisfies Meta<typeof Card>
 export default meta

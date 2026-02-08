@@ -3,7 +3,7 @@ import { DirectionProvider } from "@/registry/base/components/ui/direction"
 import { Button } from "@/registry/base/components/ui/button"
 
 const meta = {
-  title: "UI/DirectionProvider",
+  title: "Components/Misc/Direction",
   component: DirectionProvider,
 } satisfies Meta<typeof DirectionProvider>
 export default meta

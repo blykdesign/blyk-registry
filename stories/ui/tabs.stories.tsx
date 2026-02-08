@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/registry/base/components/ui/tabs"
 
 const meta = {
-  title: "UI/Tabs",
+  title: "Components/Layout/Tabs",
   component: Tabs,
 } satisfies Meta<typeof Tabs>
 export default meta

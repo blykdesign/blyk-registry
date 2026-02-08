@@ -1,0 +1,46 @@
+import { Meta, Canvas, Controls, ArgTypes } from '@storybook/addon-docs/blocks'
+import * as Stories from './switch.stories'
+
+<Meta of={Stories} />
+
+# Switch
+
+A control that allows the user to toggle between a checked and not checked state.
+
+## Installation
+
+```bash
+npx shadcn@latest add "https://registry.blyk.design/r/base/switch.json"
+```
+
+## Usage
+
+```tsx
+import { Switch } from "@/components/ui/switch"
+```
+
+```tsx
+<Switch />
+```
+
+## Examples
+
+### Default
+
+<Canvas of={Stories.Default} />
+
+### With Label
+
+<Canvas of={Stories.WithLabel} />
+
+### Checked
+
+<Canvas of={Stories.Checked} />
+
+### Disabled
+
+<Canvas of={Stories.Disabled} />
+
+## API Reference
+
+<ArgTypes of={Stories} />

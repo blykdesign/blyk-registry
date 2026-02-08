@@ -3,7 +3,7 @@ import { Toggle } from "@/registry/base/components/ui/toggle"
 import { Bold } from "lucide-react"
 
 const meta = {
-  title: "UI/Toggle",
+  title: "Components/Actions/Toggle",
   component: Toggle,
   argTypes: {
     variant: { control: "select", options: ["default", "outline"] },

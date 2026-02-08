@@ -3,7 +3,7 @@ import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/registry/base/c
 import { Button } from "@/registry/base/components/ui/button"
 
 const meta = {
-  title: "UI/HoverCard",
+  title: "Components/Navigation/Hover Card",
   component: HoverCard,
 } satisfies Meta<typeof HoverCard>
 export default meta

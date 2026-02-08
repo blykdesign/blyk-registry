@@ -10,7 +10,7 @@ const invoices = [
 ]
 
 const meta = {
-  title: "UI/Table",
+  title: "Components/Data Display/Table",
   component: Table,
 } satisfies Meta<typeof Table>
 export default meta

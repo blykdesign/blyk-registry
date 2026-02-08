@@ -3,7 +3,7 @@ import { RadioGroup, RadioGroupItem } from "@/registry/base/components/ui/radio-
 import { Label } from "@/registry/base/components/ui/label"
 
 const meta = {
-  title: "UI/RadioGroup",
+  title: "Components/Data Entry/Radio Group",
   component: RadioGroup,
 } satisfies Meta<typeof RadioGroup>
 export default meta

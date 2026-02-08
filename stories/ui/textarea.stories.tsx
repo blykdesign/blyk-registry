@@ -3,7 +3,7 @@ import { Textarea } from "@/registry/base/components/ui/textarea"
 import { Label } from "@/registry/base/components/ui/label"
 
 const meta = {
-  title: "UI/Textarea",
+  title: "Components/Data Entry/Textarea",
   component: Textarea,
   args: { placeholder: "Type your message here." },
   argTypes: { disabled: { control: "boolean" } },

@@ -3,7 +3,7 @@ import * as React from "react"
 import { Calendar } from "@/registry/base/components/ui/calendar"
 
 const meta = {
-  title: "UI/Calendar",
+  title: "Components/Data Entry/Calendar",
   component: Calendar,
 } satisfies Meta<typeof Calendar>
 export default meta

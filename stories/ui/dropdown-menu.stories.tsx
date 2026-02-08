@@ -3,7 +3,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel,
 import { Button } from "@/registry/base/components/ui/button"
 
 const meta = {
-  title: "UI/DropdownMenu",
+  title: "Components/Navigation/Dropdown Menu",
   component: DropdownMenu,
 } satisfies Meta<typeof DropdownMenu>
 export default meta

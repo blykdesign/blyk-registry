@@ -3,7 +3,7 @@ import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTr
 import { Button } from "@/registry/base/components/ui/button"
 
 const meta = {
-  title: "UI/Sheet",
+  title: "Components/Layout/Sheet",
   component: Sheet,
 } satisfies Meta<typeof Sheet>
 export default meta

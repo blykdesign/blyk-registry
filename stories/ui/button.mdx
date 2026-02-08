@@ -1,0 +1,74 @@
+import { Meta, Canvas, Controls, ArgTypes } from '@storybook/addon-docs/blocks'
+import * as Stories from './button.stories'
+
+<Meta of={Stories} />
+
+# Button
+
+Displays a button or a component that looks like a button.
+
+## Installation
+
+```bash
+npx shadcn@latest add "https://registry.blyk.design/r/base/button.json"
+```
+
+## Usage
+
+```tsx
+import { Button } from "@/components/ui/button"
+```
+
+```tsx
+<Button variant="outline">Button</Button>
+```
+
+## Examples
+
+### Default
+
+<Canvas of={Stories.Default} />
+
+### Destructive
+
+<Canvas of={Stories.Destructive} />
+
+### Outline
+
+<Canvas of={Stories.Outline} />
+
+### Secondary
+
+<Canvas of={Stories.Secondary} />
+
+### Ghost
+
+<Canvas of={Stories.Ghost} />
+
+### Link
+
+<Canvas of={Stories.Link} />
+
+### Small
+
+<Canvas of={Stories.Small} />
+
+### Large
+
+<Canvas of={Stories.Large} />
+
+### Icon
+
+<Canvas of={Stories.Icon} />
+
+### With Icon
+
+<Canvas of={Stories.WithIcon} />
+
+### Disabled
+
+<Canvas of={Stories.Disabled} />
+
+## API Reference
+
+<ArgTypes of={Stories} />

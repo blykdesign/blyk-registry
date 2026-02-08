@@ -1,0 +1,36 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks'
+import * as Stories from './scroll-area.stories'
+
+<Meta of={Stories} />
+
+# Scroll Area
+
+Augments native scroll functionality for custom, cross-browser styling.
+
+## Installation
+
+```bash
+npx shadcn@latest add "https://registry.blyk.design/r/base/scroll-area.json"
+```
+
+## Usage
+
+```tsx
+import { ScrollArea } from "@/components/ui/scroll-area"
+```
+
+```tsx
+<ScrollArea className="h-[200px] w-[350px] rounded-md border p-4">
+  Content here
+</ScrollArea>
+```
+
+## Examples
+
+### Default
+
+<Canvas of={Stories.Default} />
+
+## API Reference
+
+<ArgTypes of={Stories} />

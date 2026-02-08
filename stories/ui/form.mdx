@@ -1,0 +1,47 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks'
+import * as Stories from './form.stories'
+
+<Meta of={Stories} />
+
+# Form
+
+Building forms with React Hook Form and Zod.
+
+## Installation
+
+```bash
+npx shadcn@latest add "https://registry.blyk.design/r/base/form.json"
+```
+
+## Usage
+
+```tsx
+import { Form, FormField, FormItem, FormLabel, FormControl, FormDescription, FormMessage } from "@/components/ui/form"
+```
+
+```tsx
+<Form {...form}>
+  <FormField
+    control={form.control}
+    name="username"
+    render={({ field }) => (
+      <FormItem>
+        <FormLabel>Username</FormLabel>
+        <FormControl>
+          <Input {...field} />
+        </FormControl>
+      </FormItem>
+    )}
+  />
+</Form>
+```
+
+## Examples
+
+### Default
+
+<Canvas of={Stories.Default} />
+
+## API Reference
+
+<ArgTypes of={Stories} />

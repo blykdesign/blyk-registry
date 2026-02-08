@@ -1,0 +1,48 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks'
+import * as Stories from './breadcrumb.stories'
+
+<Meta of={Stories} />
+
+# Breadcrumb
+
+Displays the path to the current resource using a hierarchy of links.
+
+## Installation
+
+```bash
+npx shadcn@latest add "https://registry.blyk.design/r/base/breadcrumb.json"
+```
+
+## Usage
+
+```tsx
+import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator, BreadcrumbPage } from "@/components/ui/breadcrumb"
+```
+
+```tsx
+<Breadcrumb>
+  <BreadcrumbList>
+    <BreadcrumbItem>
+      <BreadcrumbLink href="/">Home</BreadcrumbLink>
+    </BreadcrumbItem>
+    <BreadcrumbSeparator />
+    <BreadcrumbItem>
+      <BreadcrumbPage>Current</BreadcrumbPage>
+    </BreadcrumbItem>
+  </BreadcrumbList>
+</Breadcrumb>
+```
+
+## Examples
+
+### Default
+
+<Canvas of={Stories.Default} />
+
+### With Ellipsis
+
+<Canvas of={Stories.WithEllipsis} />
+
+## API Reference
+
+<ArgTypes of={Stories} />

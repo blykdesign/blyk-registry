@@ -1,0 +1,37 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks'
+import * as Stories from './hover-card.stories'
+
+<Meta of={Stories} />
+
+# Hover Card
+
+For sighted users to preview content available behind a link.
+
+## Installation
+
+```bash
+npx shadcn@latest add "https://registry.blyk.design/r/base/hover-card.json"
+```
+
+## Usage
+
+```tsx
+import { HoverCard, HoverCardTrigger, HoverCardContent } from "@/components/ui/hover-card"
+```
+
+```tsx
+<HoverCard>
+  <HoverCardTrigger>Hover</HoverCardTrigger>
+  <HoverCardContent>Content</HoverCardContent>
+</HoverCard>
+```
+
+## Examples
+
+### Default
+
+<Canvas of={Stories.Default} />
+
+## API Reference
+
+<ArgTypes of={Stories} />

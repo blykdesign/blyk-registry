@@ -3,7 +3,7 @@ import { Toast, ToastProvider, ToastViewport } from "@/registry/base/components/
 import { Button } from "@/registry/base/components/ui/button"
 
 const meta = {
-  title: "UI/Toast",
+  title: "Components/Feedback/Toast",
   component: Toast,
   decorators: [
     (Story) => (

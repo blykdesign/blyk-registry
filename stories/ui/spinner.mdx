@@ -1,0 +1,34 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks'
+import * as Stories from './spinner.stories'
+
+<Meta of={Stories} />
+
+# Spinner
+
+Displays a loading spinner animation.
+
+## Installation
+
+```bash
+npx shadcn@latest add "https://registry.blyk.design/r/base/spinner.json"
+```
+
+## Usage
+
+```tsx
+import { Spinner } from "@/components/ui/spinner"
+```
+
+```tsx
+<Spinner />
+```
+
+## Examples
+
+### Default
+
+<Canvas of={Stories.Default} />
+
+## API Reference
+
+<ArgTypes of={Stories} />

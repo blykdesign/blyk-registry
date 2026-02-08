@@ -7,7 +7,7 @@ import { toast } from "sonner"
 // For Storybook, we demonstrate using sonner (the recommended approach in shadcn v4).
 
 const meta = {
-  title: "UI/Toaster",
+  title: "Components/Feedback/Toaster",
   component: Toaster,
 } satisfies Meta<typeof Toaster>
 export default meta

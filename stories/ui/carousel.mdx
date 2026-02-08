@@ -1,0 +1,41 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks'
+import * as Stories from './carousel.stories'
+
+<Meta of={Stories} />
+
+# Carousel
+
+A carousel with motion and swipe built using Embla.
+
+## Installation
+
+```bash
+npx shadcn@latest add "https://registry.blyk.design/r/base/carousel.json"
+```
+
+## Usage
+
+```tsx
+import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel"
+```
+
+```tsx
+<Carousel>
+  <CarouselContent>
+    <CarouselItem>Slide 1</CarouselItem>
+    <CarouselItem>Slide 2</CarouselItem>
+  </CarouselContent>
+  <CarouselPrevious />
+  <CarouselNext />
+</Carousel>
+```
+
+## Examples
+
+### Default
+
+<Canvas of={Stories.Default} />
+
+## API Reference
+
+<ArgTypes of={Stories} />

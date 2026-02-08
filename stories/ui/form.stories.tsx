@@ -13,7 +13,7 @@ import { Input } from "@/registry/base/components/ui/input"
 import { Button } from "@/registry/base/components/ui/button"
 
 const meta = {
-  title: "UI/Form",
+  title: "Components/Misc/Form",
   component: Form,
 } satisfies Meta<typeof Form>
 export default meta

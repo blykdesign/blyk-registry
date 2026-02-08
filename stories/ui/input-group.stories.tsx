@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite"
 import { InputGroup, InputGroupInput, InputGroupAddon } from "@/registry/base/components/ui/input-group"
 
 const meta = {
-  title: "UI/InputGroup",
+  title: "Components/Data Entry/Input Group",
   component: InputGroup,
 } satisfies Meta<typeof InputGroup>
 export default meta

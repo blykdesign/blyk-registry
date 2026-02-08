@@ -4,7 +4,7 @@ import { Button } from "@/registry/base/components/ui/button"
 import { ChevronsUpDown } from "lucide-react"
 
 const meta = {
-  title: "UI/Collapsible",
+  title: "Components/Layout/Collapsible",
   component: Collapsible,
 } satisfies Meta<typeof Collapsible>
 export default meta

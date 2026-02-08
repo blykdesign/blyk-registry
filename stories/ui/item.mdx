@@ -1,0 +1,34 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks'
+import * as Stories from './item.stories'
+
+<Meta of={Stories} />
+
+# Item
+
+A flexible list item component for displaying structured content.
+
+## Installation
+
+```bash
+npx shadcn@latest add "https://registry.blyk.design/r/base/item.json"
+```
+
+## Usage
+
+```tsx
+import { Item } from "@/components/ui/item"
+```
+
+```tsx
+<Item>Item content</Item>
+```
+
+## Examples
+
+### Default
+
+<Canvas of={Stories.Default} />
+
+## API Reference
+
+<ArgTypes of={Stories} />

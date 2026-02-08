@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite"
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator, BreadcrumbEllipsis } from "@/registry/base/components/ui/breadcrumb"
 
 const meta = {
-  title: "UI/Breadcrumb",
+  title: "Components/Navigation/Breadcrumb",
   component: Breadcrumb,
 } satisfies Meta<typeof Breadcrumb>
 export default meta

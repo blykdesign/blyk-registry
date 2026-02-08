@@ -5,7 +5,7 @@ import { Input } from "@/registry/base/components/ui/input"
 import { Label } from "@/registry/base/components/ui/label"
 
 const meta = {
-  title: "UI/Dialog",
+  title: "Components/Feedback/Dialog",
   component: Dialog,
 } satisfies Meta<typeof Dialog>
 export default meta

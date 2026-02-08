@@ -1,0 +1,41 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks'
+import * as Stories from './tooltip.stories'
+
+<Meta of={Stories} />
+
+# Tooltip
+
+A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.
+
+## Installation
+
+```bash
+npx shadcn@latest add "https://registry.blyk.design/r/base/tooltip.json"
+```
+
+## Usage
+
+```tsx
+import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from "@/components/ui/tooltip"
+```
+
+```tsx
+<TooltipProvider>
+  <Tooltip>
+    <TooltipTrigger>Hover</TooltipTrigger>
+    <TooltipContent>
+      <p>Tooltip content</p>
+    </TooltipContent>
+  </Tooltip>
+</TooltipProvider>
+```
+
+## Examples
+
+### Default
+
+<Canvas of={Stories.Default} />
+
+## API Reference
+
+<ArgTypes of={Stories} />

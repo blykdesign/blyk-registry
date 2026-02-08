@@ -1,0 +1,39 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks'
+import * as Stories from './context-menu.stories'
+
+<Meta of={Stories} />
+
+# Context Menu
+
+Displays a menu to the user — such as a set of actions or functions — triggered by a right click.
+
+## Installation
+
+```bash
+npx shadcn@latest add "https://registry.blyk.design/r/base/context-menu.json"
+```
+
+## Usage
+
+```tsx
+import { ContextMenu, ContextMenuTrigger, ContextMenuContent, ContextMenuItem } from "@/components/ui/context-menu"
+```
+
+```tsx
+<ContextMenu>
+  <ContextMenuTrigger>Right click</ContextMenuTrigger>
+  <ContextMenuContent>
+    <ContextMenuItem>Profile</ContextMenuItem>
+  </ContextMenuContent>
+</ContextMenu>
+```
+
+## Examples
+
+### Default
+
+<Canvas of={Stories.Default} />
+
+## API Reference
+
+<ArgTypes of={Stories} />

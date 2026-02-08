@@ -4,7 +4,7 @@ import { Button } from "@/registry/base/components/ui/button"
 import { toast } from "sonner"
 
 const meta = {
-  title: "UI/Sonner",
+  title: "Components/Feedback/Sonner",
   component: Toaster,
   decorators: [
     (Story) => (

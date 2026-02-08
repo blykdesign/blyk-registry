@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/registry/base/components/ui/accordion"
 
 const meta = {
-  title: "UI/Accordion",
+  title: "Components/Layout/Accordion",
   component: Accordion,
 } satisfies Meta<typeof Accordion>
 export default meta

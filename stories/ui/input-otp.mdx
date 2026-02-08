@@ -1,0 +1,40 @@
+import { Meta, Canvas, Controls, ArgTypes } from '@storybook/addon-docs/blocks'
+import * as Stories from './input-otp.stories'
+
+<Meta of={Stories} />
+
+# Input OTP
+
+Accessible one-time password component with copy paste functionality.
+
+## Installation
+
+```bash
+npx shadcn@latest add "https://registry.blyk.design/r/base/input-otp.json"
+```
+
+## Usage
+
+```tsx
+import { InputOTP, InputOTPGroup, InputOTPSlot } from "@/components/ui/input-otp"
+```
+
+```tsx
+<InputOTP maxLength={6}>
+  <InputOTPGroup>
+    <InputOTPSlot index={0} />
+    <InputOTPSlot index={1} />
+    <InputOTPSlot index={2} />
+  </InputOTPGroup>
+</InputOTP>
+```
+
+## Examples
+
+### Default
+
+<Canvas of={Stories.Default} />
+
+## API Reference
+
+<ArgTypes of={Stories} />

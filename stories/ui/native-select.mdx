@@ -1,0 +1,37 @@
+import { Meta, Canvas, Controls, ArgTypes } from '@storybook/addon-docs/blocks'
+import * as Stories from './native-select.stories'
+
+<Meta of={Stories} />
+
+# Native Select
+
+Displays a native select element.
+
+## Installation
+
+```bash
+npx shadcn@latest add "https://registry.blyk.design/r/base/native-select.json"
+```
+
+## Usage
+
+```tsx
+import { NativeSelect } from "@/components/ui/native-select"
+```
+
+```tsx
+<NativeSelect>
+  <option value="apple">Apple</option>
+  <option value="banana">Banana</option>
+</NativeSelect>
+```
+
+## Examples
+
+### Default
+
+<Canvas of={Stories.Default} />
+
+## API Reference
+
+<ArgTypes of={Stories} />

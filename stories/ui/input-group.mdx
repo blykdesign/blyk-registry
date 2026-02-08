@@ -1,0 +1,36 @@
+import { Meta, Canvas, Controls, ArgTypes } from '@storybook/addon-docs/blocks'
+import * as Stories from './input-group.stories'
+
+<Meta of={Stories} />
+
+# Input Group
+
+Groups an input with addons like prefixes, suffixes, or buttons.
+
+## Installation
+
+```bash
+npx shadcn@latest add "https://registry.blyk.design/r/base/input-group.json"
+```
+
+## Usage
+
+```tsx
+import { InputGroup } from "@/components/ui/input-group"
+```
+
+```tsx
+<InputGroup>
+  <Input placeholder="Search..." />
+</InputGroup>
+```
+
+## Examples
+
+### Default
+
+<Canvas of={Stories.Default} />
+
+## API Reference
+
+<ArgTypes of={Stories} />

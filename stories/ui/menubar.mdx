@@ -1,0 +1,41 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks'
+import * as Stories from './menubar.stories'
+
+<Meta of={Stories} />
+
+# Menubar
+
+A visually persistent menu common in desktop applications that provides quick access to a consistent set of commands.
+
+## Installation
+
+```bash
+npx shadcn@latest add "https://registry.blyk.design/r/base/menubar.json"
+```
+
+## Usage
+
+```tsx
+import { Menubar, MenubarMenu, MenubarTrigger, MenubarContent, MenubarItem } from "@/components/ui/menubar"
+```
+
+```tsx
+<Menubar>
+  <MenubarMenu>
+    <MenubarTrigger>File</MenubarTrigger>
+    <MenubarContent>
+      <MenubarItem>New Tab</MenubarItem>
+    </MenubarContent>
+  </MenubarMenu>
+</Menubar>
+```
+
+## Examples
+
+### Default
+
+<Canvas of={Stories.Default} />
+
+## API Reference
+
+<ArgTypes of={Stories} />

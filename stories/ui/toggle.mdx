@@ -1,0 +1,54 @@
+import { Meta, Canvas, Controls, ArgTypes } from '@storybook/addon-docs/blocks'
+import * as Stories from './toggle.stories'
+
+<Meta of={Stories} />
+
+# Toggle
+
+A two-state button that can be either on or off.
+
+## Installation
+
+```bash
+npx shadcn@latest add "https://registry.blyk.design/r/base/toggle.json"
+```
+
+## Usage
+
+```tsx
+import { Toggle } from "@/components/ui/toggle"
+```
+
+```tsx
+<Toggle>Toggle</Toggle>
+```
+
+## Examples
+
+### Default
+
+<Canvas of={Stories.Default} />
+
+### With Text
+
+<Canvas of={Stories.WithText} />
+
+### Outline
+
+<Canvas of={Stories.Outline} />
+
+### Small
+
+<Canvas of={Stories.Small} />
+
+### Large
+
+<Canvas of={Stories.Large} />
+
+### Disabled
+
+<Canvas of={Stories.Disabled} />
+
+## API Reference
+
+<ArgTypes of={Stories} />

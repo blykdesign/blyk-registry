@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite"
 import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@/registry/base/components/ui/resizable"
 
 const meta = {
-  title: "UI/Resizable",
+  title: "Components/Layout/Resizable",
   component: ResizablePanelGroup,
   parameters: { layout: "padded" },
 } satisfies Meta<typeof ResizablePanelGroup>

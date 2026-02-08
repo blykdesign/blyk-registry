@@ -3,7 +3,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/registry/base/compone
 import { Button } from "@/registry/base/components/ui/button"
 
 const meta = {
-  title: "UI/Popover",
+  title: "Components/Navigation/Popover",
   component: Popover,
 } satisfies Meta<typeof Popover>
 export default meta

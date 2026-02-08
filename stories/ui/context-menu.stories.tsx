@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite"
 import { ContextMenu, ContextMenuContent, ContextMenuItem, ContextMenuTrigger, ContextMenuSeparator, ContextMenuLabel } from "@/registry/base/components/ui/context-menu"
 
 const meta = {
-  title: "UI/ContextMenu",
+  title: "Components/Navigation/Context Menu",
   component: ContextMenu,
 } satisfies Meta<typeof ContextMenu>
 export default meta

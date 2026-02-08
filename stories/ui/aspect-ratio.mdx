@@ -1,0 +1,40 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks'
+import * as Stories from './aspect-ratio.stories'
+
+<Meta of={Stories} />
+
+# Aspect Ratio
+
+Displays content within a desired ratio.
+
+## Installation
+
+```bash
+npx shadcn@latest add "https://registry.blyk.design/r/base/aspect-ratio.json"
+```
+
+## Usage
+
+```tsx
+import { AspectRatio } from "@/components/ui/aspect-ratio"
+```
+
+```tsx
+<AspectRatio ratio={16 / 9}>
+  <img src="..." alt="Image" />
+</AspectRatio>
+```
+
+## Examples
+
+### Default
+
+<Canvas of={Stories.Default} />
+
+### Square
+
+<Canvas of={Stories.Square} />
+
+## API Reference
+
+<ArgTypes of={Stories} />

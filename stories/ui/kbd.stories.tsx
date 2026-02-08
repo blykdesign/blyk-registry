@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite"
 import { Kbd } from "@/registry/base/components/ui/kbd"
 
 const meta = {
-  title: "UI/Kbd",
+  title: "Components/Data Display/Kbd",
   component: Kbd,
   args: { children: "\u2318" },
 } satisfies Meta<typeof Kbd>

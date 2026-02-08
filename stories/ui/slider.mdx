@@ -1,0 +1,46 @@
+import { Meta, Canvas, Controls, ArgTypes } from '@storybook/addon-docs/blocks'
+import * as Stories from './slider.stories'
+
+<Meta of={Stories} />
+
+# Slider
+
+An input where the user selects a value from within a given range.
+
+## Installation
+
+```bash
+npx shadcn@latest add "https://registry.blyk.design/r/base/slider.json"
+```
+
+## Usage
+
+```tsx
+import { Slider } from "@/components/ui/slider"
+```
+
+```tsx
+<Slider defaultValue={[50]} max={100} step={1} />
+```
+
+## Examples
+
+### Default
+
+<Canvas of={Stories.Default} />
+
+### With Range
+
+<Canvas of={Stories.WithRange} />
+
+### With Steps
+
+<Canvas of={Stories.WithSteps} />
+
+### Disabled
+
+<Canvas of={Stories.Disabled} />
+
+## API Reference
+
+<ArgTypes of={Stories} />

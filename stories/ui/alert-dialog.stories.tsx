@@ -3,7 +3,7 @@ import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, 
 import { Button } from "@/registry/base/components/ui/button"
 
 const meta = {
-  title: "UI/AlertDialog",
+  title: "Components/Feedback/Alert Dialog",
   component: AlertDialog,
 } satisfies Meta<typeof AlertDialog>
 export default meta

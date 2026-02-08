@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite"
 import { Avatar, AvatarFallback, AvatarImage } from "@/registry/base/components/ui/avatar"
 
 const meta = {
-  title: "UI/Avatar",
+  title: "Components/Data Display/Avatar",
   component: Avatar,
 } satisfies Meta<typeof Avatar>
 export default meta

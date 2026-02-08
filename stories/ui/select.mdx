@@ -1,0 +1,42 @@
+import { Meta, Canvas, Controls, ArgTypes } from '@storybook/addon-docs/blocks'
+import * as Stories from './select.stories'
+
+<Meta of={Stories} />
+
+# Select
+
+Displays a list of options for the user to pick from — triggered by a button.
+
+## Installation
+
+```bash
+npx shadcn@latest add "https://registry.blyk.design/r/base/select.json"
+```
+
+## Usage
+
+```tsx
+import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select"
+```
+
+```tsx
+<Select>
+  <SelectTrigger>
+    <SelectValue placeholder="Select a fruit" />
+  </SelectTrigger>
+  <SelectContent>
+    <SelectItem value="apple">Apple</SelectItem>
+    <SelectItem value="banana">Banana</SelectItem>
+  </SelectContent>
+</Select>
+```
+
+## Examples
+
+### Default
+
+<Canvas of={Stories.Default} />
+
+## API Reference
+
+<ArgTypes of={Stories} />

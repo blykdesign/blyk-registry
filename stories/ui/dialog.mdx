@@ -1,0 +1,42 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks'
+import * as Stories from './dialog.stories'
+
+<Meta of={Stories} />
+
+# Dialog
+
+A window overlaid on either the primary window or another dialog window, rendering the content underneath inert.
+
+## Installation
+
+```bash
+npx shadcn@latest add "https://registry.blyk.design/r/base/dialog.json"
+```
+
+## Usage
+
+```tsx
+import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog"
+```
+
+```tsx
+<Dialog>
+  <DialogTrigger>Open</DialogTrigger>
+  <DialogContent>
+    <DialogHeader>
+      <DialogTitle>Title</DialogTitle>
+      <DialogDescription>Description</DialogDescription>
+    </DialogHeader>
+  </DialogContent>
+</Dialog>
+```
+
+## Examples
+
+### Default
+
+<Canvas of={Stories.Default} />
+
+## API Reference
+
+<ArgTypes of={Stories} />

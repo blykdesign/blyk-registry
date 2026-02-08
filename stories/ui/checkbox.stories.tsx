@@ -3,7 +3,7 @@ import { Checkbox } from "@/registry/base/components/ui/checkbox"
 import { Label } from "@/registry/base/components/ui/label"
 
 const meta = {
-  title: "UI/Checkbox",
+  title: "Components/Data Entry/Checkbox",
   component: Checkbox,
   argTypes: { disabled: { control: "boolean" } },
 } satisfies Meta<typeof Checkbox>

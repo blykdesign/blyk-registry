@@ -68,7 +68,7 @@ function ComboboxDemo() {
 }
 
 const meta = {
-  title: "UI/Combobox",
+  title: "Components/Data Entry/Combobox",
   component: ComboboxDemo,
 } satisfies Meta<typeof ComboboxDemo>
 export default meta

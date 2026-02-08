@@ -1,0 +1,41 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks'
+import * as Stories from './sidebar.stories'
+
+<Meta of={Stories} />
+
+# Sidebar
+
+A composable, themeable and customizable sidebar component.
+
+## Installation
+
+```bash
+npx shadcn@latest add "https://registry.blyk.design/r/base/sidebar.json"
+```
+
+## Usage
+
+```tsx
+import { SidebarProvider, Sidebar, SidebarContent, SidebarGroup, SidebarGroupLabel, SidebarGroupContent, SidebarMenu, SidebarMenuItem, SidebarMenuButton, SidebarTrigger, SidebarInset } from "@/components/ui/sidebar"
+```
+
+```tsx
+<SidebarProvider>
+  <Sidebar>
+    <SidebarContent>...</SidebarContent>
+  </Sidebar>
+  <SidebarInset>
+    <main>Content</main>
+  </SidebarInset>
+</SidebarProvider>
+```
+
+## Examples
+
+### Default
+
+<Canvas of={Stories.Default} />
+
+## API Reference
+
+<ArgTypes of={Stories} />

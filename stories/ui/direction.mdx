@@ -1,0 +1,40 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks'
+import * as Stories from './direction.stories'
+
+<Meta of={Stories} />
+
+# Direction
+
+Provides a direction context for right-to-left (RTL) support.
+
+## Installation
+
+```bash
+npx shadcn@latest add "https://registry.blyk.design/r/base/direction.json"
+```
+
+## Usage
+
+```tsx
+import { DirectionProvider } from "@/components/ui/direction"
+```
+
+```tsx
+<DirectionProvider dir="rtl">
+  {children}
+</DirectionProvider>
+```
+
+## Examples
+
+### LTR
+
+<Canvas of={Stories.LTR} />
+
+### RTL
+
+<Canvas of={Stories.RTL} />
+
+## API Reference
+
+<ArgTypes of={Stories} />

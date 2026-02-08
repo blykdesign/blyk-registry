@@ -1,0 +1,123 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="Tokens" />
+
+# Design Tokens
+
+blyk uses CSS variables as design tokens, following the same convention as [shadcn/ui theming](https://ui.shadcn.com/docs/theming). All tokens are defined in `registry/base/tokens/` and mapped to Tailwind CSS via the `@theme inline` block.
+
+## Convention
+
+Colors follow a **background / foreground** convention. Each semantic color has a pair:
+
+```css
+--primary: 0 0% 9%;            /* Background */
+--primary-foreground: 0 0% 98%; /* Text on primary background */
+```
+
+This lets you use `bg-primary text-primary-foreground` for consistent contrast.
+
+## Colors
+
+### Semantic Colors
+
+| Token | Light | Dark | Usage |
+|-------|-------|------|-------|
+| `--background` | `hsl(0 0% 100%)` | `hsl(0 0% 3.9%)` | Page background |
+| `--foreground` | `hsl(0 0% 3.9%)` | `hsl(0 0% 98%)` | Default text |
+| `--primary` | `hsl(0 0% 9%)` | `hsl(0 0% 98%)` | Primary actions, buttons |
+| `--primary-foreground` | `hsl(0 0% 98%)` | `hsl(0 0% 9%)` | Text on primary |
+| `--secondary` | `hsl(0 0% 96.1%)` | `hsl(0 0% 14.9%)` | Secondary actions |
+| `--secondary-foreground` | `hsl(0 0% 9%)` | `hsl(0 0% 98%)` | Text on secondary |
+| `--muted` | `hsl(0 0% 96.1%)` | `hsl(0 0% 14.9%)` | Muted backgrounds |
+| `--muted-foreground` | `hsl(0 0% 45.1%)` | `hsl(0 0% 63.9%)` | Subdued text |
+| `--accent` | `hsl(0 0% 96.1%)` | `hsl(0 0% 14.9%)` | Hover states |
+| `--accent-foreground` | `hsl(0 0% 9%)` | `hsl(0 0% 98%)` | Text on accent |
+| `--destructive` | `hsl(0 84.2% 60.2%)` | `hsl(0 62.8% 30.6%)` | Error, danger |
+| `--destructive-foreground` | `hsl(0 0% 98%)` | `hsl(0 0% 98%)` | Text on destructive |
+
+### Surface Colors
+
+| Token | Light | Dark | Usage |
+|-------|-------|------|-------|
+| `--card` | `hsl(0 0% 100%)` | `hsl(0 0% 3.9%)` | Card background |
+| `--card-foreground` | `hsl(0 0% 3.9%)` | `hsl(0 0% 98%)` | Card text |
+| `--popover` | `hsl(0 0% 100%)` | `hsl(0 0% 3.9%)` | Popover background |
+| `--popover-foreground` | `hsl(0 0% 3.9%)` | `hsl(0 0% 98%)` | Popover text |
+
+### Border & Input
+
+| Token | Light | Dark | Usage |
+|-------|-------|------|-------|
+| `--border` | `hsl(0 0% 89.8%)` | `hsl(0 0% 14.9%)` | Default borders |
+| `--input` | `hsl(0 0% 89.8%)` | `hsl(0 0% 14.9%)` | Input borders |
+| `--ring` | `hsl(0 0% 3.9%)` | `hsl(0 0% 83.1%)` | Focus rings |
+
+### Chart Colors
+
+| Token | Light | Dark |
+|-------|-------|------|
+| `--chart-1` | `hsl(12 76% 61%)` | `hsl(220 70% 50%)` |
+| `--chart-2` | `hsl(173 58% 39%)` | `hsl(160 60% 45%)` |
+| `--chart-3` | `hsl(197 37% 24%)` | `hsl(30 80% 55%)` |
+| `--chart-4` | `hsl(43 74% 66%)` | `hsl(280 65% 60%)` |
+| `--chart-5` | `hsl(27 87% 67%)` | `hsl(340 75% 55%)` |
+
+### Sidebar Colors
+
+| Token | Light | Dark |
+|-------|-------|------|
+| `--sidebar-background` | `hsl(0 0% 98%)` | `hsl(240 5.9% 10%)` |
+| `--sidebar-foreground` | `hsl(240 5.3% 26.1%)` | `hsl(240 4.8% 95.9%)` |
+| `--sidebar-primary` | `hsl(240 5.9% 10%)` | `hsl(224.3 76.3% 48%)` |
+| `--sidebar-accent` | `hsl(240 4.8% 95.9%)` | `hsl(240 3.7% 15.9%)` |
+| `--sidebar-border` | `hsl(220 13% 91%)` | `hsl(240 3.7% 15.9%)` |
+| `--sidebar-ring` | `hsl(217.2 91.2% 59.8%)` | `hsl(217.2 91.2% 59.8%)` |
+
+## Radius
+
+| Token | Value | Derived |
+|-------|-------|---------|
+| `--radius` | `0.5rem` | Base radius |
+| `--radius-sm` | `calc(var(--radius) - 4px)` | Small elements |
+| `--radius-md` | `calc(var(--radius) - 2px)` | Medium elements |
+| `--radius-lg` | `var(--radius)` | Large elements |
+| `--radius-xl` | `calc(var(--radius) + 4px)` | Extra large elements |
+
+## Typography
+
+| Token | Value |
+|-------|-------|
+| `--font-sans` | `"Inter", ui-sans-serif, system-ui, sans-serif` |
+| `--font-mono` | `"JetBrains Mono", ui-monospace, monospace` |
+| `--font-heading` | `var(--font-sans)` |
+
+## Spacing
+
+| Token | Value |
+|-------|-------|
+| `--spacing-unit` | `0.25rem` |
+
+## Dark Mode
+
+Dark mode is activated by adding the `dark` class to the root element:
+
+```html
+<html class="dark">
+```
+
+All color tokens automatically switch to their dark values.
+
+## Custom Themes
+
+To create a custom theme, override the CSS variables:
+
+```css
+[data-theme="custom"] {
+  --primary: 220 90% 56%;
+  --primary-foreground: 0 0% 100%;
+  /* ... override other tokens */
+}
+```
+
+The blyk registry supports multiple themes. See the `registry/base/tokens/` directory for the base token definitions.

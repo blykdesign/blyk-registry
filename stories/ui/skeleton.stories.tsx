@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite"
 import { Skeleton } from "@/registry/base/components/ui/skeleton"
 
 const meta = {
-  title: "UI/Skeleton",
+  title: "Components/Data Display/Skeleton",
   component: Skeleton,
 } satisfies Meta<typeof Skeleton>
 export default meta

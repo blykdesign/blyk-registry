@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite"
 import { InputOTP, InputOTPGroup, InputOTPSlot, InputOTPSeparator } from "@/registry/base/components/ui/input-otp"
 
 const meta = {
-  title: "UI/InputOTP",
+  title: "Components/Data Entry/Input OTP",
   component: InputOTP,
 } satisfies Meta<typeof InputOTP>
 export default meta

@@ -1,0 +1,46 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks'
+import * as Stories from './progress.stories'
+
+<Meta of={Stories} />
+
+# Progress
+
+Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.
+
+## Installation
+
+```bash
+npx shadcn@latest add "https://registry.blyk.design/r/base/progress.json"
+```
+
+## Usage
+
+```tsx
+import { Progress } from "@/components/ui/progress"
+```
+
+```tsx
+<Progress value={33} />
+```
+
+## Examples
+
+### Default
+
+<Canvas of={Stories.Default} />
+
+### Complete
+
+<Canvas of={Stories.Complete} />
+
+### Empty
+
+<Canvas of={Stories.Empty} />
+
+### Animated
+
+<Canvas of={Stories.Animated} />
+
+## API Reference
+
+<ArgTypes of={Stories} />

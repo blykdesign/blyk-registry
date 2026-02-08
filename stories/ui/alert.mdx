@@ -1,0 +1,41 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks'
+import * as Stories from './alert.stories'
+
+<Meta of={Stories} />
+
+# Alert
+
+Displays a callout for user attention.
+
+## Installation
+
+```bash
+npx shadcn@latest add "https://registry.blyk.design/r/base/alert.json"
+```
+
+## Usage
+
+```tsx
+import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert"
+```
+
+```tsx
+<Alert>
+  <AlertTitle>Heads up!</AlertTitle>
+  <AlertDescription>You can add components to your app using the CLI.</AlertDescription>
+</Alert>
+```
+
+## Examples
+
+### Default
+
+<Canvas of={Stories.Default} />
+
+### Destructive
+
+<Canvas of={Stories.Destructive} />
+
+## API Reference
+
+<ArgTypes of={Stories} />

@@ -1,0 +1,34 @@
+import { Meta, Canvas, Controls, ArgTypes } from '@storybook/addon-docs/blocks'
+import * as Stories from './combobox.stories'
+
+<Meta of={Stories} />
+
+# Combobox
+
+Autocomplete input and command palette with a list of suggestions.
+
+## Installation
+
+```bash
+npx shadcn@latest add "https://registry.blyk.design/r/base/combobox.json"
+```
+
+## Usage
+
+```tsx
+import { Combobox } from "@/components/ui/combobox"
+```
+
+```tsx
+<Combobox />
+```
+
+## Examples
+
+### Default
+
+<Canvas of={Stories.Default} />
+
+## API Reference
+
+<ArgTypes of={Stories} />

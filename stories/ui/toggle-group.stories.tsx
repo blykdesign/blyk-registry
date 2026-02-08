@@ -3,7 +3,7 @@ import { ToggleGroup, ToggleGroupItem } from "@/registry/base/components/ui/togg
 import { Bold, Italic, Underline } from "lucide-react"
 
 const meta = {
-  title: "UI/ToggleGroup",
+  title: "Components/Actions/Toggle Group",
   component: ToggleGroup,
 } satisfies Meta<typeof ToggleGroup>
 export default meta

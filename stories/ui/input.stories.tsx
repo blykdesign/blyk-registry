@@ -3,7 +3,7 @@ import { Input } from "@/registry/base/components/ui/input"
 import { Label } from "@/registry/base/components/ui/label"
 
 const meta = {
-  title: "UI/Input",
+  title: "Components/Data Entry/Input",
   component: Input,
   args: { placeholder: "Type something..." },
   argTypes: {

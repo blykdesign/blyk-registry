@@ -1,0 +1,42 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks'
+import * as Stories from './command.stories'
+
+<Meta of={Stories} />
+
+# Command
+
+Fast, composable, unstyled command menu for React.
+
+## Installation
+
+```bash
+npx shadcn@latest add "https://registry.blyk.design/r/base/command.json"
+```
+
+## Usage
+
+```tsx
+import { Command, CommandInput, CommandList, CommandEmpty, CommandGroup, CommandItem } from "@/components/ui/command"
+```
+
+```tsx
+<Command>
+  <CommandInput placeholder="Type a command..." />
+  <CommandList>
+    <CommandEmpty>No results found.</CommandEmpty>
+    <CommandGroup heading="Suggestions">
+      <CommandItem>Calendar</CommandItem>
+    </CommandGroup>
+  </CommandList>
+</Command>
+```
+
+## Examples
+
+### Default
+
+<Canvas of={Stories.Default} />
+
+## API Reference
+
+<ArgTypes of={Stories} />

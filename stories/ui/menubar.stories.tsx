@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite"
 import { Menubar, MenubarContent, MenubarItem, MenubarMenu, MenubarSeparator, MenubarShortcut, MenubarTrigger } from "@/registry/base/components/ui/menubar"
 
 const meta = {
-  title: "UI/Menubar",
+  title: "Components/Navigation/Menubar",
   component: Menubar,
 } satisfies Meta<typeof Menubar>
 export default meta

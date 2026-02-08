@@ -1,0 +1,34 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks'
+import * as Stories from './skeleton.stories'
+
+<Meta of={Stories} />
+
+# Skeleton
+
+Use to show a placeholder while content is loading.
+
+## Installation
+
+```bash
+npx shadcn@latest add "https://registry.blyk.design/r/base/skeleton.json"
+```
+
+## Usage
+
+```tsx
+import { Skeleton } from "@/components/ui/skeleton"
+```
+
+```tsx
+<Skeleton className="h-4 w-[250px]" />
+```
+
+## Examples
+
+### Default
+
+<Canvas of={Stories.Default} />
+
+## API Reference
+
+<ArgTypes of={Stories} />

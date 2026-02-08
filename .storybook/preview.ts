@@ -72,6 +72,31 @@ const preview: Preview = {
     controls: { matchers: { color: /(background|color)$/i, date: /Date$/i } },
     viewport: { options: VIEWPORTS },
     backgrounds: { disabled: true },
+    options: {
+      storySort: {
+        order: [
+          "Introduction",
+          "Tokens",
+          "Components",
+          [
+            "Actions",
+            ["Button", "Button Group", "Toggle", "Toggle Group"],
+            "Data Entry",
+            ["Input", "Input Group", "Input OTP", "Textarea", "Select", "Native Select", "Checkbox", "Radio Group", "Switch", "Slider", "Calendar", "Combobox"],
+            "Data Display",
+            ["Avatar", "Badge", "Card", "Item", "Table", "Skeleton", "Separator", "Kbd"],
+            "Feedback",
+            ["Alert", "Alert Dialog", "Dialog", "Progress", "Spinner", "Sonner", "Toast", "Toaster"],
+            "Layout",
+            ["Accordion", "Aspect Ratio", "Carousel", "Collapsible", "Resizable", "Scroll Area", "Sheet", "Sidebar", "Tabs"],
+            "Navigation",
+            ["Breadcrumb", "Command", "Context Menu", "Dropdown Menu", "Hover Card", "Menubar", "Navigation Menu", "Pagination", "Popover", "Tooltip"],
+            "Misc",
+            ["Chart", "Direction", "Drawer", "Empty", "Field", "Form", "Label"],
+          ],
+        ],
+      },
+    },
   },
 }
 

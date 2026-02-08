@@ -3,7 +3,7 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/regi
 import { Button } from "@/registry/base/components/ui/button"
 
 const meta = {
-  title: "UI/Tooltip",
+  title: "Components/Navigation/Tooltip",
   component: Tooltip,
   decorators: [(Story) => <TooltipProvider><Story /></TooltipProvider>],
 } satisfies Meta<typeof Tooltip>

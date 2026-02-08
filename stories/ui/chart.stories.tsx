@@ -24,7 +24,7 @@ const chartConfig = {
 } satisfies ChartConfig
 
 const meta = {
-  title: "UI/Chart",
+  title: "Components/Misc/Chart",
   component: ChartContainer,
   parameters: { layout: "padded" },
 } satisfies Meta<typeof ChartContainer>

@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue, SelectGroup, SelectLabel } from "@/registry/base/components/ui/select"
 
 const meta = {
-  title: "UI/Select",
+  title: "Components/Data Entry/Select",
   component: Select,
 } satisfies Meta<typeof Select>
 export default meta

@@ -24,7 +24,7 @@ const items = [
 ]
 
 const meta = {
-  title: "UI/Sidebar",
+  title: "Components/Layout/Sidebar",
   component: Sidebar,
   parameters: { layout: "fullscreen" },
 } satisfies Meta<typeof Sidebar>

@@ -1,0 +1,38 @@
+import { Meta, Canvas, Controls, ArgTypes } from '@storybook/addon-docs/blocks'
+import * as Stories from './button-group.stories'
+
+<Meta of={Stories} />
+
+# Button Group
+
+Groups multiple buttons together with shared borders.
+
+## Installation
+
+```bash
+npx shadcn@latest add "https://registry.blyk.design/r/base/button-group.json"
+```
+
+## Usage
+
+```tsx
+import { ButtonGroup } from "@/components/ui/button-group"
+```
+
+```tsx
+<ButtonGroup>
+  <Button>Left</Button>
+  <Button>Center</Button>
+  <Button>Right</Button>
+</ButtonGroup>
+```
+
+## Examples
+
+### Default
+
+<Canvas of={Stories.Default} />
+
+## API Reference
+
+<ArgTypes of={Stories} />

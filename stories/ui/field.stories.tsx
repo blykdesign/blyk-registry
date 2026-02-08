@@ -3,7 +3,7 @@ import { Field, FieldLabel, FieldDescription } from "@/registry/base/components/
 import { Input } from "@/registry/base/components/ui/input"
 
 const meta = {
-  title: "UI/Field",
+  title: "Components/Misc/Field",
   component: Field,
 } satisfies Meta<typeof Field>
 export default meta

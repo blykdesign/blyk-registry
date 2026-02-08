@@ -3,7 +3,7 @@ import { Button } from "@/registry/base/components/ui/button"
 import { Mail } from "lucide-react"
 
 const meta = {
-  title: "UI/Button",
+  title: "Components/Actions/Button",
   component: Button,
   args: { children: "Button" },
   argTypes: {

@@ -1,0 +1,42 @@
+import { Meta, Canvas, Controls, ArgTypes } from '@storybook/addon-docs/blocks'
+import * as Stories from './textarea.stories'
+
+<Meta of={Stories} />
+
+# Textarea
+
+Displays a form textarea or a component that looks like a textarea.
+
+## Installation
+
+```bash
+npx shadcn@latest add "https://registry.blyk.design/r/base/textarea.json"
+```
+
+## Usage
+
+```tsx
+import { Textarea } from "@/components/ui/textarea"
+```
+
+```tsx
+<Textarea placeholder="Type your message here." />
+```
+
+## Examples
+
+### Default
+
+<Canvas of={Stories.Default} />
+
+### With Label
+
+<Canvas of={Stories.WithLabel} />
+
+### Disabled
+
+<Canvas of={Stories.Disabled} />
+
+## API Reference
+
+<ArgTypes of={Stories} />

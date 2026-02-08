@@ -3,7 +3,7 @@ import { Drawer, DrawerClose, DrawerContent, DrawerDescription, DrawerFooter, Dr
 import { Button } from "@/registry/base/components/ui/button"
 
 const meta = {
-  title: "UI/Drawer",
+  title: "Components/Misc/Drawer",
   component: Drawer,
 } satisfies Meta<typeof Drawer>
 export default meta

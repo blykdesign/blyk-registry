@@ -5,7 +5,7 @@ import { Separator } from "@/registry/base/components/ui/separator"
 const tags = Array.from({ length: 50 }).map((_, i) => `v1.2.0-beta.${i}`)
 
 const meta = {
-  title: "UI/ScrollArea",
+  title: "Components/Layout/Scroll Area",
   component: ScrollArea,
 } satisfies Meta<typeof ScrollArea>
 export default meta

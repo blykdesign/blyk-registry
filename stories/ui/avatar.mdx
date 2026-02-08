@@ -1,0 +1,41 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks'
+import * as Stories from './avatar.stories'
+
+<Meta of={Stories} />
+
+# Avatar
+
+An image element with a fallback for representing the user.
+
+## Installation
+
+```bash
+npx shadcn@latest add "https://registry.blyk.design/r/base/avatar.json"
+```
+
+## Usage
+
+```tsx
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
+```
+
+```tsx
+<Avatar>
+  <AvatarImage src="https://github.com/shadcn.png" />
+  <AvatarFallback>CN</AvatarFallback>
+</Avatar>
+```
+
+## Examples
+
+### With Image
+
+<Canvas of={Stories.WithImage} />
+
+### Fallback
+
+<Canvas of={Stories.Fallback} />
+
+## API Reference
+
+<ArgTypes of={Stories} />

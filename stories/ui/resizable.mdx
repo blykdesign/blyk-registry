@@ -1,0 +1,46 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks'
+import * as Stories from './resizable.stories'
+
+<Meta of={Stories} />
+
+# Resizable
+
+Accessible resizable panel groups and layouts with keyboard support.
+
+## Installation
+
+```bash
+npx shadcn@latest add "https://registry.blyk.design/r/base/resizable.json"
+```
+
+## Usage
+
+```tsx
+import { ResizablePanelGroup, ResizablePanel, ResizableHandle } from "@/components/ui/resizable"
+```
+
+```tsx
+<ResizablePanelGroup direction="horizontal">
+  <ResizablePanel>One</ResizablePanel>
+  <ResizableHandle />
+  <ResizablePanel>Two</ResizablePanel>
+</ResizablePanelGroup>
+```
+
+## Examples
+
+### Default
+
+<Canvas of={Stories.Default} />
+
+### Vertical
+
+<Canvas of={Stories.Vertical} />
+
+### With Handle
+
+<Canvas of={Stories.WithHandle} />
+
+## API Reference
+
+<ArgTypes of={Stories} />

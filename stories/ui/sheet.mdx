@@ -1,0 +1,53 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks'
+import * as Stories from './sheet.stories'
+
+<Meta of={Stories} />
+
+# Sheet
+
+Extends the Dialog component to display content that complements the main content of the screen.
+
+## Installation
+
+```bash
+npx shadcn@latest add "https://registry.blyk.design/r/base/sheet.json"
+```
+
+## Usage
+
+```tsx
+import { Sheet, SheetTrigger, SheetContent, SheetHeader, SheetTitle, SheetDescription } from "@/components/ui/sheet"
+```
+
+```tsx
+<Sheet>
+  <SheetTrigger>Open</SheetTrigger>
+  <SheetContent>
+    <SheetHeader>
+      <SheetTitle>Title</SheetTitle>
+    </SheetHeader>
+  </SheetContent>
+</Sheet>
+```
+
+## Examples
+
+### Right
+
+<Canvas of={Stories.Right} />
+
+### Left
+
+<Canvas of={Stories.Left} />
+
+### Top
+
+<Canvas of={Stories.Top} />
+
+### Bottom
+
+<Canvas of={Stories.Bottom} />
+
+## API Reference
+
+<ArgTypes of={Stories} />

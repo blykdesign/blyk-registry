@@ -1,0 +1,36 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks'
+import * as Stories from './chart.stories'
+
+<Meta of={Stories} />
+
+# Chart
+
+Beautiful charts built using Recharts. Copy and paste into your apps.
+
+## Installation
+
+```bash
+npx shadcn@latest add "https://registry.blyk.design/r/base/chart.json"
+```
+
+## Usage
+
+```tsx
+import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
+```
+
+```tsx
+<ChartContainer config={chartConfig}>
+  {/* Recharts components */}
+</ChartContainer>
+```
+
+## Examples
+
+### Bar Chart Example
+
+<Canvas of={Stories.BarChartExample} />
+
+## API Reference
+
+<ArgTypes of={Stories} />
