@@ -134,7 +134,7 @@ Interactive component documentation at **storybook.blyk.design**.
 ### Features
 
 - **58 stories** covering all components with variant/state coverage
-- **Multi-theme switcher** — toggle between Base (blyk) and client themes (e.g. Acme) via the toolbar
+- **Multi-theme switcher** — toggle between blyk-base and client themes (e.g. DF Imóveis) via the toolbar
 - **Dark mode toggle** — switch between light and dark color schemes
 - **Responsive viewports** — Mobile S/M/L, Tablet, and Desktop presets
 - **CSF3 format** — modern Component Story Format with TypeScript
@@ -150,7 +150,7 @@ pnpm build-storybook   # Build static site to storybook-static/
 
 Use the toolbar at the top of Storybook:
 
-- **🖌 Theme** — Switch between design system themes (Base, Acme, etc.)
+- **🖌 Theme** — Switch between design system themes (blyk-base, DF Imóveis, etc.)
 - **🪞 Mode** — Toggle Light / Dark color scheme
 
 Themes are applied via CSS custom properties using `[data-theme]` attribute on the root element. Dark mode uses the `.dark` class, matching the `next-themes` convention.

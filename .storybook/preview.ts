@@ -1,7 +1,7 @@
 import type { Preview, Decorator } from "@storybook/react-vite"
 import { useEffect } from "react"
 import "./globals.css"
-import "./theme-tokens/acme.css"
+import "./theme-tokens/df-imoveis.css"
 
 /* ── Theme decorator ────────────────────────────────────── */
 const withTheme: Decorator = (Story, context) => {
@@ -47,8 +47,8 @@ const preview: Preview = {
         title: "Theme",
         icon: "paintbrush",
         items: [
-          { value: "base", title: "Base (blyk)" },
-          { value: "acme", title: "Acme" },
+          { value: "base", title: "blyk-base" },
+          { value: "df-imoveis", title: "DF Imóveis" },
         ],
         dynamicTitle: true,
       },
