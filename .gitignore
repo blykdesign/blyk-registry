@@ -5,3 +5,4 @@ public/r/
 *.tsbuildinfo
 .DS_Store
 storybook-static/
+.cursor/

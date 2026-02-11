@@ -1,0 +1,76 @@
+import { Meta, Canvas, Controls, ArgTypes } from '@storybook/addon-docs/blocks'
+import * as Stories from './super-button.stories'
+
+<Meta of={Stories} />
+
+# SuperButton
+
+A larger, bolder button designed for high-impact CTAs, hero sections, and primary actions that need extra visual prominence.
+
+Compared to the standard `Button`, the `SuperButton` features a taller height (56px), larger typography (16px bold), and a more generous border radius.
+
+## Installation
+
+```bash
+npx shadcn@latest add "https://registry.blyk.design/r/base/super-button.json"
+```
+
+## Usage
+
+```tsx
+import { SuperButton } from "@/components/ui/super-button"
+```
+
+```tsx
+<SuperButton variant="outline">Get Started</SuperButton>
+```
+
+## Examples
+
+### Default
+
+<Canvas of={Stories.Default} />
+
+### Secondary
+
+<Canvas of={Stories.Secondary} />
+
+### Destructive
+
+<Canvas of={Stories.Destructive} />
+
+### Outline
+
+<Canvas of={Stories.Outline} />
+
+### Ghost
+
+<Canvas of={Stories.Ghost} />
+
+### Link
+
+<Canvas of={Stories.Link} />
+
+### Icon
+
+<Canvas of={Stories.Icon} />
+
+### With Icon
+
+<Canvas of={Stories.WithIcon} />
+
+### With Icon Right
+
+<Canvas of={Stories.WithIconRight} />
+
+### Loading
+
+<Canvas of={Stories.Loading} />
+
+### Disabled
+
+<Canvas of={Stories.Disabled} />
+
+## API Reference
+
+<ArgTypes of={Stories} />
