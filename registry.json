@@ -356,7 +356,7 @@
       "type": "registry:ui",
       "files": [
         {
-          "path": "registry/base/components/ui/indicator-card.tsx",
+          "path": "registry/df-imoveis/components/ui/indicator-card.tsx",
           "type": "registry:component"
         }
       ]

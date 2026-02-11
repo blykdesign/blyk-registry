@@ -94,6 +94,8 @@ const preview: Preview = {
             "Misc",
             ["Chart", "Direction", "Drawer", "Empty", "Field", "Form", "Label"],
           ],
+          "DF Imóveis",
+          ["IndicatorCard"],
         ],
       },
     },

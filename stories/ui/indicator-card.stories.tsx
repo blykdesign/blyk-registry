@@ -6,11 +6,11 @@ import {
   IndicatorCardValue,
   IndicatorCardNumber,
   IndicatorCardBadge,
-} from "@/registry/base/components/ui/indicator-card"
+} from "@/registry/df-imoveis/components/ui/indicator-card"
 import { UserPlus, TrendingUp, DollarSign, Eye, ShoppingCart, TrendingDown, Activity } from "lucide-react"
 
 const meta = {
-  title: "Components/Data Display/IndicatorCard",
+  title: "DF Imóveis/IndicatorCard",
   component: IndicatorCard,
   decorators: [
     (Story) => (

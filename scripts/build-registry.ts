@@ -109,6 +109,24 @@ function fixComponentJson(json: any): any {
 }
 
 // ---------------------------------------------------------------------------
+// Theme-exclusive detection
+// ---------------------------------------------------------------------------
+
+/**
+ * Returns the theme name if a component belongs exclusively to a non-base
+ * theme (e.g. "df-imoveis"), or null if it's a base component.
+ */
+function getExclusiveTheme(json: any): string | null {
+  for (const f of json.files ?? []) {
+    const match = f.path?.match(/^registry\/([^/]+)\//)
+    if (match && match[1] !== "base") {
+      return match[1]
+    }
+  }
+  return null
+}
+
+// ---------------------------------------------------------------------------
 // Theme building
 // ---------------------------------------------------------------------------
 
@@ -133,9 +151,14 @@ async function hasOverride(
   }
 }
 
+interface BuildBaseResult {
+  baseComponents: Map<string, any>
+  themeExclusives: Map<string, Map<string, any>> // theme → (file → json)
+}
+
 async function buildBaseTheme(
   baseJsonFiles: string[]
-): Promise<Map<string, any>> {
+): Promise<BuildBaseResult> {
   const baseDir = join(OUTPUT_DIR, "base")
   await mkdir(baseDir, { recursive: true })
 
@@ -143,11 +166,22 @@ async function buildBaseTheme(
   const hasTokens =
     Object.keys(baseTokens.light).length > 0 ||
     Object.keys(baseTokens.dark).length > 0
-  const components = new Map<string, any>()
+  const baseComponents = new Map<string, any>()
+  const themeExclusives = new Map<string, Map<string, any>>()
 
   for (const file of baseJsonFiles) {
     const raw = JSON.parse(await readFile(join(OUTPUT_DIR, file), "utf-8"))
     const fixed = fixComponentJson(raw)
+
+    // Check if this component belongs exclusively to a non-base theme
+    const exclusiveTheme = getExclusiveTheme(raw)
+    if (exclusiveTheme) {
+      if (!themeExclusives.has(exclusiveTheme)) {
+        themeExclusives.set(exclusiveTheme, new Map())
+      }
+      themeExclusives.get(exclusiveTheme)!.set(file, fixed)
+      continue // skip — not a base component
+    }
 
     // Inject base cssVars if the component doesn't already have its own
     if (hasTokens) {
@@ -164,7 +198,7 @@ async function buildBaseTheme(
       }
     }
 
-    components.set(file, fixed)
+    baseComponents.set(file, fixed)
     await writeFile(
       join(baseDir, file),
       JSON.stringify(fixed, null, 2) + "\n"
@@ -180,12 +214,13 @@ async function buildBaseTheme(
     JSON.stringify(registryIndex, null, 2) + "\n"
   )
 
-  return components
+  return { baseComponents, themeExclusives }
 }
 
 async function buildClientTheme(
   theme: string,
   baseComponents: Map<string, any>,
+  exclusiveComponents: Map<string, any>,
   baseRegistryIndex: any
 ) {
   const themeDir = join(OUTPUT_DIR, theme)
@@ -201,6 +236,7 @@ async function buildClientTheme(
   }
 
   let overrideCount = 0
+  let exclusiveCount = 0
 
   for (const [file, baseJson] of baseComponents) {
     const component = structuredClone(baseJson)
@@ -232,6 +268,44 @@ async function buildClientTheme(
     )
   }
 
+  // Add theme-exclusive components
+  for (const [file, json] of exclusiveComponents) {
+    const component = structuredClone(json)
+
+    // Fix file paths for theme-exclusive components
+    const themePrefix = `registry/${theme}/components/`
+    for (const f of component.files ?? []) {
+      if (f.path?.startsWith(themePrefix)) {
+        f.path = f.path.slice(themePrefix.length)
+      }
+      if (f.path) {
+        f.type = resolveFileType(f.path)
+      }
+      if (f.target === undefined) {
+        f.target = ""
+      }
+    }
+
+    // Apply merged tokens
+    if (
+      Object.keys(mergedTokens.light).length > 0 ||
+      Object.keys(mergedTokens.dark).length > 0
+    ) {
+      component.cssVars = {
+        light: { ...mergedTokens.light },
+        dark: { ...mergedTokens.dark },
+      }
+    }
+
+    await writeFile(
+      join(themeDir, file),
+      JSON.stringify(component, null, 2) + "\n"
+    )
+    exclusiveCount++
+  }
+
+  const total = baseComponents.size + exclusiveCount
+
   // Generate theme index.json
   const themeIndex = {
     ...baseRegistryIndex,
@@ -243,7 +317,7 @@ async function buildClientTheme(
   )
 
   console.log(
-    `  theme "${theme}": ${baseComponents.size} components (${overrideCount} overrides)`
+    `  theme "${theme}": ${total} components (${overrideCount} overrides, ${exclusiveCount} exclusive)`
   )
 }
 
@@ -259,10 +333,18 @@ async function main() {
 
   console.log(`\npost-process: ${componentJsons.length} component JSONs found`)
 
-  // Build base theme
+  // Build base theme (separates base components from theme-exclusive ones)
   console.log("building base theme...")
-  const baseComponents = await buildBaseTheme(componentJsons)
+  const { baseComponents, themeExclusives } =
+    await buildBaseTheme(componentJsons)
   console.log(`  theme "base": ${baseComponents.size} components`)
+
+  if (themeExclusives.size > 0) {
+    const exclusiveSummary = [...themeExclusives.entries()]
+      .map(([t, m]) => `${t}(${m.size})`)
+      .join(", ")
+    console.log(`  theme-exclusive components: ${exclusiveSummary}`)
+  }
 
   // Load registry index for reuse
   const registryIndex = JSON.parse(
@@ -274,7 +356,8 @@ async function main() {
   if (themes.length > 0) {
     console.log(`building ${themes.length} client theme(s)...`)
     for (const theme of themes) {
-      await buildClientTheme(theme, baseComponents, registryIndex)
+      const exclusives = themeExclusives.get(theme) ?? new Map()
+      await buildClientTheme(theme, baseComponents, exclusives, registryIndex)
     }
   } else {
     console.log("no client themes found")
