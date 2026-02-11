@@ -1,0 +1,87 @@
+import { Meta, Canvas, Controls, ArgTypes } from '@storybook/addon-docs/blocks'
+import * as Stories from './indicator-card.stories'
+
+<Meta of={Stories} />
+
+# IndicatorCard
+
+A dashboard indicator card designed to display big numbers and key metrics with an optional trend badge.
+
+Built as a compound component following the same pattern as `Card`, giving you full control over the layout and composition.
+
+## Installation
+
+```bash
+npx shadcn@latest add "https://registry.blyk.design/r/base/indicator-card.json"
+```
+
+## Usage
+
+```tsx
+import {
+  IndicatorCard,
+  IndicatorCardIcon,
+  IndicatorCardLabel,
+  IndicatorCardValue,
+  IndicatorCardNumber,
+  IndicatorCardBadge,
+} from "@/components/ui/indicator-card"
+```
+
+```tsx
+<IndicatorCard>
+  <IndicatorCardIcon>
+    <UserPlus />
+  </IndicatorCardIcon>
+  <IndicatorCardLabel>Novos Leads</IndicatorCardLabel>
+  <IndicatorCardValue>
+    <IndicatorCardNumber>12</IndicatorCardNumber>
+    <IndicatorCardBadge>
+      <TrendingUp /> +3 hoje
+    </IndicatorCardBadge>
+  </IndicatorCardValue>
+</IndicatorCard>
+```
+
+## Examples
+
+### Default
+
+The standard indicator card with icon, label, big number, and a trend badge.
+
+<Canvas of={Stories.Default} />
+
+### Without Badge
+
+The badge is optional — simply omit `IndicatorCardBadge` when there's no trend data.
+
+<Canvas of={Stories.WithoutBadge} />
+
+### Negative Trend
+
+Customize the badge colors to indicate a negative trend.
+
+<Canvas of={Stories.NegativeTrend} />
+
+### Positive Trend
+
+Use green tones to highlight positive performance.
+
+<Canvas of={Stories.PositiveTrend} />
+
+### Grid Layout
+
+IndicatorCards work great in a responsive grid for dashboards.
+
+<Canvas of={Stories.Grid} />
+
+## Sub-components
+
+| Component | Description |
+|---|---|
+| `IndicatorCard` | Root container with border, shadow, and hover/active states |
+| `IndicatorCardIcon` | 32x32 icon area in muted foreground color |
+| `IndicatorCardLabel` | Descriptive label (text-sm, muted) |
+| `IndicatorCardValue` | Flex row that holds the number and optional badge |
+| `IndicatorCardNumber` | Big number display (text-3xl, semibold) |
+| `IndicatorCardBadge` | Optional outline badge with icon and text |

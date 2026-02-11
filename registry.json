@@ -352,6 +352,16 @@
       ]
     },
     {
+      "name": "indicator-card",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "registry/base/components/ui/indicator-card.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
       "name": "hover-card",
       "type": "registry:ui",
       "dependencies": [
