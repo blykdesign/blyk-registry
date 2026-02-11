@@ -88,7 +88,60 @@ export const PositiveTrend: Story = {
   ),
 }
 
-export const Grid: Story = {
+const sampleCards = (
+  <>
+    <IndicatorCard>
+      <IndicatorCardIcon>
+        <UserPlus />
+      </IndicatorCardIcon>
+      <IndicatorCardLabel>Novos Leads</IndicatorCardLabel>
+      <IndicatorCardValue>
+        <IndicatorCardNumber>12</IndicatorCardNumber>
+        <IndicatorCardBadge>
+          <TrendingUp /> +3 hoje
+        </IndicatorCardBadge>
+      </IndicatorCardValue>
+    </IndicatorCard>
+
+    <IndicatorCard>
+      <IndicatorCardIcon>
+        <DollarSign />
+      </IndicatorCardIcon>
+      <IndicatorCardLabel>Receita Mensal</IndicatorCardLabel>
+      <IndicatorCardValue>
+        <IndicatorCardNumber>R$ 45.200</IndicatorCardNumber>
+      </IndicatorCardValue>
+    </IndicatorCard>
+
+    <IndicatorCard>
+      <IndicatorCardIcon>
+        <ShoppingCart />
+      </IndicatorCardIcon>
+      <IndicatorCardLabel>Vendas</IndicatorCardLabel>
+      <IndicatorCardValue>
+        <IndicatorCardNumber>384</IndicatorCardNumber>
+        <IndicatorCardBadge className="text-emerald-600 border-emerald-200 bg-emerald-50">
+          <TrendingUp /> +18%
+        </IndicatorCardBadge>
+      </IndicatorCardValue>
+    </IndicatorCard>
+
+    <IndicatorCard>
+      <IndicatorCardIcon>
+        <Activity />
+      </IndicatorCardIcon>
+      <IndicatorCardLabel>Taxa de Conversão</IndicatorCardLabel>
+      <IndicatorCardValue>
+        <IndicatorCardNumber>3,2%</IndicatorCardNumber>
+        <IndicatorCardBadge className="text-destructive border-destructive/30">
+          <TrendingDown /> -0,4%
+        </IndicatorCardBadge>
+      </IndicatorCardValue>
+    </IndicatorCard>
+  </>
+)
+
+export const GridScroll: Story = {
   decorators: [
     (Story) => (
       <div className="max-w-full">
@@ -97,55 +150,23 @@ export const Grid: Story = {
     ),
   ],
   render: () => (
-    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-      <IndicatorCard>
-        <IndicatorCardIcon>
-          <UserPlus />
-        </IndicatorCardIcon>
-        <IndicatorCardLabel>Novos Leads</IndicatorCardLabel>
-        <IndicatorCardValue>
-          <IndicatorCardNumber>12</IndicatorCardNumber>
-          <IndicatorCardBadge>
-            <TrendingUp /> +3 hoje
-          </IndicatorCardBadge>
-        </IndicatorCardValue>
-      </IndicatorCard>
+    <div className="flex gap-4 overflow-x-auto pb-2">
+      {sampleCards}
+    </div>
+  ),
+}
 
-      <IndicatorCard>
-        <IndicatorCardIcon>
-          <DollarSign />
-        </IndicatorCardIcon>
-        <IndicatorCardLabel>Receita Mensal</IndicatorCardLabel>
-        <IndicatorCardValue>
-          <IndicatorCardNumber>R$ 45.200</IndicatorCardNumber>
-        </IndicatorCardValue>
-      </IndicatorCard>
-
-      <IndicatorCard>
-        <IndicatorCardIcon>
-          <ShoppingCart />
-        </IndicatorCardIcon>
-        <IndicatorCardLabel>Vendas</IndicatorCardLabel>
-        <IndicatorCardValue>
-          <IndicatorCardNumber>384</IndicatorCardNumber>
-          <IndicatorCardBadge className="text-emerald-600 border-emerald-200 bg-emerald-50">
-            <TrendingUp /> +18%
-          </IndicatorCardBadge>
-        </IndicatorCardValue>
-      </IndicatorCard>
-
-      <IndicatorCard>
-        <IndicatorCardIcon>
-          <Activity />
-        </IndicatorCardIcon>
-        <IndicatorCardLabel>Taxa de Conversão</IndicatorCardLabel>
-        <IndicatorCardValue>
-          <IndicatorCardNumber>3,2%</IndicatorCardNumber>
-          <IndicatorCardBadge className="text-destructive border-destructive/30">
-            <TrendingDown /> -0,4%
-          </IndicatorCardBadge>
-        </IndicatorCardValue>
-      </IndicatorCard>
+export const GridStack: Story = {
+  decorators: [
+    (Story) => (
+      <div className="max-w-full">
+        <Story />
+      </div>
+    ),
+  ],
+  render: () => (
+    <div className="grid grid-cols-[repeat(auto-fill,minmax(256px,1fr))] gap-4">
+      {sampleCards}
     </div>
   ),
 }

@@ -69,11 +69,17 @@ Use green tones to highlight positive performance.
 
 <Canvas of={Stories.PositiveTrend} />
 
-### Grid Layout
+### Grid with Horizontal Scroll
 
-IndicatorCards work great in a responsive grid for dashboards.
+When space is limited, cards scroll horizontally preserving their minimum width.
 
-<Canvas of={Stories.Grid} />
+<Canvas of={Stories.GridScroll} />
+
+### Grid with Stacking
+
+Cards wrap into rows automatically, stacking when the container is too narrow. Uses `auto-fill` with a 256px minimum to prevent overlap.
+
+<Canvas of={Stories.GridStack} />
 
 ## Sub-components
 

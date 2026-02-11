@@ -10,7 +10,7 @@ function IndicatorCard({
     <div
       data-slot="indicator-card"
       className={cn(
-        "flex flex-col gap-1.5 rounded-[14px] border border-border bg-card p-6 text-card-foreground shadow-sm transition-all hover:shadow-lg active:shadow-none active:bg-muted",
+        "flex flex-col gap-1.5 rounded-[14px] border border-border bg-card p-6 text-card-foreground shadow-sm transition-all hover:shadow-lg active:shadow-none active:bg-muted min-w-64",
         className
       )}
       {...props}
