@@ -1,10 +1,15 @@
 import { Meta, Canvas, Controls, ArgTypes } from '@storybook/addon-docs/blocks'
 import * as Stories from './indicator-card.stories'
-import { DocDivider } from '../doc-display'
+import { DocDivider, ThemeBadge, Tip, DocGrid, SubComponentCard } from '../doc-display'
 
 <Meta of={Stories} />
 
 # IndicatorCard
+
+<ThemeBadge
+  theme="DF Imóveis"
+  description="This component belongs to the DF Imóveis theme."
+/>
 
 A dashboard indicator card designed to display big numbers and key metrics with an optional trend badge.
 
@@ -43,6 +48,10 @@ import {
   </IndicatorCardValue>
 </IndicatorCard>
 ```
+
+<Tip>
+  Switch to the <strong>DF Imóveis</strong> theme using the toolbar above to see this component with the correct brand colors applied.
+</Tip>
 
 <DocDivider />
 
@@ -88,11 +97,29 @@ Cards wrap into rows automatically, stacking when the container is too narrow. U
 
 ## Sub-components
 
-| Component | Description |
-|---|---|
-| `IndicatorCard` | Root container with border, shadow, and hover/active states |
-| `IndicatorCardIcon` | 32x32 icon area in muted foreground color |
-| `IndicatorCardLabel` | Descriptive label (text-sm, muted) |
-| `IndicatorCardValue` | Flex row that holds the number and optional badge |
-| `IndicatorCardNumber` | Big number display (text-3xl, semibold) |
-| `IndicatorCardBadge` | Optional outline badge with icon and text |
+<DocGrid columns={2}>
+  <SubComponentCard
+    name="IndicatorCard"
+    description="Root container with border, shadow, and hover/active states."
+  />
+  <SubComponentCard
+    name="IndicatorCardIcon"
+    description="32x32 icon area in muted foreground color."
+  />
+  <SubComponentCard
+    name="IndicatorCardLabel"
+    description="Descriptive label (text-sm, muted)."
+  />
+  <SubComponentCard
+    name="IndicatorCardValue"
+    description="Flex row that holds the number and optional badge."
+  />
+  <SubComponentCard
+    name="IndicatorCardNumber"
+    description="Big number display (text-3xl, semibold)."
+  />
+  <SubComponentCard
+    name="IndicatorCardBadge"
+    description="Optional outline badge with icon and text."
+  />
+</DocGrid>

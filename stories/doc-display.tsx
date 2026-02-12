@@ -216,6 +216,102 @@ export function Hero({
   )
 }
 
+/* ── Theme Badge ────────────────────────────────────────── */
+export function ThemeBadge({
+  theme,
+  description,
+}: {
+  theme: string
+  description?: string
+}) {
+  return (
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        gap: "0.75rem",
+        padding: "0.75rem 1rem",
+        borderRadius: "var(--radius)",
+        border: "1px solid hsl(var(--border))",
+        backgroundColor: "hsl(var(--muted))",
+        margin: "0 0 1.5rem",
+      }}
+    >
+      <span
+        style={{
+          display: "inline-flex",
+          alignItems: "center",
+          gap: "0.375rem",
+          padding: "0.125rem 0.625rem",
+          borderRadius: "9999px",
+          backgroundColor: "hsl(var(--primary))",
+          color: "hsl(var(--primary-foreground))",
+          fontSize: "0.6875rem",
+          fontWeight: 600,
+          letterSpacing: "0.02em",
+          whiteSpace: "nowrap",
+        }}
+      >
+        {theme}
+      </span>
+      {description && (
+        <span
+          style={{
+            fontSize: "0.8125rem",
+            color: "hsl(var(--muted-foreground))",
+            lineHeight: 1.4,
+          }}
+        >
+          {description}
+        </span>
+      )}
+    </div>
+  )
+}
+
+/* ── Sub-component Card ─────────────────────────────────── */
+export function SubComponentCard({
+  name,
+  description,
+}: {
+  name: string
+  description: string
+}) {
+  return (
+    <div
+      style={{
+        padding: "0.875rem 1rem",
+        borderRadius: "var(--radius)",
+        border: "1px solid hsl(var(--border))",
+        backgroundColor: "hsl(var(--card))",
+        color: "hsl(var(--card-foreground))",
+      }}
+    >
+      <code
+        style={{
+          fontSize: "0.8125rem",
+          fontFamily: "var(--font-mono)",
+          fontWeight: 600,
+          background: "none",
+          padding: 0,
+        }}
+      >
+        {name}
+      </code>
+      <div
+        style={{
+          fontSize: "0.75rem",
+          color: "hsl(var(--muted-foreground))",
+          marginTop: "0.25rem",
+          lineHeight: 1.4,
+        }}
+      >
+        {description}
+      </div>
+    </div>
+  )
+}
+
 /* ── Step indicator ─────────────────────────────────────── */
 export function Step({
   number,

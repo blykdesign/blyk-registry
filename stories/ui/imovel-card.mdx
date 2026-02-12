@@ -1,10 +1,15 @@
 import { Meta, Canvas, Controls, ArgTypes } from '@storybook/addon-docs/blocks'
 import * as Stories from './imovel-card.stories'
-import { DocDivider } from '../doc-display'
+import { DocDivider, ThemeBadge, Tip, DocGrid, SubComponentCard } from '../doc-display'
 
 <Meta of={Stories} />
 
 # ImovelCard
+
+<ThemeBadge
+  theme="DF Imóveis"
+  description="This component belongs to the DF Imóveis theme."
+/>
 
 A real estate property card designed to display a property listing with image, highlight tags, price, address, and feature badges.
 
@@ -65,6 +70,10 @@ import {
 </ImovelCard>
 ```
 
+<Tip>
+  Switch to the <strong>DF Imóveis</strong> theme using the toolbar above to see this component with the correct brand colors applied.
+</Tip>
+
 <DocDivider />
 
 ## Examples
@@ -97,13 +106,37 @@ Multiple cards in a responsive grid that wraps automatically.
 
 ## Sub-components
 
-| Component | Description |
-|---|---|
-| `ImovelCard` | Root container with border, shadow, rounded corners, and overflow hidden |
-| `ImovelCardImage` | Property photo with 3:2 aspect ratio and object-fit cover |
-| `ImovelCardContent` | Content area with vertical padding and gap |
-| `ImovelCardTags` | Flex row for highlight tag badges |
-| `ImovelCardTag` | Badge with `default` (filled primary) and `outline` (bordered) variants |
-| `ImovelCardPrice` | Price display (text-3xl, semibold) |
-| `ImovelCardAddress` | Address text (text-sm, muted) |
-| `ImovelCardFeatures` | Flex row for feature badges (bedrooms, baths, parking, area) |
+<DocGrid columns={2}>
+  <SubComponentCard
+    name="ImovelCard"
+    description="Root container with border, shadow, rounded corners, and overflow hidden."
+  />
+  <SubComponentCard
+    name="ImovelCardImage"
+    description="Property photo with 3:2 aspect ratio and object-fit cover."
+  />
+  <SubComponentCard
+    name="ImovelCardContent"
+    description="Content area with vertical padding and gap."
+  />
+  <SubComponentCard
+    name="ImovelCardTags"
+    description="Flex row for highlight tag badges."
+  />
+  <SubComponentCard
+    name="ImovelCardTag"
+    description='Badge with "default" (filled primary) and "outline" (bordered) variants.'
+  />
+  <SubComponentCard
+    name="ImovelCardPrice"
+    description="Price display (text-3xl, semibold)."
+  />
+  <SubComponentCard
+    name="ImovelCardAddress"
+    description="Address text (text-sm, muted)."
+  />
+  <SubComponentCard
+    name="ImovelCardFeatures"
+    description="Flex row for feature badges (bedrooms, baths, parking, area)."
+  />
+</DocGrid>

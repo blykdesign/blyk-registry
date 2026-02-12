@@ -95,7 +95,7 @@ const preview: Preview = {
             ["Chart", "Direction", "Drawer", "Empty", "Field", "Form", "Label"],
           ],
           "DF Imóveis",
-          ["IndicatorCard", "ImovelCard"],
+          ["Overview", "IndicatorCard", "ImovelCard"],
         ],
       },
     },
