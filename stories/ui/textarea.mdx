@@ -1,5 +1,6 @@
 import { Meta, Canvas, Controls, ArgTypes } from '@storybook/addon-docs/blocks'
 import * as Stories from './textarea.stories'
+import { DocDivider } from '../doc-display'
 
 <Meta of={Stories} />
 
@@ -23,6 +24,8 @@ import { Textarea } from "@/components/ui/textarea"
 <Textarea placeholder="Type your message here." />
 ```
 
+<DocDivider />
+
 ## Examples
 
 ### Default
@@ -36,6 +39,8 @@ import { Textarea } from "@/components/ui/textarea"
 ### Disabled
 
 <Canvas of={Stories.Disabled} />
+
+<DocDivider />
 
 ## API Reference
 

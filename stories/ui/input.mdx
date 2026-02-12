@@ -1,5 +1,6 @@
 import { Meta, Canvas, Controls, ArgTypes } from '@storybook/addon-docs/blocks'
 import * as Stories from './input.stories'
+import { DocDivider } from '../doc-display'
 
 <Meta of={Stories} />
 
@@ -23,6 +24,8 @@ import { Input } from "@/components/ui/input"
 <Input type="email" placeholder="Email" />
 ```
 
+<DocDivider />
+
 ## Examples
 
 ### Default
@@ -44,6 +47,8 @@ import { Input } from "@/components/ui/input"
 ### File
 
 <Canvas of={Stories.File} />
+
+<DocDivider />
 
 ## API Reference
 

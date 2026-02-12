@@ -1,5 +1,6 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks'
 import * as Stories from './alert.stories'
+import { DocDivider } from '../doc-display'
 
 <Meta of={Stories} />
 
@@ -26,6 +27,8 @@ import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert"
 </Alert>
 ```
 
+<DocDivider />
+
 ## Examples
 
 ### Default
@@ -35,6 +38,8 @@ import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert"
 ### Destructive
 
 <Canvas of={Stories.Destructive} />
+
+<DocDivider />
 
 ## API Reference
 

@@ -1,43 +1,148 @@
 import { Meta } from '@storybook/addon-docs/blocks'
+import {
+  Hero,
+  FeatureCard,
+  LinkCard,
+  DocGrid,
+  DocDivider,
+  Step,
+  Tip,
+} from './doc-display'
 
 <Meta title="Introduction" />
 
-# blyk design system
+<Hero
+  title="blyk"
+  subtitle="design system"
+  description="Built on top of shadcn/ui. Accessible, customizable, and composable components distributed via a custom registry."
+/>
 
-blyk is a design system built on top of [shadcn/ui](https://ui.shadcn.com), providing accessible, customizable, and composable components distributed via a custom registry.
+<DocDivider />
 
 ## Principles
 
-- **Open Code** — All component source code is open for customization. You own the code.
-- **Composition** — A common, composable interface shared across all components.
-- **Distribution** — JSON registry + CLI for installing components into any project.
-- **Tokens** — CSS variable-based design tokens for consistent theming.
+<DocGrid columns={2}>
+  <FeatureCard
+    title="Open Code"
+    description="All component source code is open for customization. You own the code — no black boxes, no lock-in."
+  />
+  <FeatureCard
+    title="Composition"
+    description="A common, composable interface shared across all components. Build complex UIs from simple, reusable parts."
+  />
+  <FeatureCard
+    title="Distribution"
+    description="JSON registry + shadcn CLI for installing components directly into any project. No package dependency."
+  />
+  <FeatureCard
+    title="Tokens"
+    description="CSS variable-based design tokens for consistent theming. Light and dark mode built in. Multi-theme support."
+  />
+</DocGrid>
 
-## Installation
+<DocDivider />
 
-Install components directly from the registry using the shadcn CLI:
+## Quick Start
+
+<Step number={1} title="Install the shadcn CLI">
+  Make sure you have a React project with Tailwind CSS v4 configured.
+</Step>
+
+```bash
+npx shadcn@latest init
+```
+
+<Step number={2} title="Add components from the registry">
+  Install any component directly from the blyk registry.
+</Step>
 
 ```bash
 npx shadcn@latest add "https://registry.blyk.design/r/base/button.json"
 ```
 
-You can also install multiple components at once:
+<Step number={3} title="Use in your project">
+  Import and use the component. The source code lives in your project.
+</Step>
 
-```bash
-npx shadcn@latest add "https://registry.blyk.design/r/base/card.json" \
-  "https://registry.blyk.design/r/base/input.json" \
-  "https://registry.blyk.design/r/base/label.json"
+```tsx
+import { Button } from "@/components/ui/button"
+
+export function MyPage() {
+  return <Button variant="outline">Get Started</Button>
+}
 ```
+
+<Tip>
+  You can install multiple components at once by passing multiple registry URLs to the CLI.
+</Tip>
+
+<DocDivider />
 
 ## Theming
 
-blyk uses CSS variables for theming. The base theme ships with light and dark mode support out of the box.
+blyk uses **CSS variables** for theming. The base theme ships with light and dark mode support out of the box.
 
-Custom themes can be applied by overriding the CSS variables. See the **Tokens** page for a complete reference of all available variables.
+Custom themes can be applied by overriding the CSS variables with a `data-theme` attribute:
+
+```css
+[data-theme="my-brand"] {
+  --primary: 220 90% 56%;
+  --primary-foreground: 0 0% 100%;
+  /* ... */
+}
+```
+
+<div style={{ display: "flex", gap: "0.5rem", margin: "1rem 0" }}>
+  {[
+    { bg: "--primary", fg: "--primary-foreground", label: "Primary" },
+    { bg: "--secondary", fg: "--secondary-foreground", label: "Secondary" },
+    { bg: "--accent", fg: "--accent-foreground", label: "Accent" },
+    { bg: "--muted", fg: "--muted-foreground", label: "Muted" },
+    { bg: "--destructive", fg: "--destructive-foreground", label: "Destructive" },
+  ].map((item) => (
+    <div
+      key={item.label}
+      style={{
+        flex: 1,
+        backgroundColor: `hsl(var(${item.bg}))`,
+        color: `hsl(var(${item.fg}))`,
+        padding: "1rem 0.75rem",
+        borderRadius: "var(--radius)",
+        textAlign: "center",
+        fontSize: "0.75rem",
+        fontWeight: 500,
+      }}
+    >
+      {item.label}
+    </div>
+  ))}
+</div>
+
+See the **Tokens** page for a complete visual reference of all available design tokens.
+
+<DocDivider />
 
 ## Links
 
-- **Registry:** [registry.blyk.design](https://registry.blyk.design)
-- **Storybook:** [storybook.blyk.design](https://storybook.blyk.design)
-- **GitHub:** [github.com/blykdesign/blyk-registry](https://github.com/blykdesign/blyk-registry)
-- **shadcn/ui docs:** [ui.shadcn.com](https://ui.shadcn.com)
+<DocGrid columns={2}>
+  <LinkCard
+    title="Registry"
+    description="Browse and install components from the blyk registry."
+    href="https://registry.blyk.design"
+  />
+  <LinkCard
+    title="Storybook"
+    description="Explore components with live examples and documentation."
+    href="https://storybook.blyk.design"
+  />
+  <LinkCard
+    title="GitHub"
+    description="View the source code, report issues, and contribute."
+    href="https://github.com/blykdesign/blyk-registry"
+  />
+  <LinkCard
+    title="shadcn/ui"
+    description="The foundation blyk is built upon. Official docs and reference."
+    href="https://ui.shadcn.com"
+  />
+</DocGrid>

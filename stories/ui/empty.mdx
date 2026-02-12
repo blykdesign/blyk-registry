@@ -1,5 +1,6 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks'
 import * as Stories from './empty.stories'
+import { DocDivider } from '../doc-display'
 
 <Meta of={Stories} />
 
@@ -23,11 +24,15 @@ import { Empty } from "@/components/ui/empty"
 <Empty>No results found.</Empty>
 ```
 
+<DocDivider />
+
 ## Examples
 
 ### Default
 
 <Canvas of={Stories.Default} />
+
+<DocDivider />
 
 ## API Reference
 

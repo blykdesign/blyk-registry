@@ -1,5 +1,6 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks'
 import * as Stories from './label.stories'
+import { DocDivider } from '../doc-display'
 
 <Meta of={Stories} />
 
@@ -23,11 +24,15 @@ import { Label } from "@/components/ui/label"
 <Label htmlFor="email">Email</Label>
 ```
 
+<DocDivider />
+
 ## Examples
 
 ### Default
 
 <Canvas of={Stories.Default} />
+
+<DocDivider />
 
 ## API Reference
 

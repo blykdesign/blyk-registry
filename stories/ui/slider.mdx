@@ -1,5 +1,6 @@
 import { Meta, Canvas, Controls, ArgTypes } from '@storybook/addon-docs/blocks'
 import * as Stories from './slider.stories'
+import { DocDivider } from '../doc-display'
 
 <Meta of={Stories} />
 
@@ -23,6 +24,8 @@ import { Slider } from "@/components/ui/slider"
 <Slider defaultValue={[50]} max={100} step={1} />
 ```
 
+<DocDivider />
+
 ## Examples
 
 ### Default
@@ -40,6 +43,8 @@ import { Slider } from "@/components/ui/slider"
 ### Disabled
 
 <Canvas of={Stories.Disabled} />
+
+<DocDivider />
 
 ## API Reference
 

@@ -1,5 +1,6 @@
 import { Meta, Canvas, Controls, ArgTypes } from '@storybook/addon-docs/blocks'
 import * as Stories from './calendar.stories'
+import { DocDivider } from '../doc-display'
 
 <Meta of={Stories} />
 
@@ -23,11 +24,15 @@ import { Calendar } from "@/components/ui/calendar"
 <Calendar mode="single" selected={date} onSelect={setDate} />
 ```
 
+<DocDivider />
+
 ## Examples
 
 ### Default
 
 <Canvas of={Stories.Default} />
+
+<DocDivider />
 
 ## API Reference
 

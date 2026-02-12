@@ -1,5 +1,6 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks'
 import * as Stories from './progress.stories'
+import { DocDivider } from '../doc-display'
 
 <Meta of={Stories} />
 
@@ -23,6 +24,8 @@ import { Progress } from "@/components/ui/progress"
 <Progress value={33} />
 ```
 
+<DocDivider />
+
 ## Examples
 
 ### Default
@@ -40,6 +43,8 @@ import { Progress } from "@/components/ui/progress"
 ### Animated
 
 <Canvas of={Stories.Animated} />
+
+<DocDivider />
 
 ## API Reference
 

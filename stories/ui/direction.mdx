@@ -1,5 +1,6 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks'
 import * as Stories from './direction.stories'
+import { DocDivider } from '../doc-display'
 
 <Meta of={Stories} />
 
@@ -25,6 +26,8 @@ import { DirectionProvider } from "@/components/ui/direction"
 </DirectionProvider>
 ```
 
+<DocDivider />
+
 ## Examples
 
 ### LTR
@@ -34,6 +37,8 @@ import { DirectionProvider } from "@/components/ui/direction"
 ### RTL
 
 <Canvas of={Stories.RTL} />
+
+<DocDivider />
 
 ## API Reference
 

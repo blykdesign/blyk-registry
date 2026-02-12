@@ -1,5 +1,6 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks'
 import * as Stories from './sonner.stories'
+import { DocDivider } from '../doc-display'
 
 <Meta of={Stories} />
 
@@ -24,11 +25,15 @@ import { toast } from "sonner"
 <Button onClick={() => toast("Event created")}>Show Toast</Button>
 ```
 
+<DocDivider />
+
 ## Examples
 
 ### Default
 
 <Canvas of={Stories.Default} />
+
+<DocDivider />
 
 ## API Reference
 

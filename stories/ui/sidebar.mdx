@@ -1,5 +1,6 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks'
 import * as Stories from './sidebar.stories'
+import { DocDivider } from '../doc-display'
 
 <Meta of={Stories} />
 
@@ -30,11 +31,15 @@ import { SidebarProvider, Sidebar, SidebarContent, SidebarGroup, SidebarGroupLab
 </SidebarProvider>
 ```
 
+<DocDivider />
+
 ## Examples
 
 ### Default
 
 <Canvas of={Stories.Default} />
+
+<DocDivider />
 
 ## API Reference
 

@@ -1,5 +1,6 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks'
 import * as Stories from './accordion.stories'
+import { DocDivider } from '../doc-display'
 
 <Meta of={Stories} />
 
@@ -28,6 +29,8 @@ import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/
 </Accordion>
 ```
 
+<DocDivider />
+
 ## Examples
 
 ### Default
@@ -37,6 +40,8 @@ import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/
 ### Multiple
 
 <Canvas of={Stories.Multiple} />
+
+<DocDivider />
 
 ## API Reference
 

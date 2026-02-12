@@ -1,5 +1,6 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks'
 import * as Stories from './avatar.stories'
+import { DocDivider } from '../doc-display'
 
 <Meta of={Stories} />
 
@@ -26,6 +27,8 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
 </Avatar>
 ```
 
+<DocDivider />
+
 ## Examples
 
 ### With Image
@@ -35,6 +38,8 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
 ### Fallback
 
 <Canvas of={Stories.Fallback} />
+
+<DocDivider />
 
 ## API Reference
 

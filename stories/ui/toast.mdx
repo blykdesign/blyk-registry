@@ -1,5 +1,6 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks'
 import * as Stories from './toast.stories'
+import { DocDivider } from '../doc-display'
 
 <Meta of={Stories} />
 
@@ -24,6 +25,8 @@ const { toast } = useToast()
 toast({ title: "Success" })
 ```
 
+<DocDivider />
+
 ## Examples
 
 ### Default
@@ -33,6 +36,8 @@ toast({ title: "Success" })
 ### Destructive
 
 <Canvas of={Stories.Destructive} />
+
+<DocDivider />
 
 ## API Reference
 

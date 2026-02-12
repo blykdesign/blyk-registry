@@ -1,5 +1,6 @@
 import { Meta, Canvas, Controls, ArgTypes } from '@storybook/addon-docs/blocks'
 import * as Stories from './indicator-card.stories'
+import { DocDivider } from '../doc-display'
 
 <Meta of={Stories} />
 
@@ -43,6 +44,8 @@ import {
 </IndicatorCard>
 ```
 
+<DocDivider />
+
 ## Examples
 
 ### Default
@@ -80,6 +83,8 @@ When space is limited, cards scroll horizontally preserving their minimum width.
 Cards wrap into rows automatically, stacking when the container is too narrow. Uses `auto-fill` with a 256px minimum to prevent overlap.
 
 <Canvas of={Stories.GridStack} />
+
+<DocDivider />
 
 ## Sub-components
 

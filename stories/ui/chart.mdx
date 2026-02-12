@@ -1,5 +1,6 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks'
 import * as Stories from './chart.stories'
+import { DocDivider } from '../doc-display'
 
 <Meta of={Stories} />
 
@@ -25,11 +26,15 @@ import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/
 </ChartContainer>
 ```
 
+<DocDivider />
+
 ## Examples
 
 ### Bar Chart Example
 
 <Canvas of={Stories.BarChartExample} />
+
+<DocDivider />
 
 ## API Reference
 
