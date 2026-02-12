@@ -163,10 +163,12 @@ export function DocGrid({
 
 /* ── Hero section for Introduction ──────────────────────── */
 export function Hero({
+  logo,
   title,
   subtitle,
   description,
 }: {
+  logo?: string
   title: string
   subtitle: string
   description: string
@@ -178,17 +180,31 @@ export function Hero({
         padding: "2.5rem 0 1.5rem",
       }}
     >
-      <div
-        style={{
-          fontSize: "4rem",
-          fontWeight: 800,
-          letterSpacing: "-0.05em",
-          lineHeight: 1,
-          color: "hsl(var(--foreground))",
-        }}
-      >
-        {title}
-      </div>
+      {logo && (
+        <img
+          src={logo}
+          alt={title || "blyk"}
+          style={{
+            width: "160px",
+            height: "auto",
+            margin: "0 auto 1.25rem",
+            display: "block",
+          }}
+        />
+      )}
+      {title && (
+        <div
+          style={{
+            fontSize: "4rem",
+            fontWeight: 800,
+            letterSpacing: "-0.05em",
+            lineHeight: 1,
+            color: "hsl(var(--foreground))",
+          }}
+        >
+          {title}
+        </div>
+      )}
       <div
         style={{
           fontSize: "1.125rem",
