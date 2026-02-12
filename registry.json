@@ -376,6 +376,23 @@
       ]
     },
     {
+      "name": "task-component",
+      "type": "registry:ui",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "separator"
+      ],
+      "files": [
+        {
+          "path": "registry/df-imoveis/components/ui/task-component.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
       "name": "hover-card",
       "type": "registry:ui",
       "dependencies": [
