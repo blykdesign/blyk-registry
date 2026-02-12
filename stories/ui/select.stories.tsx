@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
+import { userEvent, within, expect, waitFor } from "storybook/test"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue, SelectGroup, SelectLabel } from "@/registry/base/components/ui/select"
 
 const meta = {
@@ -26,4 +27,29 @@ export const Default: Story = {
       </SelectContent>
     </Select>
   ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+
+    // Open the select dropdown
+    await userEvent.click(canvas.getByRole("combobox"))
+
+    // Wait for the dropdown to appear (renders in a portal)
+    const body = within(document.body)
+    await waitFor(() =>
+      expect(body.getByText("Fruits")).toBeVisible()
+    )
+
+    // Verify all options are present
+    await expect(body.getByText("Apple")).toBeVisible()
+    await expect(body.getByText("Banana")).toBeVisible()
+    await expect(body.getByText("Blueberry")).toBeVisible()
+
+    // Select an option
+    await userEvent.click(body.getByText("Banana"))
+
+    // Verify the selected value is shown in the trigger
+    await waitFor(() =>
+      expect(canvas.getByRole("combobox")).toHaveTextContent("Banana")
+    )
+  },
 }

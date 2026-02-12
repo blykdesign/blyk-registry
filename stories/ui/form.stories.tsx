@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
+import { userEvent, within, expect } from "storybook/test"
 import { useForm } from "react-hook-form"
 import {
   Form,
@@ -47,4 +48,20 @@ function FormDemo() {
 
 export const Default: Story = {
   render: () => <FormDemo />,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+
+    // Verify the form elements are present
+    const usernameInput = canvas.getByPlaceholderText("shadcn")
+    await expect(usernameInput).toBeInTheDocument()
+    await expect(canvas.getByText("This is your public display name.")).toBeInTheDocument()
+
+    // Fill in the username field
+    await userEvent.click(usernameInput)
+    await userEvent.type(usernameInput, "johndoe")
+    await expect(usernameInput).toHaveValue("johndoe")
+
+    // Click submit
+    await userEvent.click(canvas.getByRole("button", { name: /submit/i }))
+  },
 }

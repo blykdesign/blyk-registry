@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
+import { userEvent, within, expect } from "storybook/test"
 import { RadioGroup, RadioGroupItem } from "@/registry/base/components/ui/radio-group"
 import { Label } from "@/registry/base/components/ui/label"
 
@@ -30,4 +31,21 @@ export const Default: Story = {
       </div>
     </RadioGroup>
   ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const radios = canvas.getAllByRole("radio")
+
+    // "Comfortable" should be selected by default
+    await expect(radios[1]).toBeChecked()
+
+    // Click "Default" radio
+    await userEvent.click(canvas.getByLabelText("Default"))
+    await expect(radios[0]).toBeChecked()
+    await expect(radios[1]).not.toBeChecked()
+
+    // Click "Compact" radio
+    await userEvent.click(canvas.getByLabelText("Compact"))
+    await expect(radios[2]).toBeChecked()
+    await expect(radios[0]).not.toBeChecked()
+  },
 }

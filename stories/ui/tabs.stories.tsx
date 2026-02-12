@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
+import { userEvent, within, expect } from "storybook/test"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/registry/base/components/ui/tabs"
 
 const meta = {
@@ -19,4 +20,18 @@ export const Default: Story = {
       <TabsContent value="password">Change your password here.</TabsContent>
     </Tabs>
   ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+
+    // Account tab is active by default
+    await expect(canvas.getByText("Make changes to your account here.")).toBeInTheDocument()
+
+    // Switch to Password tab
+    await userEvent.click(canvas.getByRole("tab", { name: /password/i }))
+    await expect(canvas.getByText("Change your password here.")).toBeInTheDocument()
+
+    // Switch back to Account tab
+    await userEvent.click(canvas.getByRole("tab", { name: /account/i }))
+    await expect(canvas.getByText("Make changes to your account here.")).toBeInTheDocument()
+  },
 }
