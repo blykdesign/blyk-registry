@@ -352,6 +352,20 @@
       ]
     },
     {
+      "name": "imovel-card",
+      "type": "registry:ui",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/df-imoveis/components/ui/imovel-card.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
       "name": "indicator-card",
       "type": "registry:ui",
       "files": [

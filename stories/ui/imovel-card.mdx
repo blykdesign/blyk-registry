@@ -1,0 +1,104 @@
+import { Meta, Canvas, Controls, ArgTypes } from '@storybook/addon-docs/blocks'
+import * as Stories from './imovel-card.stories'
+
+<Meta of={Stories} />
+
+# ImovelCard
+
+A real estate property card designed to display a property listing with image, highlight tags, price, address, and feature badges.
+
+Built as a compound component following the same pattern as `Card` and `IndicatorCard`, giving you full control over the layout and composition.
+
+## Installation
+
+```bash
+npx shadcn@latest add "https://registry.blyk.design/r/df-imoveis/imovel-card.json"
+```
+
+## Usage
+
+```tsx
+import {
+  ImovelCard,
+  ImovelCardImage,
+  ImovelCardContent,
+  ImovelCardTags,
+  ImovelCardTag,
+  ImovelCardPrice,
+  ImovelCardAddress,
+  ImovelCardFeatures,
+} from "@/components/ui/imovel-card"
+```
+
+```tsx
+<ImovelCard>
+  <ImovelCardImage
+    src="/photo.jpg"
+    alt="Foto do imóvel"
+  />
+  <ImovelCardContent>
+    <ImovelCardTags>
+      <ImovelCardTag>
+        <Star /> Destaque
+      </ImovelCardTag>
+    </ImovelCardTags>
+    <ImovelCardPrice>R$ 500.000</ImovelCardPrice>
+    <ImovelCardAddress>
+      SQS 308 Bloco A, Apartamento 302 - Asa Sul
+    </ImovelCardAddress>
+    <ImovelCardFeatures>
+      <ImovelCardTag variant="outline">
+        <Bed /> 3
+      </ImovelCardTag>
+      <ImovelCardTag variant="outline">
+        <Bath /> 2
+      </ImovelCardTag>
+      <ImovelCardTag variant="outline">
+        <Car /> 1
+      </ImovelCardTag>
+      <ImovelCardTag variant="outline">
+        <Maximize2 /> 200m²
+      </ImovelCardTag>
+    </ImovelCardFeatures>
+  </ImovelCardContent>
+</ImovelCard>
+```
+
+## Examples
+
+### Default
+
+The full property card with image, highlight tags, price, address, and feature badges.
+
+<Canvas of={Stories.Default} />
+
+### Without Tags
+
+Tags are optional — simply omit `ImovelCardTags` when there are no highlights.
+
+<Canvas of={Stories.WithoutTags} />
+
+### Minimal Features
+
+A card with fewer feature badges, e.g. a smaller property.
+
+<Canvas of={Stories.MinimalFeatures} />
+
+### Grid Layout
+
+Multiple cards in a responsive grid that wraps automatically.
+
+<Canvas of={Stories.Grid} />
+
+## Sub-components
+
+| Component | Description |
+|---|---|
+| `ImovelCard` | Root container with border, shadow, rounded corners, and overflow hidden |
+| `ImovelCardImage` | Property photo with 3:2 aspect ratio and object-fit cover |
+| `ImovelCardContent` | Content area with vertical padding and gap |
+| `ImovelCardTags` | Flex row for highlight tag badges |
+| `ImovelCardTag` | Badge with `default` (filled primary) and `outline` (bordered) variants |
+| `ImovelCardPrice` | Price display (text-3xl, semibold) |
+| `ImovelCardAddress` | Address text (text-sm, muted) |
+| `ImovelCardFeatures` | Flex row for feature badges (bedrooms, baths, parking, area) |

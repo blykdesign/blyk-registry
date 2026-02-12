@@ -1,123 +1,278 @@
 import { Meta } from '@storybook/addon-docs/blocks'
+import {
+  ColorPairCard,
+  ColorSwatch,
+  TokenGrid,
+  RadiusPreview,
+  FontPreview,
+  SpacingScale,
+  TokenDivider,
+} from './token-display'
 
 <Meta title="Tokens" />
 
 # Design Tokens
 
-blyk uses CSS variables as design tokens, following the same convention as [shadcn/ui theming](https://ui.shadcn.com/docs/theming). All tokens are defined in `registry/base/tokens/` and mapped to Tailwind CSS via the `@theme inline` block.
+blyk uses **CSS variables** as design tokens, following the [shadcn/ui theming](https://ui.shadcn.com/docs/theming) convention. All tokens are defined in `registry/base/tokens/` and mapped to Tailwind CSS via the `@theme inline` block.
+
+Tokens are the single source of truth for colors, typography, radius, and spacing across the entire design system. When you switch themes or toggle dark mode, every component updates automatically.
+
+<TokenDivider />
 
 ## Convention
 
-Colors follow a **background / foreground** convention. Each semantic color has a pair:
+Colors follow a **background / foreground** pairing. Each semantic color has two variables: one for the background and one for text on that background. This ensures consistent contrast across all components.
+
+<div style={{ display: "flex", gap: "0.75rem", margin: "1.5rem 0" }}>
+  {[
+    { bg: "--primary", fg: "--primary-foreground", label: "primary" },
+    { bg: "--secondary", fg: "--secondary-foreground", label: "secondary" },
+    { bg: "--destructive", fg: "--destructive-foreground", label: "destructive" },
+  ].map((item) => (
+    <div
+      key={item.label}
+      style={{
+        flex: 1,
+        backgroundColor: `hsl(var(${item.bg}))`,
+        color: `hsl(var(${item.fg}))`,
+        padding: "1.25rem 1rem",
+        borderRadius: "var(--radius)",
+        textAlign: "center",
+        fontFamily: "var(--font-mono)",
+      }}
+    >
+      <div style={{ fontWeight: 600, fontSize: "0.8125rem", marginBottom: "0.25rem" }}>
+        bg-{item.label}
+      </div>
+      <div style={{ fontSize: "0.75rem", opacity: 0.75 }}>
+        text-{item.label}-foreground
+      </div>
+    </div>
+  ))}
+</div>
 
 ```css
 --primary: 0 0% 9%;            /* Background */
 --primary-foreground: 0 0% 98%; /* Text on primary background */
 ```
 
-This lets you use `bg-primary text-primary-foreground` for consistent contrast.
+Use `bg-primary text-primary-foreground` in Tailwind for consistent contrast.
+
+<TokenDivider />
 
 ## Colors
 
 ### Semantic Colors
 
-| Token | Light | Dark | Usage |
-|-------|-------|------|-------|
-| `--background` | `hsl(0 0% 100%)` | `hsl(0 0% 3.9%)` | Page background |
-| `--foreground` | `hsl(0 0% 3.9%)` | `hsl(0 0% 98%)` | Default text |
-| `--primary` | `hsl(0 0% 9%)` | `hsl(0 0% 98%)` | Primary actions, buttons |
-| `--primary-foreground` | `hsl(0 0% 98%)` | `hsl(0 0% 9%)` | Text on primary |
-| `--secondary` | `hsl(0 0% 96.1%)` | `hsl(0 0% 14.9%)` | Secondary actions |
-| `--secondary-foreground` | `hsl(0 0% 9%)` | `hsl(0 0% 98%)` | Text on secondary |
-| `--muted` | `hsl(0 0% 96.1%)` | `hsl(0 0% 14.9%)` | Muted backgrounds |
-| `--muted-foreground` | `hsl(0 0% 45.1%)` | `hsl(0 0% 63.9%)` | Subdued text |
-| `--accent` | `hsl(0 0% 96.1%)` | `hsl(0 0% 14.9%)` | Hover states |
-| `--accent-foreground` | `hsl(0 0% 9%)` | `hsl(0 0% 98%)` | Text on accent |
-| `--destructive` | `hsl(0 84.2% 60.2%)` | `hsl(0 62.8% 30.6%)` | Error, danger |
-| `--destructive-foreground` | `hsl(0 0% 98%)` | `hsl(0 0% 98%)` | Text on destructive |
+The core color palette for actions, states, and interactive elements.
+
+<TokenGrid columns={3}>
+  <ColorPairCard
+    bgVar="--primary"
+    fgVar="--primary-foreground"
+    label="primary"
+    description="Primary actions, buttons"
+  />
+  <ColorPairCard
+    bgVar="--secondary"
+    fgVar="--secondary-foreground"
+    label="secondary"
+    description="Secondary actions"
+  />
+  <ColorPairCard
+    bgVar="--muted"
+    fgVar="--muted-foreground"
+    label="muted"
+    description="Muted backgrounds, subdued text"
+  />
+  <ColorPairCard
+    bgVar="--accent"
+    fgVar="--accent-foreground"
+    label="accent"
+    description="Hover states, highlights"
+  />
+  <ColorPairCard
+    bgVar="--destructive"
+    fgVar="--destructive-foreground"
+    label="destructive"
+    description="Error, danger, delete"
+  />
+  <ColorPairCard
+    bgVar="--background"
+    fgVar="--foreground"
+    label="background"
+    description="Page background, default text"
+  />
+</TokenGrid>
 
 ### Surface Colors
 
-| Token | Light | Dark | Usage |
-|-------|-------|------|-------|
-| `--card` | `hsl(0 0% 100%)` | `hsl(0 0% 3.9%)` | Card background |
-| `--card-foreground` | `hsl(0 0% 3.9%)` | `hsl(0 0% 98%)` | Card text |
-| `--popover` | `hsl(0 0% 100%)` | `hsl(0 0% 3.9%)` | Popover background |
-| `--popover-foreground` | `hsl(0 0% 3.9%)` | `hsl(0 0% 98%)` | Popover text |
+Background colors for elevated containers like cards and popovers.
+
+<TokenGrid columns={2}>
+  <ColorPairCard
+    bgVar="--card"
+    fgVar="--card-foreground"
+    label="card"
+    description="Card backgrounds"
+  />
+  <ColorPairCard
+    bgVar="--popover"
+    fgVar="--popover-foreground"
+    label="popover"
+    description="Popover, dropdown backgrounds"
+  />
+</TokenGrid>
 
 ### Border & Input
 
-| Token | Light | Dark | Usage |
-|-------|-------|------|-------|
-| `--border` | `hsl(0 0% 89.8%)` | `hsl(0 0% 14.9%)` | Default borders |
-| `--input` | `hsl(0 0% 89.8%)` | `hsl(0 0% 14.9%)` | Input borders |
-| `--ring` | `hsl(0 0% 3.9%)` | `hsl(0 0% 83.1%)` | Focus rings |
+Utility colors for borders, input fields, and focus indicators.
+
+<TokenGrid columns={3}>
+  <ColorSwatch cssVar="--border" description="Default borders" />
+  <ColorSwatch cssVar="--input" description="Input field borders" />
+  <ColorSwatch cssVar="--ring" description="Focus rings" />
+</TokenGrid>
 
 ### Chart Colors
 
-| Token | Light | Dark |
-|-------|-------|------|
-| `--chart-1` | `hsl(12 76% 61%)` | `hsl(220 70% 50%)` |
-| `--chart-2` | `hsl(173 58% 39%)` | `hsl(160 60% 45%)` |
-| `--chart-3` | `hsl(197 37% 24%)` | `hsl(30 80% 55%)` |
-| `--chart-4` | `hsl(43 74% 66%)` | `hsl(280 65% 60%)` |
-| `--chart-5` | `hsl(27 87% 67%)` | `hsl(340 75% 55%)` |
+A palette of five colors for data visualizations.
+
+<TokenGrid columns={5}>
+  <ColorSwatch cssVar="--chart-1" description="Chart 1" />
+  <ColorSwatch cssVar="--chart-2" description="Chart 2" />
+  <ColorSwatch cssVar="--chart-3" description="Chart 3" />
+  <ColorSwatch cssVar="--chart-4" description="Chart 4" />
+  <ColorSwatch cssVar="--chart-5" description="Chart 5" />
+</TokenGrid>
 
 ### Sidebar Colors
 
-| Token | Light | Dark |
-|-------|-------|------|
-| `--sidebar-background` | `hsl(0 0% 98%)` | `hsl(240 5.9% 10%)` |
-| `--sidebar-foreground` | `hsl(240 5.3% 26.1%)` | `hsl(240 4.8% 95.9%)` |
-| `--sidebar-primary` | `hsl(240 5.9% 10%)` | `hsl(224.3 76.3% 48%)` |
-| `--sidebar-accent` | `hsl(240 4.8% 95.9%)` | `hsl(240 3.7% 15.9%)` |
-| `--sidebar-border` | `hsl(220 13% 91%)` | `hsl(240 3.7% 15.9%)` |
-| `--sidebar-ring` | `hsl(217.2 91.2% 59.8%)` | `hsl(217.2 91.2% 59.8%)` |
+Dedicated color tokens for the sidebar component.
+
+<TokenGrid columns={3}>
+  <ColorPairCard
+    bgVar="--sidebar-background"
+    fgVar="--sidebar-foreground"
+    label="sidebar"
+    description="Sidebar base"
+  />
+  <ColorPairCard
+    bgVar="--sidebar-primary"
+    fgVar="--sidebar-primary-foreground"
+    label="sidebar-primary"
+    description="Active sidebar items"
+  />
+  <ColorPairCard
+    bgVar="--sidebar-accent"
+    fgVar="--sidebar-accent-foreground"
+    label="sidebar-accent"
+    description="Hover states in sidebar"
+  />
+</TokenGrid>
+
+<TokenGrid columns={2}>
+  <ColorSwatch cssVar="--sidebar-border" description="Sidebar borders" />
+  <ColorSwatch cssVar="--sidebar-ring" description="Sidebar focus rings" />
+</TokenGrid>
+
+<TokenDivider />
 
 ## Radius
 
-| Token | Value | Derived |
-|-------|-------|---------|
-| `--radius` | `0.5rem` | Base radius |
-| `--radius-sm` | `calc(var(--radius) - 4px)` | Small elements |
-| `--radius-md` | `calc(var(--radius) - 2px)` | Medium elements |
-| `--radius-lg` | `var(--radius)` | Large elements |
-| `--radius-xl` | `calc(var(--radius) + 4px)` | Extra large elements |
+Border radius tokens are derived from a single base `--radius` value. This makes it easy to adjust the overall roundness of the system.
+
+<TokenGrid columns={5}>
+  <RadiusPreview
+    name="--radius-sm"
+    cssValue="calc(var(--radius) - 4px)"
+    resolvedValue="Small elements"
+  />
+  <RadiusPreview
+    name="--radius-md"
+    cssValue="calc(var(--radius) - 2px)"
+    resolvedValue="Medium elements"
+  />
+  <RadiusPreview
+    name="--radius-lg"
+    cssValue="var(--radius)"
+    resolvedValue="Large elements (base)"
+  />
+  <RadiusPreview
+    name="--radius-xl"
+    cssValue="calc(var(--radius) + 4px)"
+    resolvedValue="Extra large elements"
+  />
+  <RadiusPreview
+    name="--radius"
+    cssValue="0.5rem"
+    resolvedValue="Base value (8px)"
+  />
+</TokenGrid>
+
+<TokenDivider />
 
 ## Typography
 
-| Token | Value |
-|-------|-------|
-| `--font-sans` | `"Inter", ui-sans-serif, system-ui, sans-serif` |
-| `--font-mono` | `"JetBrains Mono", ui-monospace, monospace` |
-| `--font-heading` | `var(--font-sans)` |
+Font family tokens define the typefaces used across the design system.
+
+<FontPreview
+  cssVar="--font-sans"
+  value={'"Inter", ui-sans-serif, system-ui, sans-serif'}
+/>
+
+<FontPreview
+  cssVar="--font-mono"
+  value={'"JetBrains Mono", ui-monospace, monospace'}
+  specimen="const design = { tokens: true }"
+/>
+
+<FontPreview
+  cssVar="--font-heading"
+  value="var(--font-sans)"
+  specimen="Design System Tokens"
+/>
+
+<TokenDivider />
 
 ## Spacing
 
-| Token | Value |
-|-------|-------|
-| `--spacing-unit` | `0.25rem` |
+Spacing is based on a `--spacing-unit` of **0.25rem** (4px). Tailwind utility classes use multiples of this unit for consistent spacing throughout the system.
+
+<SpacingScale />
+
+<TokenDivider />
 
 ## Dark Mode
 
-Dark mode is activated by adding the `dark` class to the root element:
+Dark mode is activated by adding the `dark` class to the root element. All color tokens automatically switch to their dark-mode values.
 
 ```html
 <html class="dark">
 ```
 
-All color tokens automatically switch to their dark values.
+> **Tip:** Use the **Mode** toggle in the Storybook toolbar above to preview all tokens in dark mode. Every color swatch on this page updates in real time.
+
+<TokenDivider />
 
 ## Custom Themes
 
-To create a custom theme, override the CSS variables:
+To create a custom theme, override the CSS variables using a `data-theme` attribute:
 
 ```css
 [data-theme="custom"] {
   --primary: 220 90% 56%;
   --primary-foreground: 0 0% 100%;
-  /* ... override other tokens */
+  /* ... override other tokens as needed */
+}
+
+[data-theme="custom"].dark {
+  --primary: 220 80% 65%;
+  --primary-foreground: 220 20% 10%;
+  /* ... dark mode overrides */
 }
 ```
 
-The blyk registry supports multiple themes. See the `registry/base/tokens/` directory for the base token definitions.
+The blyk registry supports multiple themes. Each theme lives in its own directory under `registry/` with token overrides. Use the **Theme** toggle in the Storybook toolbar to switch between available themes.
+
+See `registry/base/tokens/` for the complete base token definitions.
