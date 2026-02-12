@@ -12,10 +12,10 @@ import {
 import { Input } from "@/registry/base/components/ui/input"
 import { Button } from "@/registry/base/components/ui/button"
 
-const meta = {
+const meta: Meta = {
   title: "Components/Misc/Form",
   component: Form,
-} satisfies Meta<typeof Form>
+}
 export default meta
 type Story = StoryObj<typeof meta>
 

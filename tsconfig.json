@@ -13,6 +13,9 @@
     "rootDir": ".",
     "baseUrl": ".",
     "paths": {
+      "@/components/*": ["./registry/base/components/*"],
+      "@/hooks/*": ["./registry/base/components/hooks/*"],
+      "@/lib/*": ["./lib/*"],
       "@/*": ["./*"]
     },
     "jsx": "react-jsx",

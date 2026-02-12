@@ -23,11 +23,11 @@ const chartConfig = {
   mobile: { label: "Mobile", color: "hsl(var(--chart-2))" },
 } satisfies ChartConfig
 
-const meta = {
+const meta: Meta = {
   title: "Components/Misc/Chart",
   component: ChartContainer,
   parameters: { layout: "padded" },
-} satisfies Meta<typeof ChartContainer>
+}
 export default meta
 type Story = StoryObj<typeof meta>
 

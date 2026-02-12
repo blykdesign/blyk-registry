@@ -10,6 +10,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const LTR: Story = {
+  args: { dir: "ltr" },
   render: () => (
     <DirectionProvider dir="ltr">
       <div className="flex gap-2"><Button>Left</Button><Button>Right</Button></div>
@@ -17,6 +18,7 @@ export const LTR: Story = {
   ),
 }
 export const RTL: Story = {
+  args: { dir: "rtl" },
   render: () => (
     <DirectionProvider dir="rtl">
       <div className="flex gap-2"><Button>Right</Button><Button>Left</Button></div>

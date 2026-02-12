@@ -9,6 +9,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
+  args: { type: "single" },
   render: () => (
     <Accordion type="single" collapsible className="w-full">
       <AccordionItem value="item-1">
@@ -28,6 +29,7 @@ export const Default: Story = {
 }
 
 export const Multiple: Story = {
+  args: { type: "multiple" },
   render: () => (
     <Accordion type="multiple" className="w-full">
       <AccordionItem value="item-1">
