@@ -5,13 +5,17 @@ import { Label } from "@/registry/base/components/ui/label"
 const meta = {
   title: "Components/Data Entry/Radio Group",
   component: RadioGroup,
+  args: { defaultValue: "comfortable" },
+  argTypes: {
+    disabled: { control: "boolean" },
+  },
 } satisfies Meta<typeof RadioGroup>
 export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  render: () => (
-    <RadioGroup defaultValue="comfortable">
+  render: (args) => (
+    <RadioGroup {...args}>
       <div className="flex items-center space-x-2">
         <RadioGroupItem value="default" id="r1" />
         <Label htmlFor="r1">Default</Label>

@@ -6,6 +6,11 @@ const meta = {
   component: Slider,
   parameters: { layout: "padded" },
   args: { defaultValue: [50], max: 100, step: 1 },
+  argTypes: {
+    max: { control: { type: "number", min: 1, max: 1000 } },
+    step: { control: { type: "number", min: 1, max: 100 } },
+    disabled: { control: "boolean" },
+  },
 } satisfies Meta<typeof Slider>
 export default meta
 type Story = StoryObj<typeof meta>
