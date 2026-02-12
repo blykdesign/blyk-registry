@@ -13,7 +13,7 @@ function ImovelCard({
     <div
       data-slot="imovel-card"
       className={cn(
-        "flex w-[342px] flex-col overflow-hidden rounded-[14px] border border-border bg-card bg-linear-to-b from-transparent to-primary/10 text-card-foreground shadow-sm transition-shadow hover:shadow-lg active:shadow-none",
+        "flex w-[342px] flex-col overflow-hidden rounded-[14px] border border-border bg-card bg-linear-to-b from-transparent to-primary/15 text-card-foreground shadow-sm transition-shadow hover:shadow-lg active:shadow-none",
         className
       )}
       {...props}
@@ -91,8 +91,7 @@ const imovelCardTagVariants = cva(
       variant: {
         default:
           "border border-transparent bg-primary text-primary-foreground",
-        outline:
-          "border border-border bg-background text-foreground",
+        ghost: "text-foreground",
       },
     },
     defaultVariants: {

@@ -49,16 +49,16 @@ export const Default: Story = {
           SQS 308 Bloco A, Apartamento 302 - Asa Sul
         </ImovelCardAddress>
         <ImovelCardFeatures>
-          <ImovelCardTag variant="outline">
+          <ImovelCardTag variant="ghost">
             <Bed /> 3
           </ImovelCardTag>
-          <ImovelCardTag variant="outline">
+          <ImovelCardTag variant="ghost">
             <Bath /> 3
           </ImovelCardTag>
-          <ImovelCardTag variant="outline">
+          <ImovelCardTag variant="ghost">
             <Car /> 2
           </ImovelCardTag>
-          <ImovelCardTag variant="outline">
+          <ImovelCardTag variant="ghost">
             <Maximize2 /> 200m²
           </ImovelCardTag>
         </ImovelCardFeatures>
@@ -80,16 +80,16 @@ export const WithoutTags: Story = {
           SQNW 310 Bloco B, Sala 205 - Noroeste
         </ImovelCardAddress>
         <ImovelCardFeatures>
-          <ImovelCardTag variant="outline">
+          <ImovelCardTag variant="ghost">
             <Bed /> 2
           </ImovelCardTag>
-          <ImovelCardTag variant="outline">
+          <ImovelCardTag variant="ghost">
             <Bath /> 1
           </ImovelCardTag>
-          <ImovelCardTag variant="outline">
+          <ImovelCardTag variant="ghost">
             <Car /> 1
           </ImovelCardTag>
-          <ImovelCardTag variant="outline">
+          <ImovelCardTag variant="ghost">
             <Maximize2 /> 85m²
           </ImovelCardTag>
         </ImovelCardFeatures>
@@ -116,13 +116,13 @@ export const MinimalFeatures: Story = {
           QI 25 Lote 10, Guará II
         </ImovelCardAddress>
         <ImovelCardFeatures>
-          <ImovelCardTag variant="outline">
+          <ImovelCardTag variant="ghost">
             <Bed /> 2
           </ImovelCardTag>
-          <ImovelCardTag variant="outline">
+          <ImovelCardTag variant="ghost">
             <Bath /> 1
           </ImovelCardTag>
-          <ImovelCardTag variant="outline">
+          <ImovelCardTag variant="ghost">
             <Maximize2 /> 50m²
           </ImovelCardTag>
         </ImovelCardFeatures>
@@ -160,16 +160,16 @@ export const Grid: Story = {
             SQS 308 Bloco A, Apartamento 302 - Asa Sul
           </ImovelCardAddress>
           <ImovelCardFeatures>
-            <ImovelCardTag variant="outline">
+            <ImovelCardTag variant="ghost">
               <Bed /> 3
             </ImovelCardTag>
-            <ImovelCardTag variant="outline">
+            <ImovelCardTag variant="ghost">
               <Bath /> 3
             </ImovelCardTag>
-            <ImovelCardTag variant="outline">
+            <ImovelCardTag variant="ghost">
               <Car /> 2
             </ImovelCardTag>
-            <ImovelCardTag variant="outline">
+            <ImovelCardTag variant="ghost">
               <Maximize2 /> 200m²
             </ImovelCardTag>
           </ImovelCardFeatures>
@@ -187,16 +187,16 @@ export const Grid: Story = {
             SQNW 310 Bloco B, Sala 205 - Noroeste
           </ImovelCardAddress>
           <ImovelCardFeatures>
-            <ImovelCardTag variant="outline">
+            <ImovelCardTag variant="ghost">
               <Bed /> 2
             </ImovelCardTag>
-            <ImovelCardTag variant="outline">
+            <ImovelCardTag variant="ghost">
               <Bath /> 1
             </ImovelCardTag>
-            <ImovelCardTag variant="outline">
+            <ImovelCardTag variant="ghost">
               <Car /> 1
             </ImovelCardTag>
-            <ImovelCardTag variant="outline">
+            <ImovelCardTag variant="ghost">
               <Maximize2 /> 85m²
             </ImovelCardTag>
           </ImovelCardFeatures>
@@ -219,16 +219,16 @@ export const Grid: Story = {
             SHIS QI 15 Conjunto 10, Casa 4 - Lago Sul
           </ImovelCardAddress>
           <ImovelCardFeatures>
-            <ImovelCardTag variant="outline">
+            <ImovelCardTag variant="ghost">
               <Bed /> 4
             </ImovelCardTag>
-            <ImovelCardTag variant="outline">
+            <ImovelCardTag variant="ghost">
               <Bath /> 3
             </ImovelCardTag>
-            <ImovelCardTag variant="outline">
+            <ImovelCardTag variant="ghost">
               <Car /> 4
             </ImovelCardTag>
-            <ImovelCardTag variant="outline">
+            <ImovelCardTag variant="ghost">
               <Maximize2 /> 450m²
             </ImovelCardTag>
           </ImovelCardFeatures>
