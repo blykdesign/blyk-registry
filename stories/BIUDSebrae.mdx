@@ -6,7 +6,6 @@ import {
   DocDivider,
   Step,
   Tip,
-  ThemeBadge,
 } from './doc-display'
 
 <Meta title="BIUD Sebrae/Overview" />
@@ -14,21 +13,16 @@ import {
 <Hero
   title="BIUD Sebrae"
   subtitle="theme"
-  description="Tema do Design System Blyk para o projeto BIUD Sebrae. Herda todos os componentes do tema base e customiza cores e tipografia conforme a identidade visual do Sebrae."
-/>
-
-<ThemeBadge
-  theme="biud-sebrae"
-  description="Selecione 'BIUD Sebrae' na barra de ferramentas acima para visualizar este tema aplicado em todos os componentes."
+  description="A custom theme built for the BIUD Sebrae project. Extends the blyk base design system with brand-specific colors, typography (Figtree), and inherits all base components."
 />
 
 <DocDivider />
 
-## Identidade visual
+## Theme Colors
 
-O tema BIUD Sebrae utiliza uma paleta baseada em azul (#1B50E2) como cor primária, combinada com tons de slate para backgrounds e bordas. A tipografia principal é a **Figtree**, com **Geist Mono** para código.
+The BIUD Sebrae theme uses a blue-based palette (#1B50E2) optimized for the Sebrae brand. Switch to the **BIUD Sebrae** theme using the toolbar above to see these colors applied.
 
-<div style={{ display: "flex", gap: "0.5rem", margin: "1rem 0", flexWrap: "wrap" }}>
+<div style={{ display: "flex", gap: "0.5rem", margin: "1rem 0" }}>
   {[
     { bg: "224 76% 50%", fg: "210 40% 99%", label: "Primary" },
     { bg: "210 40% 96.1%", fg: "222 47% 11%", label: "Secondary" },
@@ -39,8 +33,7 @@ O tema BIUD Sebrae utiliza uma paleta baseada em azul (#1B50E2) como cor primár
     <div
       key={item.label}
       style={{
-        flex: "1 1 120px",
-        minWidth: "100px",
+        flex: 1,
         backgroundColor: `hsl(${item.bg})`,
         color: `hsl(${item.fg})`,
         padding: "1rem 0.75rem",
@@ -56,71 +49,41 @@ O tema BIUD Sebrae utiliza uma paleta baseada em azul (#1B50E2) como cor primár
 </div>
 
 <Tip>
-  Use o seletor <strong>Theme</strong> na barra de ferramentas do Storybook para alternar entre <strong>blyk-base</strong>, <strong>DF Imóveis</strong> e <strong>BIUD Sebrae</strong>. Todos os componentes e tokens são atualizados em tempo real.
+  Use the <strong>Theme</strong> toggle in the Storybook toolbar to switch between <strong>blyk-base</strong>, <strong>DF Imóveis</strong>, and <strong>BIUD Sebrae</strong>. All components and tokens update in real time.
 </Tip>
 
 <DocDivider />
 
-## Tokens customizados
+## Components
 
-O tema BIUD Sebrae sobrescreve os seguintes tokens em relação ao blyk-base:
+The BIUD Sebrae theme inherits all base components. No theme-exclusive components — use the full component library with BIUD Sebrae tokens applied.
 
-<DocGrid columns={3}>
+<DocGrid columns={2}>
   <FeatureCard
-    title="Cores"
-    description="Primary azul (#1B50E2), paleta slate para backgrounds, chart colors customizados (azul, laranja, amber)."
+    title="Base Components"
+    description="Button, Card, Input, Dialog, Table, Tabs, and all shadcn/ui components adapted to the blyk registry."
   />
   <FeatureCard
-    title="Tipografia"
-    description="Figtree (sans), Georgia (serif), Geist Mono (mono). Font-heading herda de font-sans."
-  />
-  <FeatureCard
-    title="Radius"
-    description="Base radius de 0.5rem (8px), consistente com o tema base."
+    title="Themed Tokens"
+    description="Every component installed via the biud-sebrae registry includes the theme cssVars. Apply data-theme on the HTML root."
   />
 </DocGrid>
 
-### Cores divergentes do blyk-base
-
-| Token | Light | Dark |
-|-------|-------|------|
-| `--primary` | 224 76% 50% (#1B50E2) | 214 32% 91% |
-| `--primary-foreground` | 210 40% 99% | 224 76% 50% (#1B50E2) |
-| `--foreground` | 222 47% 4% (slate-950) | 210 40% 99% |
-| `--border` | 214 32% 91% (slate-200) | 0 0% 100% / 0.1 |
-| `--input` | 214 32% 91% | 0 0% 100% / 0.15 |
-| `--ring` | 215 20% 65% (slate-400) | 215 16% 47% (slate-500) |
-| `--chart-1` | 224 76% 50% (azul) | 224 100% 92% |
-| `--chart-2` | 24 76% 55% (laranja) | 20 100% 80% |
-| `--chart-4` | 43 96% 56% (amber) | 280 65% 60% |
-
-### Tipografia
-
-| Token | Valor |
-|-------|-------|
-| `--font-sans` | "Figtree" |
-| `--font-serif` | "Georgia" |
-| `--font-mono` | "Geist Mono" |
-| `--font-heading` | var(--font-sans) |
-
 <DocDivider />
 
-## Instalação
+## Installation
 
-<Step number={1} title="Instalar componentes do tema">
-  Use o shadcn CLI para instalar componentes a partir do registry BIUD Sebrae.
+<Step number={1} title="Install the theme components">
+  Use the shadcn CLI to install components from the BIUD Sebrae registry path.
 </Step>
 
 ```bash
-# Instalar um componente específico
 npx shadcn@latest add button --registry https://registry.blyk.design/r/biud-sebrae
-
-# Instalar todos os componentes
 npx shadcn@latest add --all --registry https://registry.blyk.design/r/biud-sebrae
 ```
 
-<Step number={2} title="Adicionar os tokens do tema">
-  Copie os overrides de tokens do BIUD Sebrae para o seu projeto. Os arquivos estão em `registry/biud-sebrae/tokens/`.
+<Step number={2} title="Add the theme CSS">
+  Copy the BIUD Sebrae token overrides into your project. These override the base blyk tokens with the brand palette.
 </Step>
 
 ```css
@@ -129,33 +92,12 @@ npx shadcn@latest add --all --registry https://registry.blyk.design/r/biud-sebra
   --primary-foreground: 210 40% 99%;
   --font-sans: "Figtree", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "Geist Mono", ui-monospace, monospace;
-  /* ... veja registry/biud-sebrae/tokens/ para a lista completa */
-}
-
-[data-theme="biud-sebrae"].dark {
-  --primary: 214 32% 91%;
-  --primary-foreground: 224 76% 50%;
-  /* ... */
+  /* ... see registry/biud-sebrae/tokens/ for the full list */
 }
 ```
 
-<Step number={3} title="Carregar as fontes">
-  Inclua as fontes Figtree e Geist Mono no seu projeto para que a tipografia seja exibida corretamente.
-</Step>
-
-```html
-<!-- Figtree (Google Fonts) -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
-```
-
-```css
-/* Ou via CSS */
-@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap');
-```
-
-<Step number={4} title="Ativar o tema">
-  Aplique o tema usando o atributo `data-theme` no elemento raiz.
+<Step number={3} title="Activate the theme">
+  Apply the theme using a data attribute on the root element.
 </Step>
 
 ```html
@@ -164,34 +106,23 @@ npx shadcn@latest add --all --registry https://registry.blyk.design/r/biud-sebra
 
 <DocDivider />
 
-## Componentes disponíveis
+## Token Overrides
 
-O tema BIUD Sebrae herda **todos os componentes** do tema base. Não há componentes exclusivos — utilize os mesmos componentes de Actions, Data Entry, Data Display, Feedback, Layout, Navigation e Misc.
+The BIUD Sebrae theme overrides the following token categories from the base theme:
 
-<DocGrid columns={2}>
+<DocGrid columns={3}>
   <FeatureCard
-    title="Componentes base"
-    description="Button, Card, Input, Dialog, Table, Tabs e todos os demais componentes do shadcn/ui adaptados ao registry blyk."
+    title="Colors"
+    description="Full semantic palette with blue primary (#1B50E2), slate accents, and custom chart colors."
   />
   <FeatureCard
-    title="Tokens injetados"
-    description="Cada componente instalado via registry biud-sebrae já inclui os cssVars do tema. Basta aplicar data-theme no HTML."
+    title="Typography"
+    description="Figtree for sans-serif, Geist Mono for monospace, Georgia for serif."
+  />
+  <FeatureCard
+    title="Radius"
+    description="Base radius of 0.5rem, consistent with the base theme."
   />
 </DocGrid>
 
-<DocDivider />
-
-## Estrutura do tema
-
-```
-registry/biud-sebrae/
-├── README.md           ← documentação técnica
-├── tokens/
-│   ├── colors.css     ← cores light/dark
-│   ├── typography.css ← fontes
-│   └── radius.css     ← border-radius
-└── components/
-    └── ui/            ← overrides de componentes (opcional)
-```
-
-Os arquivos de tokens são mesclados com o tema base durante o build. Sobrescreva apenas o que for necessário; o restante herda do blyk-base.
+All token files are located in `registry/biud-sebrae/tokens/`. Both light and dark mode values are defined. See the **Tokens** page for a complete visual reference.

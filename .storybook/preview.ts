@@ -11,13 +11,11 @@ const withTheme: Decorator = (Story, context) => {
 
   useEffect(() => {
     const root = document.documentElement
-    // Apply theme attribute
     if (theme === "base") {
       root.removeAttribute("data-theme")
     } else {
       root.setAttribute("data-theme", theme)
     }
-    // Apply dark/light mode
     if (mode === "dark") {
       root.classList.add("dark")
     } else {
@@ -97,7 +95,7 @@ const preview: Preview = {
             ["Chart", "Direction", "Drawer", "Empty", "Field", "Form", "Label"],
           ],
           "DF Imóveis",
-          ["Overview", "IndicatorCard", "ImovelCard"],
+          ["Overview", "Tokens", "IndicatorCard", "ImovelCard"],
           "BIUD Sebrae",
           ["Overview", "Tokens"],
         ],
