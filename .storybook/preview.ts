@@ -2,6 +2,7 @@ import type { Preview, Decorator } from "@storybook/react-vite"
 import { useEffect } from "react"
 import "./globals.css"
 import "./theme-tokens/df-imoveis.css"
+import "./theme-tokens/biud-sebrae.css"
 
 /* ── Theme decorator ────────────────────────────────────── */
 const withTheme: Decorator = (Story, context) => {
@@ -49,6 +50,7 @@ const preview: Preview = {
         items: [
           { value: "base", title: "blyk-base" },
           { value: "df-imoveis", title: "DF Imóveis" },
+          { value: "biud-sebrae", title: "BIUD Sebrae" },
         ],
         dynamicTitle: true,
       },
@@ -96,6 +98,8 @@ const preview: Preview = {
           ],
           "DF Imóveis",
           ["Overview", "IndicatorCard", "ImovelCard"],
+          "BIUD Sebrae",
+          ["Overview", "Tokens"],
         ],
       },
     },

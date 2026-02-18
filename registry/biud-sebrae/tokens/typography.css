@@ -1,0 +1,8 @@
+/* Theme: biud-sebrae — Typography */
+
+:root {
+  --font-sans: "Figtree", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Georgia", ui-serif, Georgia, serif;
+  --font-mono: "Geist Mono", ui-monospace, monospace;
+  --font-heading: var(--font-sans);
+}

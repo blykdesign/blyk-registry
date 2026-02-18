@@ -1,0 +1,181 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+import {
+  ColorPairCard,
+  ColorSwatch,
+  TokenGrid,
+  FontPreview,
+  TokenDivider,
+} from '../token-display'
+import { Tip, ThemeBadge } from '../doc-display'
+
+<Meta title="BIUD Sebrae/Tokens" />
+
+# Tokens do tema BIUD Sebrae
+
+Esta página exibe os tokens de design do tema BIUD Sebrae. **Selecione o tema "BIUD Sebrae" na barra de ferramentas** para visualizar as cores e tipografia aplicadas.
+
+<ThemeBadge
+  theme="biud-sebrae"
+  description="Os swatches abaixo usam variáveis CSS e refletem o tema atualmente selecionado."
+/>
+
+<TokenDivider />
+
+## Cores semânticas
+
+<TokenGrid columns={3}>
+  <ColorPairCard
+    bgVar="--primary"
+    fgVar="--primary-foreground"
+    label="primary"
+    description="Ações primárias, botões"
+  />
+  <ColorPairCard
+    bgVar="--secondary"
+    fgVar="--secondary-foreground"
+    label="secondary"
+    description="Ações secundárias"
+  />
+  <ColorPairCard
+    bgVar="--muted"
+    fgVar="--muted-foreground"
+    label="muted"
+    description="Backgrounds secundários"
+  />
+  <ColorPairCard
+    bgVar="--accent"
+    fgVar="--accent-foreground"
+    label="accent"
+    description="Hover, destaques"
+  />
+  <ColorPairCard
+    bgVar="--destructive"
+    fgVar="--destructive-foreground"
+    label="destructive"
+    description="Erro, perigo, excluir"
+  />
+  <ColorPairCard
+    bgVar="--background"
+    fgVar="--foreground"
+    label="background"
+    description="Page background, texto padrão"
+  />
+</TokenGrid>
+
+<TokenDivider />
+
+## Cores de superfície
+
+<TokenGrid columns={2}>
+  <ColorPairCard
+    bgVar="--card"
+    fgVar="--card-foreground"
+    label="card"
+    description="Backgrounds de cards"
+  />
+  <ColorPairCard
+    bgVar="--popover"
+    fgVar="--popover-foreground"
+    label="popover"
+    description="Popover, dropdown backgrounds"
+  />
+</TokenGrid>
+
+<TokenDivider />
+
+## Border e input
+
+<TokenGrid columns={3}>
+  <ColorSwatch cssVar="--border" description="Bordas padrão" />
+  <ColorSwatch cssVar="--input" description="Bordas de input" />
+  <ColorSwatch cssVar="--ring" description="Focus rings" />
+</TokenGrid>
+
+<TokenDivider />
+
+## Chart colors
+
+Paleta de cinco cores para visualizações de dados.
+
+<TokenGrid columns={5}>
+  <ColorSwatch cssVar="--chart-1" description="Chart 1 (azul)" />
+  <ColorSwatch cssVar="--chart-2" description="Chart 2 (laranja)" />
+  <ColorSwatch cssVar="--chart-3" description="Chart 3" />
+  <ColorSwatch cssVar="--chart-4" description="Chart 4 (amber)" />
+  <ColorSwatch cssVar="--chart-5" description="Chart 5" />
+</TokenGrid>
+
+<TokenDivider />
+
+## Cores de sidebar
+
+<TokenGrid columns={3}>
+  <ColorPairCard
+    bgVar="--sidebar-background"
+    fgVar="--sidebar-foreground"
+    label="sidebar"
+    description="Base da sidebar"
+  />
+  <ColorPairCard
+    bgVar="--sidebar-primary"
+    fgVar="--sidebar-primary-foreground"
+    label="sidebar-primary"
+    description="Itens ativos"
+  />
+  <ColorPairCard
+    bgVar="--sidebar-accent"
+    fgVar="--sidebar-accent-foreground"
+    label="sidebar-accent"
+    description="Hover na sidebar"
+  />
+</TokenGrid>
+
+<TokenGrid columns={2}>
+  <ColorSwatch cssVar="--sidebar-border" description="Bordas da sidebar" />
+  <ColorSwatch cssVar="--sidebar-ring" description="Focus rings da sidebar" />
+</TokenGrid>
+
+<TokenDivider />
+
+## Tipografia
+
+O tema BIUD Sebrae utiliza **Figtree** como fonte principal e **Geist Mono** para código.
+
+<FontPreview
+  cssVar="--font-sans"
+  value={'"Figtree", ui-sans-serif, system-ui, sans-serif'}
+  specimen="Design System BIUD Sebrae"
+/>
+
+<FontPreview
+  cssVar="--font-mono"
+  value={'"Geist Mono", ui-monospace, monospace'}
+  specimen="const theme = { primary: '#1B50E2' }"
+/>
+
+<FontPreview
+  cssVar="--font-heading"
+  value="var(--font-sans)"
+  specimen="Títulos e Headings"
+/>
+
+<Tip>
+  Para carregar a fonte Figtree no seu projeto, adicione o link do Google Fonts no HTML ou use <code>@import</code> no CSS. Ver a página Overview para instruções completas.
+</Tip>
+
+<TokenDivider />
+
+## Valores de referência (HSL)
+
+| Token | Light | Dark |
+|-------|-------|------|
+| `--primary` | 224 76% 50% | 214 32% 91% |
+| `--primary-foreground` | 210 40% 99% | 224 76% 50% |
+| `--foreground` | 222 47% 4% | 210 40% 99% |
+| `--border` | 214 32% 91% | 0 0% 100% / 0.1 |
+| `--input` | 214 32% 91% | 0 0% 100% / 0.15 |
+| `--ring` | 215 20% 65% | 215 16% 47% |
+| `--chart-1` | 224 76% 50% | 224 100% 92% |
+| `--chart-2` | 24 76% 55% | 20 100% 80% |
+| `--chart-4` | 43 96% 56% | 280 65% 60% |
+| `--radius` | 0.5rem | — |
