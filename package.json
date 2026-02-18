@@ -9,9 +9,10 @@
     "build:registry": "shadcn build",
     "build:themes": "tsx scripts/build-registry.ts",
     "dev": "npx serve public",
+    "dev:imobiliaria": "vite --config apps/imobiliaria-digital/vite.config.ts",
     "new-theme": "tsx scripts/new-theme.ts",
     "sync-shadcn": "tsx scripts/sync-shadcn.ts",
-    "storybook": "storybook dev -p 6006",
+    "storybook": "storybook dev -p 6010 -h 127.0.0.1",
     "build-storybook": "storybook build -o storybook-static",
     "typecheck": "tsc --noEmit"
   },

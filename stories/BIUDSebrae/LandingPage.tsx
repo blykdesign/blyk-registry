@@ -1,5 +1,3 @@
-"use client"
-
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { SuperButton } from "@/components/ui/super-button"
@@ -20,6 +18,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet"
 import { cn } from "@/lib/utils"
+import { ScrollReveal } from "./ScrollReveal"
 import {
   ArrowRight,
   Building2,
@@ -212,7 +211,8 @@ function PlataformaHelpBlock({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "rounded-2xl bg-muted py-4 px-6 flex flex-col justify-center gap-2",
+        "rounded-2xl bg-muted p-6 flex flex-col justify-center gap-2 min-h-0",
+        "md:h-full md:min-h-0",
         className
       )}
     >
@@ -306,7 +306,7 @@ export function LandingPage() {
       {/* Hero - pt para compensar header fixo, pb-0 para a mão encostar no cinza */}
       <section className={cn(SECTION_BASE, "pt-[120px] pb-0 md:pt-[152px] md:pb-0")}>
         <div className={cn(SECTION_CONTENT, TEXT_IMAGE_ROW)}>
-          <div className={TEXT_COLUMN}>
+          <ScrollReveal className={TEXT_COLUMN} direction="up">
             <h1 className="text-4xl font-bold leading-tight tracking-tight md:text-5xl text-foreground">
               Venda mais com a inteligência do Sebrae no seu bolso
             </h1>
@@ -328,50 +328,55 @@ export function LandingPage() {
               Comece agora de graça
               <ArrowRight className="size-4 shrink-0" />
             </SuperButton>
-          </div>
-          <div
+          </ScrollReveal>
+          <ScrollReveal
             className={cn(
               "relative w-full lg:w-[42%] lg:flex-shrink-0 h-[320px] lg:h-[480px]",
               IMAGE_COLUMN_BOTTOM
             )}
+            direction="up"
+            delay={100}
           >
             <img
               src={heroAppImg}
               alt="App BIUD Sebrae - Ideias da MIA no celular"
               className="h-full w-auto max-w-full object-contain object-bottom"
             />
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* Section: Marketing, IA e selo */}
       <section className={cn(SECTION_BASE, "bg-muted rounded-t-[32px]")}>
         <div className={SECTION_CONTENT}>
-          <h2 className={SECTION_HEADING}>
-            Marketing, IA e selo do Sebrae num só lugar
-          </h2>
-          <div className="grid gap-4 md:grid-cols-3">
-            {MARKETING_CARDS.map((card) => (
-              <Card
-                key={card.title}
-                className="overflow-hidden border-border flex flex-col"
-                style={{ background: CARD_GRADIENT }}
-              >
-                <div className="flex justify-start px-6 pt-6">
-                  <img
-                    src={card.img}
-                    alt=""
-                    className="size-[100px] object-contain"
-                    aria-hidden
-                  />
-                </div>
-                <div className="flex flex-1 flex-col justify-end gap-2 p-6 pt-8">
-                  <CardTitle className="text-xl leading-tight">
-                    {card.title}
-                  </CardTitle>
-                  <p className="text-base text-foreground/90">{card.desc}</p>
-                </div>
-              </Card>
+          <ScrollReveal>
+            <h2 className={SECTION_HEADING}>
+              Marketing, IA e selo do Sebrae num só lugar
+            </h2>
+          </ScrollReveal>
+          <div className="grid gap-4 md:grid-cols-3 md:items-stretch">
+            {MARKETING_CARDS.map((card, i) => (
+              <ScrollReveal key={card.title} delay={i * 80} className="h-full">
+                <Card
+                  className="overflow-hidden border-border flex flex-col h-full md:min-h-[280px]"
+                  style={{ background: CARD_GRADIENT }}
+                >
+                  <div className="flex justify-start p-6 pb-0">
+                    <img
+                      src={card.img}
+                      alt=""
+                      className="size-[100px] object-contain"
+                      aria-hidden
+                    />
+                  </div>
+                  <div className="flex flex-1 flex-col justify-end gap-2 p-6 pt-4">
+                    <CardTitle className="text-xl leading-tight">
+                      {card.title}
+                    </CardTitle>
+                    <p className="text-base text-foreground/90">{card.desc}</p>
+                  </div>
+                </Card>
+              </ScrollReveal>
             ))}
           </div>
         </div>
@@ -380,12 +385,15 @@ export function LandingPage() {
       {/* Section: Do cadastro ao crescimento */}
       <section className={cn(SECTION_BASE, "bg-background")}>
         <div className={SECTION_CONTENT}>
-          <h2 className={SECTION_HEADING}>
-            Do cadastro ao crescimento em poucos cliques
-          </h2>
+          <ScrollReveal>
+            <h2 className={SECTION_HEADING}>
+              Do cadastro ao crescimento em poucos cliques
+            </h2>
+          </ScrollReveal>
           <div className="grid gap-6 md:grid-cols-3 md:gap-8 mb-8 md:mb-12">
-            {GROWTH_STEPS.map((item) => (
-              <div key={item.step} className="flex gap-4">
+            {GROWTH_STEPS.map((item, i) => (
+              <ScrollReveal key={item.step} delay={i * 100}>
+              <div className="flex gap-4">
                 <div className="size-8 shrink-0 rounded-full border border-border flex items-center justify-center text-sm font-bold text-primary">
                   {item.step}
                 </div>
@@ -394,19 +402,22 @@ export function LandingPage() {
                   <p className="text-base text-foreground/90">{item.desc}</p>
                 </div>
               </div>
+              </ScrollReveal>
             ))}
           </div>
-          <Button size="lg" className="gap-2">
+          <ScrollReveal delay={200}>
+            <Button size="lg" className="gap-2">
             Comece agora de graça
             <ArrowRight className="size-4 shrink-0" />
           </Button>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* Section: IA do seu negócio */}
       <section className={SECTION_BASE} style={{ background: IA_GRADIENT }}>
         <div className={cn(SECTION_CONTENT, "flex flex-col lg:flex-row gap-6 lg:gap-16 items-center")}>
-          <div className="flex-1 space-y-6">
+          <ScrollReveal className="flex-1 space-y-6">
             <h2 className="text-3xl font-bold text-primary-foreground">
               Não é uma IA genérica. É a IA do seu negócio.
             </h2>
@@ -420,8 +431,8 @@ export function LandingPage() {
               Fale com a MIA agora
               <ArrowRight className="size-4 shrink-0" />
             </Button>
-          </div>
-          <div className="flex-1 flex justify-end">
+          </ScrollReveal>
+          <ScrollReveal className="flex-1 flex justify-end" delay={150}>
             <div className="w-full max-w-[380px] flex items-start gap-2 rounded-2xl border border-border/50 bg-white/10 p-4 pr-2 shadow-sm">
               <div className="flex flex-col gap-2 flex-1 min-w-0">
                 <div
@@ -444,14 +455,14 @@ export function LandingPage() {
                 className="size-[72px] shrink-0 rounded-full border border-border object-cover"
               />
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* Section: WhatsApp - mesmo layout do Hero */}
       <section className={cn(SECTION_BASE, "bg-muted pt-12 pb-0 md:pb-0")}>
         <div className={cn(SECTION_CONTENT, TEXT_IMAGE_ROW)}>
-          <div className="flex-1 space-y-6 lg:self-center lg:pb-16">
+          <ScrollReveal className="flex-1 space-y-6 lg:self-center lg:pb-16">
             <h2 className="text-3xl font-bold text-foreground">
               Pare de perder vendas no WhatsApp
             </h2>
@@ -464,19 +475,20 @@ export function LandingPage() {
               que falar na hora de oferecer algo novo. Seu WhatsApp continua o
               mesmo, só que agora trabalha a seu favor.
             </p>
-          </div>
-          <div
+          </ScrollReveal>
+          <ScrollReveal
             className={cn(
               "flex-1 w-full max-w-md lg:h-[380px]",
               IMAGE_COLUMN_BOTTOM
             )}
+            delay={100}
           >
             <img
               src={whatsappSectionImg}
               alt="Interface de dados do cliente e conversa no WhatsApp com a MIA"
               className="w-full max-w-md rounded-lg object-contain object-bottom"
             />
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -484,7 +496,7 @@ export function LandingPage() {
       <section className={cn(SECTION_BASE, "bg-card")}>
         <div className={SECTION_CONTENT}>
           <div className="grid lg:grid-cols-[1fr_340px] gap-6 lg:gap-12">
-            <div className="space-y-6">
+            <ScrollReveal className="space-y-6">
               <h2 className="text-3xl font-bold text-foreground">
                 Você já é mais sustentável do que imagina
               </h2>
@@ -540,8 +552,10 @@ export function LandingPage() {
                   </p>
                 </div>
               </Card>
-            </div>
-            <PlataformaHelpBlock className="hidden md:flex self-stretch" />
+            </ScrollReveal>
+            <ScrollReveal delay={150} className="min-h-0">
+              <PlataformaHelpBlock className="hidden md:flex self-stretch h-full" />
+            </ScrollReveal>
           </div>
         </div>
       </section>
@@ -549,7 +563,7 @@ export function LandingPage() {
       {/* Section: Suporte Sebrae */}
       <section className={cn(SECTION_BASE, "bg-muted")}>
         <div className={cn(SECTION_CONTENT, "flex flex-col lg:flex-row gap-2 lg:gap-12 items-stretch lg:items-center")}>
-          <div className="flex flex-col justify-center space-y-4 lg:space-y-6 min-w-0 lg:flex-1">
+          <ScrollReveal className="flex flex-col justify-center space-y-4 lg:space-y-6 min-w-0 lg:flex-1">
             <h2 className="text-3xl font-bold text-foreground">
               Todo o suporte do Sebrae, agora no seu celular.
             </h2>
@@ -558,12 +572,16 @@ export function LandingPage() {
               tem gente de verdade pronta para te atender. A plataforma conecta
               você a tudo isso num lugar só.
             </p>
-          </div>
-          <Card className="w-full min-w-0 lg:flex-1">
+          </ScrollReveal>
+          <ScrollReveal
+            className="w-full min-w-0 lg:flex-1"
+            delay={100}
+          >
+          <Card className="w-full min-w-0 overflow-hidden">
             <img
               src={suporteSebraeImg}
               alt="Consultor Sebrae - suporte humanizado para o seu negócio"
-              className="w-full h-[258px] object-cover"
+              className="w-full h-[258px] object-cover rounded-t-lg"
             />
             <CardContent className="p-6 space-y-6">
               <div className="flex items-center gap-3">
@@ -595,13 +613,14 @@ export function LandingPage() {
               </div>
             </CardContent>
           </Card>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* Section: Preço */}
       <section className={cn(SECTION_BASE, "bg-background")}>
         <div className={cn(SECTION_CONTENT, "flex flex-col lg:flex-row gap-8 lg:items-stretch")}>
-          <div className="flex flex-col justify-center gap-4 lg:flex-1">
+          <ScrollReveal className="flex flex-col justify-center gap-4 lg:flex-1">
             <h2 className="text-3xl font-bold text-foreground">
               Comece sem pagar nada por 15 dias
             </h2>
@@ -611,8 +630,12 @@ export function LandingPage() {
               de sustentabilidade do Sebrae. Sem taxa escondida, sem plano
               intermediário, sem pegadinha.
             </p>
-          </div>
-          <Card className="border-border lg:flex-1 lg:min-w-0">
+          </ScrollReveal>
+          <ScrollReveal
+            className="lg:flex-1 lg:min-w-0"
+            delay={100}
+          >
+          <Card className="border-border w-full">
             <CardContent className="p-6 space-y-6">
               <div className="flex flex-wrap gap-2">
                 <Badge variant="default" className="text-xs">
@@ -644,13 +667,17 @@ export function LandingPage() {
               </Button>
             </CardContent>
           </Card>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* Section: FAQ */}
       <section className={cn(SECTION_BASE, "bg-muted")}>
         <div className={SECTION_CONTENT}>
-          <h2 className={SECTION_HEADING}>Ainda tem dúvidas?</h2>
+          <ScrollReveal>
+            <h2 className={SECTION_HEADING}>Ainda tem dúvidas?</h2>
+          </ScrollReveal>
+          <ScrollReveal delay={80}>
           <Accordion type="single" collapsible defaultValue="item-0" className="space-y-0">
             {FAQ_ITEMS_WITH_CONTENT.map((item, i) => (
               <AccordionItem key={item.trigger} value={`item-${i}`}>
@@ -661,6 +688,8 @@ export function LandingPage() {
               </AccordionItem>
             ))}
           </Accordion>
+          </ScrollReveal>
+          <ScrollReveal delay={160}>
           <div className="mt-8 flex flex-col sm:flex-row items-center gap-4">
             <p className="text-sm text-muted-foreground">
               Ainda tem dúvidas?
@@ -670,6 +699,7 @@ export function LandingPage() {
               <ArrowRight className="size-4 shrink-0" />
             </Button>
           </div>
+          </ScrollReveal>
         </div>
       </section>
 

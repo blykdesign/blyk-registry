@@ -41,6 +41,14 @@ const config: StorybookConfig = {
     // (the registry landing page) over Storybook's own index.html.
     config.publicDir = false
 
+    // Evitar "Importing a module script failed" — otimizar deps e garantir MIME correto
+    config.optimizeDeps = config.optimizeDeps || {}
+    config.optimizeDeps.include = [
+      ...(config.optimizeDeps.include || []),
+      "react",
+      "react-dom",
+    ]
+
     config.resolve = config.resolve || {}
     config.resolve.alias = {
       ...config.resolve.alias,
