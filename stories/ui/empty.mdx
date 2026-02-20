@@ -1,12 +1,12 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks'
 import * as Stories from './empty.stories'
-import { DocDivider } from '../doc-display'
+import { DocDivider, DocGrid, SubComponentCard } from '../doc-display'
 
 <Meta of={Stories} />
 
 # Empty
 
-A placeholder component for empty states.
+Placeholder for empty states (no results, empty lists). Compound component with header, title, description, and content slots.
 
 ## Installation
 
@@ -17,11 +17,28 @@ npx shadcn@latest add "https://registry.blyk.design/r/base/empty.json"
 ## Usage
 
 ```tsx
-import { Empty } from "@/components/ui/empty"
+import {
+  Empty,
+  EmptyHeader,
+  EmptyTitle,
+  EmptyDescription,
+  EmptyContent,
+  EmptyMedia,
+} from "@/components/ui/empty"
 ```
 
 ```tsx
-<Empty>No results found.</Empty>
+<Empty>
+  <EmptyHeader>
+    <EmptyMedia variant="icon">
+      <Inbox className="size-6" />
+    </EmptyMedia>
+  </EmptyHeader>
+  <EmptyContent>
+    <EmptyTitle>No results found</EmptyTitle>
+    <EmptyDescription>Try adjusting your search or filters.</EmptyDescription>
+  </EmptyContent>
+</Empty>
 ```
 
 <DocDivider />
@@ -31,6 +48,19 @@ import { Empty } from "@/components/ui/empty"
 ### Default
 
 <Canvas of={Stories.Default} />
+
+<DocDivider />
+
+## Sub-components
+
+<DocGrid columns={2}>
+  <SubComponentCard name="Empty" description="Root container with dashed border and centered layout." />
+  <SubComponentCard name="EmptyHeader" description="Top section for icon or illustration." />
+  <SubComponentCard name="EmptyMedia" description="Icon wrapper with optional background (variant: default, icon)." />
+  <SubComponentCard name="EmptyTitle" description="Main heading text." />
+  <SubComponentCard name="EmptyDescription" description="Supporting text, supports links." />
+  <SubComponentCard name="EmptyContent" description="Content area for title and description." />
+</DocGrid>
 
 <DocDivider />
 

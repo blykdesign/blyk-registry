@@ -1,0 +1,128 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+import {
+  Hero,
+  FeatureCard,
+  DocGrid,
+  DocDivider,
+  Step,
+  Tip,
+} from './doc-display'
+
+<Meta title="Lekto/Overview" />
+
+<Hero
+  title="Lekto"
+  subtitle="theme"
+  description="A custom theme built for the Lekto project. Extends the blyk base design system with brand-specific colors (purple/violet #7E1BA8), typography (Mulish), and inherits all base components."
+/>
+
+<DocDivider />
+
+## Theme Colors
+
+The Lekto theme uses a purple/violet palette (#7E1BA8) optimized for the Lekto brand. Switch to the **Lekto** theme using the toolbar above to see these colors applied.
+
+<div style={{ display: "flex", gap: "0.5rem", margin: "1rem 0" }}>
+  {[
+    { bg: "287 72% 38%", fg: "285 100% 98%", label: "Primary" },
+    { bg: "210 40% 96.1%", fg: "222 47% 11%", label: "Secondary" },
+    { bg: "210 40% 96.1%", fg: "222 47% 11%", label: "Accent" },
+    { bg: "210 40% 96.1%", fg: "215 20% 47%", label: "Muted" },
+    { bg: "0 73% 50%", fg: "0 86% 97%", label: "Destructive" },
+  ].map((item) => (
+    <div
+      key={item.label}
+      style={{
+        flex: 1,
+        backgroundColor: `hsl(${item.bg})`,
+        color: `hsl(${item.fg})`,
+        padding: "1rem 0.75rem",
+        borderRadius: "var(--radius)",
+        textAlign: "center",
+        fontSize: "0.75rem",
+        fontWeight: 500,
+      }}
+    >
+      {item.label}
+    </div>
+  ))}
+</div>
+
+<Tip>
+  Use the <strong>Theme</strong> toggle in the Storybook toolbar to switch between <strong>blyk-base</strong>, <strong>DF Imóveis</strong>, <strong>BIUD Sebrae</strong>, <strong>Genbiud Elara</strong>, and <strong>Lekto</strong>. All components and tokens update in real time.
+</Tip>
+
+<DocDivider />
+
+## Components
+
+The Lekto theme inherits all base components. No theme-exclusive components — use the full component library with Lekto tokens applied.
+
+<DocGrid columns={2}>
+  <FeatureCard
+    title="Base Components"
+    description="Button, Card, Input, Dialog, Table, Tabs, and all shadcn/ui components adapted to the blyk registry."
+  />
+  <FeatureCard
+    title="Themed Tokens"
+    description="Every component installed via the lekto registry includes the theme cssVars. Apply data-theme on the HTML root."
+  />
+</DocGrid>
+
+<DocDivider />
+
+## Installation
+
+<Step number={1} title="Install the theme components">
+  Use the shadcn CLI to install components from the Lekto registry path.
+</Step>
+
+```bash
+npx shadcn@latest add button --registry https://registry.blyk.design/r/lekto
+npx shadcn@latest add --all --registry https://registry.blyk.design/r/lekto
+```
+
+<Step number={2} title="Add the theme CSS">
+  Copy the Lekto token overrides into your project. These override the base blyk tokens with the brand palette.
+</Step>
+
+```css
+[data-theme="lekto"] {
+  --primary: 287 72% 38%;
+  --primary-foreground: 285 100% 98%;
+  --font-sans: "Mulish", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, monospace;
+  /* ... see registry/lekto/tokens/ for the full list */
+}
+```
+
+<Step number={3} title="Activate the theme">
+  Apply the theme using a data attribute on the root element.
+</Step>
+
+```html
+<html data-theme="lekto">
+```
+
+<DocDivider />
+
+## Token Overrides
+
+The Lekto theme overrides the following token categories from the base theme:
+
+<DocGrid columns={3}>
+  <FeatureCard
+    title="Colors"
+    description="Full semantic palette with purple/violet primary (#7E1BA8), slate accents, and custom chart colors."
+  />
+  <FeatureCard
+    title="Typography"
+    description="Mulish for sans-serif, Geist Mono for monospace, Georgia for serif."
+  />
+  <FeatureCard
+    title="Radius"
+    description="Base radius of 0.5rem, consistent with the base theme."
+  />
+</DocGrid>
+
+All token files are located in `registry/lekto/tokens/`. Both light and dark mode values are defined. See the **Tokens** page for a complete visual reference.

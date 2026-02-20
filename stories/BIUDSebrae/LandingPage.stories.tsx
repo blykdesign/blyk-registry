@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
-import { LandingPage } from "./LandingPage"
+import { LandingPage } from "../../apps/biud-sebrae-landing/src/pages/LandingPage"
 
 const meta: Meta<typeof LandingPage> = {
   title: "BIUD Sebrae/Landing Page",

@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "ui/sonner.tsx",
-      "content": "\"use client\"\n\nimport {\n  CircleCheck,\n  Info,\n  LoaderCircle,\n  OctagonX,\n  TriangleAlert,\n} from \"lucide-react\"\nimport { useTheme } from \"next-themes\"\nimport { Toaster as Sonner } from \"sonner\"\n\ntype ToasterProps = React.ComponentProps<typeof Sonner>\n\nconst Toaster = ({ ...props }: ToasterProps) => {\n  const { theme = \"system\" } = useTheme()\n\n  return (\n    <Sonner\n      theme={theme as ToasterProps[\"theme\"]}\n      className=\"toaster group\"\n      icons={{\n        success: <CircleCheck className=\"h-4 w-4\" />,\n        info: <Info className=\"h-4 w-4\" />,\n        warning: <TriangleAlert className=\"h-4 w-4\" />,\n        error: <OctagonX className=\"h-4 w-4\" />,\n        loading: <LoaderCircle className=\"h-4 w-4 animate-spin\" />,\n      }}\n      toastOptions={{\n        classNames: {\n          toast:\n            \"group toast group-[.toaster]:bg-background group-[.toaster]:text-foreground group-[.toaster]:border-border group-[.toaster]:shadow-lg\",\n          description: \"group-[.toast]:text-muted-foreground\",\n          actionButton:\n            \"group-[.toast]:bg-primary group-[.toast]:text-primary-foreground\",\n          cancelButton:\n            \"group-[.toast]:bg-muted group-[.toast]:text-muted-foreground\",\n        },\n      }}\n      {...props}\n    />\n  )\n}\n\nexport { Toaster }\n",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport {\n  CircleCheck,\n  Info,\n  LoaderCircle,\n  OctagonX,\n  TriangleAlert,\n} from \"lucide-react\"\nimport { useTheme } from \"next-themes\"\nimport { Toaster as Sonner } from \"sonner\"\n\ntype ToasterProps = React.ComponentProps<typeof Sonner>\n\nconst VALID_THEMES = [\"light\", \"dark\", \"system\"] as const\ntype ValidTheme = (typeof VALID_THEMES)[number]\n\nfunction isToasterTheme(\n  value: string | undefined\n): value is Extract<ToasterProps[\"theme\"], string> {\n  return typeof value === \"string\" && VALID_THEMES.includes(value as ValidTheme)\n}\n\nconst Toaster = ({ ...props }: ToasterProps) => {\n  const { theme = \"system\" } = useTheme()\n  const resolvedTheme = isToasterTheme(theme) ? theme : \"system\"\n\n  return (\n    <Sonner\n      theme={resolvedTheme}\n      className=\"toaster group\"\n      icons={{\n        success: <CircleCheck className=\"h-4 w-4\" />,\n        info: <Info className=\"h-4 w-4\" />,\n        warning: <TriangleAlert className=\"h-4 w-4\" />,\n        error: <OctagonX className=\"h-4 w-4\" />,\n        loading: <LoaderCircle className=\"h-4 w-4 animate-spin\" />,\n      }}\n      toastOptions={{\n        classNames: {\n          toast:\n            \"group toast group-[.toaster]:bg-background group-[.toaster]:text-foreground group-[.toaster]:border-border group-[.toaster]:shadow-lg\",\n          description: \"group-[.toast]:text-muted-foreground\",\n          actionButton:\n            \"group-[.toast]:bg-primary group-[.toast]:text-primary-foreground\",\n          cancelButton:\n            \"group-[.toast]:bg-muted group-[.toast]:text-muted-foreground\",\n        },\n      }}\n      {...props}\n    />\n  )\n}\n\nexport { Toaster }\n",
       "type": "registry:ui",
       "target": ""
     }
@@ -30,7 +30,7 @@
       "muted-foreground": "0 0% 45.1%",
       "accent": "0 0% 96.1%",
       "accent-foreground": "0 0% 9%",
-      "destructive": "0 84.2% 60.2%",
+      "destructive": "0 73% 50%",
       "destructive-foreground": "0 0% 98%",
       "border": "0 0% 89.8%",
       "input": "0 0% 89.8%",
@@ -49,7 +49,11 @@
       "sidebar-border": "220 13% 91%",
       "sidebar-ring": "217.2 91.2% 59.8%",
       "radius": "0.5rem",
+      "sidebar-width": "16rem",
+      "sidebar-width-mobile": "18rem",
+      "sidebar-width-icon": "3rem",
       "spacing-unit": "0.25rem",
+      "height-input": "3rem",
       "font-sans": "\"Inter\", ui-sans-serif, system-ui, sans-serif",
       "font-mono": "\"JetBrains Mono\", ui-monospace, monospace",
       "font-heading": "var(--font-sans)"
@@ -69,7 +73,7 @@
       "muted-foreground": "0 0% 63.9%",
       "accent": "0 0% 14.9%",
       "accent-foreground": "0 0% 98%",
-      "destructive": "0 62.8% 30.6%",
+      "destructive": "0 93% 71%",
       "destructive-foreground": "0 0% 98%",
       "border": "0 0% 14.9%",
       "input": "0 0% 14.9%",

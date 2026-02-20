@@ -27,7 +27,7 @@ const COLORS_TEMPLATE = `/* Theme: {{name}} — Color tokens
   --muted-foreground: 0 0% 45.1%;
   --accent: 0 0% 96.1%;
   --accent-foreground: 0 0% 9%;
-  --destructive: 0 84.2% 60.2%;
+  --destructive: 0 73% 50%;
   --destructive-foreground: 0 0% 98%;
   --border: 0 0% 89.8%;
   --input: 0 0% 89.8%;
@@ -54,7 +54,7 @@ const COLORS_TEMPLATE = `/* Theme: {{name}} — Color tokens
   --muted-foreground: 0 0% 63.9%;
   --accent: 0 0% 14.9%;
   --accent-foreground: 0 0% 98%;
-  --destructive: 0 62.8% 30.6%;
+  --destructive: 0 93% 71%;
   --destructive-foreground: 0 0% 98%;
   --border: 0 0% 14.9%;
   --input: 0 0% 14.9%;

@@ -6,3 +6,5 @@ public/r/
 .DS_Store
 storybook-static/
 .cursor/
+.pnpm-store/
+debug-storybook.log

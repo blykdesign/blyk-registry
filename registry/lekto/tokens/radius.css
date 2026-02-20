@@ -1,0 +1,8 @@
+/* Theme: lekto — Radius
+ * Scale: xs=2, sm=6, md=8, lg=10, xl=14, 2xl=16
+ * Base radius: 8px (0.5rem)
+ */
+
+:root {
+  --radius: 0.5rem;
+}

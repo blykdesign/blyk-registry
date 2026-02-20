@@ -1,0 +1,128 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+import {
+  Hero,
+  FeatureCard,
+  DocGrid,
+  DocDivider,
+  Step,
+  Tip,
+} from './doc-display'
+
+<Meta title="Genbiud Elara/Overview" />
+
+<Hero
+  title="Genbiud Elara"
+  subtitle="theme"
+  description="A custom theme built for the Genbiud Elara project. Extends the blyk base design system with brand-specific colors (burgundy red), typography (Barlow), and inherits all base components."
+/>
+
+<DocDivider />
+
+## Theme Colors
+
+The Genbiud Elara theme uses a burgundy red palette (#AD2B23) optimized for the Elara brand. Switch to the **Genbiud Elara** theme using the toolbar above to see these colors applied.
+
+<div style={{ display: "flex", gap: "0.5rem", margin: "1rem 0" }}>
+  {[
+    { bg: "4 66% 41%", fg: "6 100% 98%", label: "Primary" },
+    { bg: "210 40% 96.1%", fg: "222 47% 11%", label: "Secondary" },
+    { bg: "210 40% 96.1%", fg: "222 47% 11%", label: "Accent" },
+    { bg: "210 40% 96.1%", fg: "215 20% 47%", label: "Muted" },
+    { bg: "0 73% 50%", fg: "0 86% 97%", label: "Destructive" },
+  ].map((item) => (
+    <div
+      key={item.label}
+      style={{
+        flex: 1,
+        backgroundColor: `hsl(${item.bg})`,
+        color: `hsl(${item.fg})`,
+        padding: "1rem 0.75rem",
+        borderRadius: "var(--radius)",
+        textAlign: "center",
+        fontSize: "0.75rem",
+        fontWeight: 500,
+      }}
+    >
+      {item.label}
+    </div>
+  ))}
+</div>
+
+<Tip>
+  Use the <strong>Theme</strong> toggle in the Storybook toolbar to switch between <strong>blyk-base</strong>, <strong>DF Imóveis</strong>, <strong>BIUD Sebrae</strong>, and <strong>Genbiud Elara</strong>. All components and tokens update in real time.
+</Tip>
+
+<DocDivider />
+
+## Components
+
+The Genbiud Elara theme inherits all base components. No theme-exclusive components — use the full component library with Genbiud Elara tokens applied.
+
+<DocGrid columns={2}>
+  <FeatureCard
+    title="Base Components"
+    description="Button, Card, Input, Dialog, Table, Tabs, and all shadcn/ui components adapted to the blyk registry."
+  />
+  <FeatureCard
+    title="Themed Tokens"
+    description="Every component installed via the genbiud-elara registry includes the theme cssVars. Apply data-theme on the HTML root."
+  />
+</DocGrid>
+
+<DocDivider />
+
+## Installation
+
+<Step number={1} title="Install the theme components">
+  Use the shadcn CLI to install components from the Genbiud Elara registry path.
+</Step>
+
+```bash
+npx shadcn@latest add button --registry https://registry.blyk.design/r/genbiud-elara
+npx shadcn@latest add --all --registry https://registry.blyk.design/r/genbiud-elara
+```
+
+<Step number={2} title="Add the theme CSS">
+  Copy the Genbiud Elara token overrides into your project. These override the base blyk tokens with the brand palette.
+</Step>
+
+```css
+[data-theme="genbiud-elara"] {
+  --primary: 4 66% 41%;
+  --primary-foreground: 6 100% 98%;
+  --font-sans: "Barlow", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, monospace;
+  /* ... see registry/genbiud-elara/tokens/ for the full list */
+}
+```
+
+<Step number={3} title="Activate the theme">
+  Apply the theme using a data attribute on the root element.
+</Step>
+
+```html
+<html data-theme="genbiud-elara">
+```
+
+<DocDivider />
+
+## Token Overrides
+
+The Genbiud Elara theme overrides the following token categories from the base theme:
+
+<DocGrid columns={3}>
+  <FeatureCard
+    title="Colors"
+    description="Full semantic palette with burgundy red primary (#AD2B23), slate accents, and custom chart colors."
+  />
+  <FeatureCard
+    title="Typography"
+    description="Barlow for sans-serif, Geist Mono for monospace, Georgia for serif."
+  />
+  <FeatureCard
+    title="Radius"
+    description="Base radius of 0.5rem, consistent with the base theme."
+  />
+</DocGrid>
+
+All token files are located in `registry/genbiud-elara/tokens/`. Both light and dark mode values are defined. See the **Tokens** page for a complete visual reference.

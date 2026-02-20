@@ -1,0 +1,181 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+import {
+  ColorPairCard,
+  ColorSwatch,
+  TokenGrid,
+  FontPreview,
+  TokenDivider,
+} from '../token-display'
+import { Tip, ThemeBadge } from '../doc-display'
+
+<Meta title="Genbiud Elara/Tokens" />
+
+# Genbiud Elara Theme Tokens
+
+This page displays the design tokens for the Genbiud Elara theme. **Select the "Genbiud Elara" theme in the Storybook toolbar** to see these colors and typography applied.
+
+<ThemeBadge
+  theme="genbiud-elara"
+  description="The swatches below use CSS variables and reflect the currently selected theme."
+/>
+
+<TokenDivider />
+
+## Semantic Colors
+
+<TokenGrid columns={3}>
+  <ColorPairCard
+    bgVar="--primary"
+    fgVar="--primary-foreground"
+    label="primary"
+    description="Primary actions, buttons"
+  />
+  <ColorPairCard
+    bgVar="--secondary"
+    fgVar="--secondary-foreground"
+    label="secondary"
+    description="Secondary actions"
+  />
+  <ColorPairCard
+    bgVar="--muted"
+    fgVar="--muted-foreground"
+    label="muted"
+    description="Muted backgrounds, subdued text"
+  />
+  <ColorPairCard
+    bgVar="--accent"
+    fgVar="--accent-foreground"
+    label="accent"
+    description="Hover states, highlights"
+  />
+  <ColorPairCard
+    bgVar="--destructive"
+    fgVar="--destructive-foreground"
+    label="destructive"
+    description="Error, danger, delete"
+  />
+  <ColorPairCard
+    bgVar="--background"
+    fgVar="--foreground"
+    label="background"
+    description="Page background, default text"
+  />
+</TokenGrid>
+
+<TokenDivider />
+
+## Surface Colors
+
+<TokenGrid columns={2}>
+  <ColorPairCard
+    bgVar="--card"
+    fgVar="--card-foreground"
+    label="card"
+    description="Card backgrounds"
+  />
+  <ColorPairCard
+    bgVar="--popover"
+    fgVar="--popover-foreground"
+    label="popover"
+    description="Popover, dropdown backgrounds"
+  />
+</TokenGrid>
+
+<TokenDivider />
+
+## Border & Input
+
+<TokenGrid columns={3}>
+  <ColorSwatch cssVar="--border" description="Default borders" />
+  <ColorSwatch cssVar="--input" description="Input field borders" />
+  <ColorSwatch cssVar="--ring" description="Focus rings" />
+</TokenGrid>
+
+<TokenDivider />
+
+## Chart Colors
+
+A palette of five colors for data visualizations.
+
+<TokenGrid columns={5}>
+  <ColorSwatch cssVar="--chart-1" description="Chart 1 (burgundy)" />
+  <ColorSwatch cssVar="--chart-2" description="Chart 2 (navy)" />
+  <ColorSwatch cssVar="--chart-3" description="Chart 3 (teal)" />
+  <ColorSwatch cssVar="--chart-4" description="Chart 4 (amber)" />
+  <ColorSwatch cssVar="--chart-5" description="Chart 5 (orange)" />
+</TokenGrid>
+
+<TokenDivider />
+
+## Sidebar Colors
+
+<TokenGrid columns={3}>
+  <ColorPairCard
+    bgVar="--sidebar-background"
+    fgVar="--sidebar-foreground"
+    label="sidebar"
+    description="Sidebar base"
+  />
+  <ColorPairCard
+    bgVar="--sidebar-primary"
+    fgVar="--sidebar-primary-foreground"
+    label="sidebar-primary"
+    description="Active sidebar items"
+  />
+  <ColorPairCard
+    bgVar="--sidebar-accent"
+    fgVar="--sidebar-accent-foreground"
+    label="sidebar-accent"
+    description="Hover states in sidebar"
+  />
+</TokenGrid>
+
+<TokenGrid columns={2}>
+  <ColorSwatch cssVar="--sidebar-border" description="Sidebar borders" />
+  <ColorSwatch cssVar="--sidebar-ring" description="Sidebar focus rings" />
+</TokenGrid>
+
+<TokenDivider />
+
+## Typography
+
+The Genbiud Elara theme uses **Barlow** as the primary font and **Geist Mono** for code.
+
+<FontPreview
+  cssVar="--font-sans"
+  value={'"Barlow", ui-sans-serif, system-ui, sans-serif'}
+  specimen="Design System Genbiud Elara"
+/>
+
+<FontPreview
+  cssVar="--font-mono"
+  value={'"Geist Mono", ui-monospace, monospace'}
+  specimen="const theme = { primary: '#AD2B23' }"
+/>
+
+<FontPreview
+  cssVar="--font-heading"
+  value="var(--font-sans)"
+  specimen="Headings and Titles"
+/>
+
+<Tip>
+  Barlow is available via Google Fonts. For Geist Mono, ensure it is loaded in your project if needed. See the Overview page for installation instructions.
+</Tip>
+
+<TokenDivider />
+
+## Reference Values (HSL)
+
+| Token | Light | Dark |
+|-------|-------|------|
+| `--primary` | 4 66% 41% (#AD2B23) | 6 100% 98% (#FFF8F7) |
+| `--primary-foreground` | 6 100% 98% | 4 66% 41% |
+| `--foreground` | 222 47% 4% | 210 40% 98% |
+| `--border` | 214 32% 91% | 0 0% 100% / 0.1 |
+| `--input` | 214 32% 91% | 0 0% 100% / 0.15 |
+| `--ring` | 215 20% 65% | 215 20% 47% |
+| `--chart-1` | 4 66% 41% (burgundy) | 6 100% 94% (#FFE2DE) |
+| `--chart-2` | 211 55% 16% (#122A3F) | 211 24% 75% (#AFC0CE) |
+| `--chart-4` | 43 96% 56% | 270 91% 65% |
+| `--radius` | 0.5rem | — |

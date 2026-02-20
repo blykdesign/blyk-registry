@@ -81,6 +81,30 @@ async function loadThemeTokens(themePath: string): Promise<CssVars> {
 }
 
 // ---------------------------------------------------------------------------
+// Registry schema types
+// ---------------------------------------------------------------------------
+
+interface RegistryFile {
+  path?: string
+  type?: string
+  target?: string
+  content?: string
+}
+
+interface RegistryItem {
+  name?: string
+  files?: RegistryFile[]
+  cssVars?: CssVars
+  dependencies?: string[]
+  registryDependencies?: string[]
+}
+
+interface RegistryIndex {
+  name?: string
+  [key: string]: unknown
+}
+
+// ---------------------------------------------------------------------------
 // Path & type fixing
 // ---------------------------------------------------------------------------
 
@@ -90,7 +114,7 @@ function resolveFileType(path: string): string {
   return "registry:ui"
 }
 
-function fixComponentJson(json: any): any {
+function fixComponentJson(json: RegistryItem): RegistryItem {
   if (!json.files || !Array.isArray(json.files)) return json
 
   for (const f of json.files) {
@@ -116,7 +140,7 @@ function fixComponentJson(json: any): any {
  * Returns the theme name if a component belongs exclusively to a non-base
  * theme (e.g. "df-imoveis"), or null if it's a base component.
  */
-function getExclusiveTheme(json: any): string | null {
+function getExclusiveTheme(json: RegistryItem): string | null {
   for (const f of json.files ?? []) {
     const match = f.path?.match(/^registry\/([^/]+)\//)
     if (match && match[1] !== "base") {
@@ -152,8 +176,8 @@ async function hasOverride(
 }
 
 interface BuildBaseResult {
-  baseComponents: Map<string, any>
-  themeExclusives: Map<string, Map<string, any>> // theme → (file → json)
+  baseComponents: Map<string, RegistryItem>
+  themeExclusives: Map<string, Map<string, RegistryItem>>
 }
 
 async function buildBaseTheme(
@@ -166,8 +190,8 @@ async function buildBaseTheme(
   const hasTokens =
     Object.keys(baseTokens.light).length > 0 ||
     Object.keys(baseTokens.dark).length > 0
-  const baseComponents = new Map<string, any>()
-  const themeExclusives = new Map<string, Map<string, any>>()
+  const baseComponents = new Map<string, RegistryItem>()
+  const themeExclusives = new Map<string, Map<string, RegistryItem>>()
 
   for (const file of baseJsonFiles) {
     const raw = JSON.parse(await readFile(join(OUTPUT_DIR, file), "utf-8"))
@@ -185,7 +209,7 @@ async function buildBaseTheme(
 
     // Inject base cssVars if the component doesn't already have its own
     if (hasTokens) {
-      const existing = fixed.cssVars ?? {}
+      const existing: Partial<CssVars> = fixed.cssVars ?? {}
       const hasExisting =
         Object.keys(existing.light ?? {}).length > 0 ||
         Object.keys(existing.dark ?? {}).length > 0
@@ -219,9 +243,9 @@ async function buildBaseTheme(
 
 async function buildClientTheme(
   theme: string,
-  baseComponents: Map<string, any>,
-  exclusiveComponents: Map<string, any>,
-  baseRegistryIndex: any
+  baseComponents: Map<string, RegistryItem>,
+  exclusiveComponents: Map<string, RegistryItem>,
+  baseRegistryIndex: RegistryIndex
 ) {
   const themeDir = join(OUTPUT_DIR, theme)
   await mkdir(themeDir, { recursive: true })

@@ -6,7 +6,7 @@ import { DocDivider } from '../doc-display'
 
 # Sonner
 
-An opinionated toast component for React.
+Toast notifications for React. Add `<Toaster />` to your app root, then call `toast()` from anywhere.
 
 ## Installation
 
@@ -16,12 +16,27 @@ npx shadcn@latest add "https://registry.blyk.design/r/base/sonner.json"
 
 ## Usage
 
+Add the Toaster to your layout, then trigger toasts:
+
 ```tsx
+// app/layout.tsx
 import { Toaster } from "@/components/ui/sonner"
-import { toast } from "sonner"
+
+export default function Layout({ children }) {
+  return (
+    <>
+      {children}
+      <Toaster />
+    </>
+  )
+}
 ```
 
 ```tsx
+// Any component
+import { toast } from "sonner"
+import { Button } from "@/components/ui/button"
+
 <Button onClick={() => toast("Event created")}>Show Toast</Button>
 ```
 

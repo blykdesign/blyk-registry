@@ -1,0 +1,7 @@
+/* Theme: df-imoveis — Component-specific tokens */
+
+:root {
+  --card-width: 342px;
+  --card-radius: 14px;
+  --indicator-card-min-width: 16rem;
+}

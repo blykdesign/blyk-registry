@@ -1,3 +1,4 @@
 :root {
   --spacing-unit: 0.25rem;
+  --height-input: 3rem; /* h-12 = 48px — InputGroup default height */
 }

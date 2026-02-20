@@ -1,0 +1,7 @@
+/* Sidebar layout tokens */
+
+:root {
+  --sidebar-width: 16rem;
+  --sidebar-width-mobile: 18rem;
+  --sidebar-width-icon: 3rem;
+}

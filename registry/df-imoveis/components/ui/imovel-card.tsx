@@ -13,7 +13,7 @@ function ImovelCard({
     <div
       data-slot="imovel-card"
       className={cn(
-        "flex w-[342px] flex-col overflow-hidden rounded-[14px] border border-border bg-card bg-linear-to-b from-transparent to-primary/15 text-card-foreground shadow-sm transition-shadow hover:shadow-lg active:shadow-none",
+        "flex w-[var(--card-width)] flex-col overflow-hidden rounded-[var(--card-radius)] border border-border bg-card bg-linear-to-b from-transparent to-primary/15 text-card-foreground shadow-sm transition-shadow hover:shadow-lg active:shadow-none",
         className
       )}
       {...props}

@@ -3,6 +3,8 @@ import { useEffect } from "react"
 import "./globals.css"
 import "./theme-tokens/df-imoveis.css"
 import "./theme-tokens/biud-sebrae.css"
+import "./theme-tokens/genbiud-elara.css"
+import "./theme-tokens/lekto.css"
 
 /* ── Theme decorator ────────────────────────────────────── */
 const withTheme: Decorator = (Story, context) => {
@@ -49,6 +51,8 @@ const preview: Preview = {
           { value: "base", title: "blyk-base" },
           { value: "df-imoveis", title: "DF Imóveis" },
           { value: "biud-sebrae", title: "BIUD Sebrae" },
+          { value: "genbiud-elara", title: "Genbiud Elara" },
+          { value: "lekto", title: "Lekto" },
         ],
         dynamicTitle: true,
       },
@@ -97,6 +101,10 @@ const preview: Preview = {
           "DF Imóveis",
           ["Overview", "Tokens", "IndicatorCard", "ImovelCard"],
           "BIUD Sebrae",
+          ["Overview", "Tokens", "Landing Page"],
+          "Genbiud Elara",
+          ["Overview", "Tokens"],
+          "Lekto",
           ["Overview", "Tokens"],
         ],
       },
