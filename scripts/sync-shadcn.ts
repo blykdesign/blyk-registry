@@ -192,12 +192,21 @@ async function applyUpdate(name: string): Promise<void> {
 
 async function main() {
   const applyMode = process.argv.includes("--apply")
+  const onlyIdx = process.argv.indexOf("--only")
+  const onlyName = onlyIdx >= 0 ? process.argv[onlyIdx + 1] : null
 
-  console.log(`\nsync-shadcn: ${applyMode ? "APPLY mode" : "DRY RUN mode"}`)
+  console.log(`\nsync-shadcn: ${applyMode ? "APPLY mode" : "DRY RUN mode"}${onlyName ? ` (only: ${onlyName})` : ""}`)
   console.log("fetching upstream components...\n")
 
   const registry = JSON.parse(await readFile(REGISTRY_JSON, "utf-8"))
-  const names: string[] = registry.items.map((item: any) => item.name)
+  let names: string[] = registry.items.map((item: any) => item.name)
+  if (onlyName) {
+    if (!names.includes(onlyName)) {
+      console.error(`Unknown component: ${onlyName}`)
+      process.exit(1)
+    }
+    names = [onlyName]
+  }
 
   const results: SyncResult[] = []
   let done = 0
