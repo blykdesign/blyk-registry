@@ -5,6 +5,7 @@ import {
   TokenGrid,
   FontPreview,
   TokenDivider,
+  TokenReferenceTable,
 } from '../token-display'
 import { Tip, ThemeBadge } from '../doc-display'
 
@@ -167,15 +168,17 @@ The Genbiud Elara theme uses **Barlow** as the primary font and **Geist Mono** f
 
 ## Reference Values (HSL)
 
-| Token | Light | Dark |
-|-------|-------|------|
-| `--primary` | 4 66% 41% (#AD2B23) | 6 100% 98% (#FFF8F7) |
-| `--primary-foreground` | 6 100% 98% | 4 66% 41% |
-| `--foreground` | 222 47% 4% | 210 40% 98% |
-| `--border` | 214 32% 91% | 0 0% 100% / 0.1 |
-| `--input` | 214 32% 91% | 0 0% 100% / 0.15 |
-| `--ring` | 215 20% 65% | 215 20% 47% |
-| `--chart-1` | 4 66% 41% (burgundy) | 6 100% 94% (#FFE2DE) |
-| `--chart-2` | 211 55% 16% (#122A3F) | 211 24% 75% (#AFC0CE) |
-| `--chart-4` | 43 96% 56% | 270 91% 65% |
-| `--radius` | 0.5rem | — |
+<TokenReferenceTable
+  rows={[
+    { token: "--primary", light: "4 66% 41% (#AD2B23)", dark: "6 100% 98% (#FFF8F7)" },
+    { token: "--primary-foreground", light: "6 100% 98%", dark: "4 66% 41%" },
+    { token: "--foreground", light: "222 47% 4%", dark: "210 40% 98%" },
+    { token: "--border", light: "214 32% 91%", dark: "0 0% 100% / 0.1" },
+    { token: "--input", light: "214 32% 91%", dark: "0 0% 100% / 0.15" },
+    { token: "--ring", light: "215 20% 65%", dark: "215 20% 47%" },
+    { token: "--chart-1", light: "4 66% 41% (burgundy)", dark: "6 100% 94% (#FFE2DE)" },
+    { token: "--chart-2", light: "211 55% 16% (#122A3F)", dark: "211 24% 75% (#AFC0CE)" },
+    { token: "--chart-4", light: "43 96% 56%", dark: "270 91% 65%" },
+    { token: "--radius", light: "0.5rem", dark: "—" },
+  ]}
+/>

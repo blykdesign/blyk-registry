@@ -418,6 +418,124 @@ export function SpacingScale() {
   )
 }
 
+/* ── Token Reference Table (HSL values) ───────────────────── */
+export function TokenReferenceTable({
+  rows,
+}: {
+  rows: Array<{ token: string; light: string; dark: string }>
+}) {
+  return (
+    <div
+      style={{
+        overflowX: "auto",
+        margin: "1rem 0 1.5rem",
+        borderRadius: "var(--radius)",
+        border: "1px solid hsl(var(--border))",
+        backgroundColor: "hsl(var(--card))",
+        boxShadow: "0 1px 2px hsl(var(--border) / 0.5)",
+      }}
+    >
+      <table
+        style={{
+          width: "100%",
+          borderCollapse: "collapse",
+          fontSize: "0.8125rem",
+        }}
+      >
+        <thead>
+          <tr
+            style={{
+              backgroundColor: "hsl(var(--muted))",
+              borderBottom: "1px solid hsl(var(--border))",
+            }}
+          >
+            <th
+              style={{
+                padding: "0.75rem 1rem",
+                textAlign: "left",
+                fontWeight: 600,
+                color: "hsl(var(--foreground))",
+                fontFamily: "var(--font-sans)",
+              }}
+            >
+              Token
+            </th>
+            <th
+              style={{
+                padding: "0.75rem 1rem",
+                textAlign: "left",
+                fontWeight: 600,
+                color: "hsl(var(--foreground))",
+                fontFamily: "var(--font-sans)",
+              }}
+            >
+              Light
+            </th>
+            <th
+              style={{
+                padding: "0.75rem 1rem",
+                textAlign: "left",
+                fontWeight: 600,
+                color: "hsl(var(--foreground))",
+                fontFamily: "var(--font-sans)",
+              }}
+            >
+              Dark
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row, i) => (
+            <tr
+              key={row.token}
+              style={{
+                borderBottom:
+                  i < rows.length - 1
+                    ? "1px solid hsl(var(--border))"
+                    : "none",
+              }}
+            >
+              <td
+                style={{
+                  padding: "0.75rem 1rem",
+                  fontFamily: "var(--font-mono)",
+                  fontSize: "0.75rem",
+                  fontWeight: 600,
+                  color: "hsl(var(--primary))",
+                }}
+              >
+                {row.token}
+              </td>
+              <td
+                style={{
+                  padding: "0.75rem 1rem",
+                  color: "hsl(var(--muted-foreground))",
+                  fontFamily: "var(--font-mono)",
+                  fontSize: "0.75rem",
+                  lineHeight: 1.5,
+                }}
+              >
+                {row.light}
+              </td>
+              <td
+                style={{
+                  padding: "0.75rem 1rem",
+                  color: "hsl(var(--muted-foreground))",
+                  fontFamily: "var(--font-mono)",
+                  fontSize: "0.75rem",
+                  lineHeight: 1.5,
+                }}
+              >
+                {row.dark}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  )
+}
+
 /* ── Section Divider ────────────────────────────────────── */
 export function TokenDivider() {
   return (

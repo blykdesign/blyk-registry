@@ -1,13 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
-import {
-  IndicatorCard,
-  IndicatorCardIcon,
-  IndicatorCardLabel,
-  IndicatorCardValue,
-  IndicatorCardNumber,
-  IndicatorCardBadge,
-} from "@/registry/df-imoveis/components/ui/indicator-card"
-import { UserPlus, TrendingUp, DollarSign, Eye, ShoppingCart, TrendingDown, Activity } from "lucide-react"
+import { IndicatorCard } from "@/registry/df-imoveis/components/ui/indicator-card"
+import { UserPlus, DollarSign, Eye, ShoppingCart, Activity, TrendingUp, TrendingDown } from "lucide-react"
 
 const meta = {
   title: "DF Imóveis/IndicatorCard",
@@ -24,120 +17,93 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  render: () => (
-    <IndicatorCard>
-      <IndicatorCardIcon>
-        <UserPlus />
-      </IndicatorCardIcon>
-      <IndicatorCardLabel>Novos Leads</IndicatorCardLabel>
-      <IndicatorCardValue>
-        <IndicatorCardNumber>12</IndicatorCardNumber>
-        <IndicatorCardBadge>
-          <TrendingUp /> +3 hoje
-        </IndicatorCardBadge>
-      </IndicatorCardValue>
-    </IndicatorCard>
-  ),
+  args: {
+    icon: <UserPlus />,
+    label: "Novos Leads",
+    value: "12",
+    badge: (
+      <>
+        <TrendingUp /> +3 hoje
+      </>
+    ),
+  },
 }
 
 export const WithoutBadge: Story = {
-  render: () => (
-    <IndicatorCard>
-      <IndicatorCardIcon>
-        <DollarSign />
-      </IndicatorCardIcon>
-      <IndicatorCardLabel>Receita Mensal</IndicatorCardLabel>
-      <IndicatorCardValue>
-        <IndicatorCardNumber>R$ 45.200</IndicatorCardNumber>
-      </IndicatorCardValue>
-    </IndicatorCard>
-  ),
+  args: {
+    icon: <DollarSign />,
+    label: "Receita Mensal",
+    value: "R$ 45.200",
+  },
 }
 
 export const NegativeTrend: Story = {
-  render: () => (
-    <IndicatorCard>
-      <IndicatorCardIcon>
-        <Eye />
-      </IndicatorCardIcon>
-      <IndicatorCardLabel>Visualizações</IndicatorCardLabel>
-      <IndicatorCardValue>
-        <IndicatorCardNumber>1.842</IndicatorCardNumber>
-        <IndicatorCardBadge className="text-destructive border-destructive/30">
-          <TrendingDown /> -12%
-        </IndicatorCardBadge>
-      </IndicatorCardValue>
-    </IndicatorCard>
-  ),
+  args: {
+    icon: <Eye />,
+    label: "Visualizações",
+    value: "1.842",
+    badge: (
+      <>
+        <TrendingDown /> -12%
+      </>
+    ),
+    badgeClassName: "text-destructive border-destructive/30",
+  },
 }
 
 export const PositiveTrend: Story = {
-  render: () => (
-    <IndicatorCard>
-      <IndicatorCardIcon>
-        <ShoppingCart />
-      </IndicatorCardIcon>
-      <IndicatorCardLabel>Vendas</IndicatorCardLabel>
-      <IndicatorCardValue>
-        <IndicatorCardNumber>384</IndicatorCardNumber>
-        <IndicatorCardBadge className="text-emerald-600 border-emerald-200 bg-emerald-50">
-          <TrendingUp /> +18%
-        </IndicatorCardBadge>
-      </IndicatorCardValue>
-    </IndicatorCard>
-  ),
+  args: {
+    icon: <ShoppingCart />,
+    label: "Vendas",
+    value: "384",
+    badge: (
+      <>
+        <TrendingUp /> +18%
+      </>
+    ),
+    badgeClassName: "text-emerald-600 border-emerald-200 bg-emerald-50",
+  },
 }
 
 const sampleCards = (
   <>
-    <IndicatorCard>
-      <IndicatorCardIcon>
-        <UserPlus />
-      </IndicatorCardIcon>
-      <IndicatorCardLabel>Novos Leads</IndicatorCardLabel>
-      <IndicatorCardValue>
-        <IndicatorCardNumber>12</IndicatorCardNumber>
-        <IndicatorCardBadge>
+    <IndicatorCard
+      icon={<UserPlus />}
+      label="Novos Leads"
+      value="12"
+      badge={
+        <>
           <TrendingUp /> +3 hoje
-        </IndicatorCardBadge>
-      </IndicatorCardValue>
-    </IndicatorCard>
-
-    <IndicatorCard>
-      <IndicatorCardIcon>
-        <DollarSign />
-      </IndicatorCardIcon>
-      <IndicatorCardLabel>Receita Mensal</IndicatorCardLabel>
-      <IndicatorCardValue>
-        <IndicatorCardNumber>R$ 45.200</IndicatorCardNumber>
-      </IndicatorCardValue>
-    </IndicatorCard>
-
-    <IndicatorCard>
-      <IndicatorCardIcon>
-        <ShoppingCart />
-      </IndicatorCardIcon>
-      <IndicatorCardLabel>Vendas</IndicatorCardLabel>
-      <IndicatorCardValue>
-        <IndicatorCardNumber>384</IndicatorCardNumber>
-        <IndicatorCardBadge className="text-emerald-600 border-emerald-200 bg-emerald-50">
+        </>
+      }
+    />
+    <IndicatorCard
+      icon={<DollarSign />}
+      label="Receita Mensal"
+      value="R$ 45.200"
+    />
+    <IndicatorCard
+      icon={<ShoppingCart />}
+      label="Vendas"
+      value="384"
+      badge={
+        <>
           <TrendingUp /> +18%
-        </IndicatorCardBadge>
-      </IndicatorCardValue>
-    </IndicatorCard>
-
-    <IndicatorCard>
-      <IndicatorCardIcon>
-        <Activity />
-      </IndicatorCardIcon>
-      <IndicatorCardLabel>Taxa de Conversão</IndicatorCardLabel>
-      <IndicatorCardValue>
-        <IndicatorCardNumber>3,2%</IndicatorCardNumber>
-        <IndicatorCardBadge className="text-destructive border-destructive/30">
+        </>
+      }
+      badgeClassName="text-emerald-600 border-emerald-200 bg-emerald-50"
+    />
+    <IndicatorCard
+      icon={<Activity />}
+      label="Taxa de Conversão"
+      value="3,2%"
+      badge={
+        <>
           <TrendingDown /> -0,4%
-        </IndicatorCardBadge>
-      </IndicatorCardValue>
-    </IndicatorCard>
+        </>
+      }
+      badgeClassName="text-destructive border-destructive/30"
+    />
   </>
 )
 

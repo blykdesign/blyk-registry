@@ -1,6 +1,71 @@
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
 <style>
+  /* Logo — uall-docs style */
   .sidebar-header img[alt="blyk design system"] {
     width: 80px !important;
     height: auto !important;
+  }
+
+  /* Dark mode — tokens do uall-docs quando .dark no root */
+  .dark #storybook-root,
+  .dark [id^="storybook"],
+  .dark .sb-show-main {
+    --color-background: #262626;
+    --color-foreground: #fafafa;
+    --color-sidebar: #333333;
+    --color-sidebar-foreground: #fafafa;
+    --color-sidebar-accent: #404040;
+    --color-sidebar-accent-foreground: #fafafa;
+    --color-sidebar-border: rgba(255, 255, 255, 0.1);
+  }
+
+  .dark body {
+    background: #262626 !important;
+    color: #fafafa !important;
+  }
+
+  .dark [class*="sidebar"] {
+    background: #333333 !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+  }
+
+  .dark [class*="sidebar"] a,
+  .dark [class*="sidebar"] button,
+  .dark [class*="sidebar"] span {
+    color: #fafafa !important;
+  }
+
+  .dark [class*="sidebar"] [class*="active"],
+  .dark [class*="sidebar"] [aria-selected="true"] {
+    background: #404040 !important;
+    color: #fafafa !important;
+  }
+
+  .dark [class*="sidebar"] a:hover,
+  .dark [class*="sidebar"] button:hover {
+    background: rgba(255, 255, 255, 0.05) !important;
+  }
+
+  .dark [class*="bar"],
+  .dark [class*="toolbar"] {
+    background: #333333 !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+    color: #fafafa !important;
+  }
+
+  .dark [class*="panel"] {
+    background: #262626 !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+    color: #fafafa !important;
+  }
+
+  .dark input,
+  .dark [class*="input"] {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-color: rgba(255, 255, 255, 0.15) !important;
+    color: #fafafa !important;
   }
 </style>

@@ -1,14 +1,34 @@
 import * as React from "react"
-import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
 
-/* ── Root ──────────────────────────────────────────────── */
+export interface ImovelCardTagItem {
+  icon?: React.ReactNode
+  label: React.ReactNode
+}
+
+export interface ImovelCardFeatureItem {
+  icon?: React.ReactNode
+  label: React.ReactNode
+}
+
+export interface ImovelCardProps extends Omit<React.ComponentProps<"div">, "children"> {
+  image: { src: string; alt: string }
+  tags?: ImovelCardTagItem[]
+  price: React.ReactNode
+  address: React.ReactNode
+  features?: ImovelCardFeatureItem[]
+}
 
 function ImovelCard({
   className,
+  image,
+  tags,
+  price,
+  address,
+  features,
   ...props
-}: React.ComponentProps<"div">) {
+}: ImovelCardProps) {
   return (
     <div
       data-slot="imovel-card"
@@ -17,171 +37,60 @@ function ImovelCard({
         className
       )}
       {...props}
-    />
+    >
+      <img
+        data-slot="imovel-card-image"
+        src={image.src}
+        alt={image.alt}
+        className="aspect-[3/2] w-full object-cover"
+      />
+      <div data-slot="imovel-card-content" className="flex flex-col gap-1.5 p-6">
+        {tags && tags.length > 0 && (
+          <div data-slot="imovel-card-tags" className="flex flex-wrap items-center gap-2">
+            {tags.map((tag, i) => (
+              <span
+                key={i}
+                data-slot="imovel-card-tag"
+                className="inline-flex items-center gap-1 rounded-full border border-transparent bg-primary px-2 py-0.5 text-xs font-medium text-primary-foreground [&_svg]:size-3"
+              >
+                {tag.icon}
+                {tag.label}
+              </span>
+            ))}
+          </div>
+        )}
+        <span
+          data-slot="imovel-card-price"
+          className="text-3xl font-semibold leading-normal text-foreground"
+        >
+          {price}
+        </span>
+        <span
+          data-slot="imovel-card-address"
+          className="truncate text-sm leading-normal text-muted-foreground"
+        >
+          {address}
+        </span>
+        {features && features.length > 0 && (
+          <div
+            data-slot="imovel-card-features"
+            className="flex flex-wrap items-center gap-2"
+          >
+            {features.map((feat, i) => (
+              <span
+                key={i}
+                data-slot="imovel-card-tag"
+                className="inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-medium text-foreground [&_svg]:size-3"
+              >
+                {feat.icon}
+                {feat.label}
+              </span>
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
   )
 }
 
-/* ── Image ─────────────────────────────────────────────── */
-
-interface ImovelCardImageProps
-  extends React.ComponentProps<"img"> {
-  src: string
-  alt: string
-}
-
-function ImovelCardImage({
-  className,
-  src,
-  alt,
-  ...props
-}: ImovelCardImageProps) {
-  return (
-    <img
-      data-slot="imovel-card-image"
-      src={src}
-      alt={alt}
-      className={cn(
-        "aspect-[3/2] w-full object-cover",
-        className
-      )}
-      {...props}
-    />
-  )
-}
-
-/* ── Content ───────────────────────────────────────────── */
-
-function ImovelCardContent({
-  className,
-  ...props
-}: React.ComponentProps<"div">) {
-  return (
-    <div
-      data-slot="imovel-card-content"
-      className={cn("flex flex-col gap-1.5 p-6", className)}
-      {...props}
-    />
-  )
-}
-
-/* ── Tags row ──────────────────────────────────────────── */
-
-function ImovelCardTags({
-  className,
-  ...props
-}: React.ComponentProps<"div">) {
-  return (
-    <div
-      data-slot="imovel-card-tags"
-      className={cn(
-        "flex flex-wrap items-center gap-2",
-        className
-      )}
-      {...props}
-    />
-  )
-}
-
-/* ── Tag (with cva variants) ───────────────────────────── */
-
-const imovelCardTagVariants = cva(
-  "inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-medium [&_svg]:size-3",
-  {
-    variants: {
-      variant: {
-        default:
-          "border border-transparent bg-primary text-primary-foreground",
-        ghost: "text-foreground",
-      },
-    },
-    defaultVariants: {
-      variant: "default",
-    },
-  }
-)
-
-interface ImovelCardTagProps
-  extends React.ComponentProps<"span">,
-    VariantProps<typeof imovelCardTagVariants> {}
-
-function ImovelCardTag({
-  className,
-  variant,
-  ...props
-}: ImovelCardTagProps) {
-  return (
-    <span
-      data-slot="imovel-card-tag"
-      className={cn(imovelCardTagVariants({ variant }), className)}
-      {...props}
-    />
-  )
-}
-
-/* ── Price ──────────────────────────────────────────────── */
-
-function ImovelCardPrice({
-  className,
-  ...props
-}: React.ComponentProps<"span">) {
-  return (
-    <span
-      data-slot="imovel-card-price"
-      className={cn(
-        "text-3xl font-semibold leading-normal text-foreground",
-        className
-      )}
-      {...props}
-    />
-  )
-}
-
-/* ── Address ───────────────────────────────────────────── */
-
-function ImovelCardAddress({
-  className,
-  ...props
-}: React.ComponentProps<"span">) {
-  return (
-    <span
-      data-slot="imovel-card-address"
-      className={cn(
-        "truncate text-sm leading-normal text-muted-foreground",
-        className
-      )}
-      {...props}
-    />
-  )
-}
-
-/* ── Features row ──────────────────────────────────────── */
-
-function ImovelCardFeatures({
-  className,
-  ...props
-}: React.ComponentProps<"div">) {
-  return (
-    <div
-      data-slot="imovel-card-features"
-      className={cn(
-        "flex flex-wrap items-center gap-2",
-        className
-      )}
-      {...props}
-    />
-  )
-}
-
-/* ── Exports ───────────────────────────────────────────── */
-
-export {
-  ImovelCard,
-  ImovelCardImage,
-  ImovelCardContent,
-  ImovelCardTags,
-  ImovelCardTag,
-  ImovelCardPrice,
-  ImovelCardAddress,
-  ImovelCardFeatures,
-  imovelCardTagVariants,
-}
+export { ImovelCard }

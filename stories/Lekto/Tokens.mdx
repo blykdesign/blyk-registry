@@ -5,6 +5,7 @@ import {
   TokenGrid,
   FontPreview,
   TokenDivider,
+  TokenReferenceTable,
 } from '../token-display'
 import { Tip, ThemeBadge } from '../doc-display'
 
@@ -167,14 +168,16 @@ The Lekto theme uses **Mulish** as the primary font and **Geist Mono** for code.
 
 ## Reference Values (HSL)
 
-| Token | Light | Dark |
-|-------|-------|------|
-| `--primary` | 287 72% 38% (#7E1BA8) | 285 100% 98% (#FCF4FF) |
-| `--primary-foreground` | 285 100% 98% | 287 72% 38% |
-| `--foreground` | 222 47% 4% | 210 40% 98% |
-| `--border` | 214 32% 91% | 0 0% 100% / 0.1 |
-| `--input` | 214 32% 91% | 0 0% 100% / 0.15 |
-| `--ring` | 215 20% 65% | 215 20% 47% |
-| `--chart-1` | 287 72% 38% (purple) | 285 100% 97% (#FBF2FF) |
-| `--chart-2` | 211 55% 16% (#122A3F) | 211 24% 75% (#AFC0CE) |
-| `--radius` | 0.5rem | — |
+<TokenReferenceTable
+  rows={[
+    { token: "--primary", light: "287 72% 38% (#7E1BA8)", dark: "285 100% 98% (#FCF4FF)" },
+    { token: "--primary-foreground", light: "285 100% 98%", dark: "287 72% 38%" },
+    { token: "--foreground", light: "222 47% 4%", dark: "210 40% 98%" },
+    { token: "--border", light: "214 32% 91%", dark: "0 0% 100% / 0.1" },
+    { token: "--input", light: "214 32% 91%", dark: "0 0% 100% / 0.15" },
+    { token: "--ring", light: "215 20% 65%", dark: "215 20% 47%" },
+    { token: "--chart-1", light: "287 72% 38% (purple)", dark: "285 100% 97% (#FBF2FF)" },
+    { token: "--chart-2", light: "211 55% 16% (#122A3F)", dark: "211 24% 75% (#AFC0CE)" },
+    { token: "--radius", light: "0.5rem", dark: "—" },
+  ]}
+/>

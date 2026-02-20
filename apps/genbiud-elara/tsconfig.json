@@ -5,9 +5,9 @@
     "moduleResolution": "bundler",
     "strict": true,
     "skipLibCheck": true,
+    "noEmit": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
     "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {
@@ -15,7 +15,7 @@
       "@/components/ui/indicator-card": ["../../registry/genbiud-elara/components/ui/indicator-card"],
       "@/lib/*": ["../../lib/*"],
       "@/hooks/*": ["../../registry/base/components/hooks/*"],
-      "@/*": ["../../registry/base/*"]
+      "@/*": ["./src/*"]
     }
   },
   "include": ["src"]

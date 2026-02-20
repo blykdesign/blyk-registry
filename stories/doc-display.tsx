@@ -1,5 +1,143 @@
 import * as React from "react"
 
+/* ── API Props Table ───────────────────────────────────── */
+export function DocPropsTable({
+  rows,
+}: {
+  rows: Array<{ prop: string; type: string; required: string; description: string }>
+}) {
+  return (
+    <div
+      style={{
+        overflowX: "auto",
+        margin: "1rem 0 1.5rem",
+        borderRadius: "var(--radius)",
+        border: "1px solid hsl(var(--border))",
+        backgroundColor: "hsl(var(--card))",
+        boxShadow: "0 1px 2px hsl(var(--border) / 0.5)",
+      }}
+    >
+      <table
+        style={{
+          width: "100%",
+          borderCollapse: "collapse",
+          fontSize: "0.8125rem",
+        }}
+      >
+        <thead>
+          <tr
+            style={{
+              backgroundColor: "hsl(var(--muted))",
+              borderBottom: "1px solid hsl(var(--border))",
+            }}
+          >
+            <th
+              style={{
+                padding: "0.75rem 1rem",
+                textAlign: "left",
+                fontWeight: 600,
+                color: "hsl(var(--foreground))",
+                fontFamily: "var(--font-sans)",
+              }}
+            >
+              Prop
+            </th>
+            <th
+              style={{
+                padding: "0.75rem 1rem",
+                textAlign: "left",
+                fontWeight: 600,
+                color: "hsl(var(--foreground))",
+                fontFamily: "var(--font-sans)",
+              }}
+            >
+              Type
+            </th>
+            <th
+              style={{
+                padding: "0.75rem 1rem",
+                textAlign: "left",
+                fontWeight: 600,
+                color: "hsl(var(--foreground))",
+                fontFamily: "var(--font-sans)",
+              }}
+            >
+              Required
+            </th>
+            <th
+              style={{
+                padding: "0.75rem 1rem",
+                textAlign: "left",
+                fontWeight: 600,
+                color: "hsl(var(--foreground))",
+                fontFamily: "var(--font-sans)",
+              }}
+            >
+              Description
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row, i) => (
+            <tr
+              key={row.prop}
+              style={{
+                borderBottom:
+                  i < rows.length - 1
+                    ? "1px solid hsl(var(--border))"
+                    : "none",
+              }}
+            >
+              <td
+                style={{
+                  padding: "0.75rem 1rem",
+                  fontFamily: "var(--font-mono)",
+                  fontSize: "0.75rem",
+                  fontWeight: 600,
+                  color: "hsl(var(--primary))",
+                }}
+              >
+                {row.prop}
+              </td>
+              <td
+                style={{
+                  padding: "0.75rem 1rem",
+                  color: "hsl(var(--muted-foreground))",
+                  fontFamily: "var(--font-mono)",
+                  fontSize: "0.75rem",
+                  lineHeight: 1.5,
+                }}
+              >
+                {row.type}
+              </td>
+              <td
+                style={{
+                  padding: "0.75rem 1rem",
+                  color: "hsl(var(--muted-foreground))",
+                  fontSize: "0.75rem",
+                  lineHeight: 1.5,
+                }}
+              >
+                {row.required}
+              </td>
+              <td
+                style={{
+                  padding: "0.75rem 1rem",
+                  color: "hsl(var(--muted-foreground))",
+                  fontSize: "0.75rem",
+                  lineHeight: 1.5,
+                }}
+              >
+                {row.description}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  )
+}
+
 /* ── Section Divider ────────────────────────────────────── */
 export function DocDivider() {
   return (

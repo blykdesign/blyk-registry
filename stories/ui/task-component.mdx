@@ -1,6 +1,6 @@
-import { Meta, Canvas, Controls, ArgTypes } from '@storybook/addon-docs/blocks'
+import { Meta, Canvas } from '@storybook/addon-docs/blocks'
 import * as Stories from './task-component.stories'
-import { DocDivider, ThemeBadge, Tip, DocGrid, SubComponentCard } from '../doc-display'
+import { DocDivider, DocPropsTable, ThemeBadge, Tip } from '../doc-display'
 
 <Meta of={Stories} />
 
@@ -13,8 +13,6 @@ import { DocDivider, ThemeBadge, Tip, DocGrid, SubComponentCard } from '../doc-d
 
 A task card component used to display scheduled visits and to-do tasks. Supports two distinct types — **Visita** (visit) and **Tarefa** (task) — each with its own layout and visual indicator.
 
-Built as a compound component, giving you full control over the layout and composition of each task type.
-
 ## Installation
 
 ```bash
@@ -24,17 +22,28 @@ npx shadcn@latest add "https://registry.blyk.design/r/df-imoveis/task-component.
 ## Usage
 
 ```tsx
-import {
-  TaskComponent,
-  TaskComponentTimeSlot,
-  TaskComponentCheckbox,
-  TaskComponentContent,
-  TaskComponentBadge,
-  TaskComponentTitle,
-  TaskComponentDescription,
-  TaskComponentMeta,
-  TaskComponentMetaItem,
-} from "@/components/ui/task-component"
+import { TaskComponent } from "@/components/ui/task-component"
+import { Separator } from "@/components/ui/separator"
+import { User } from "lucide-react"
+
+// Visita
+<TaskComponent
+  type="visita"
+  timeSlot={{ time: <span className="text-lg font-bold text-primary">14:00</span>, badge: "hoje" }}
+  title="Marcos Oliveira"
+  descriptions={["SQS 308 Bloco A, Apartamento 302", "Asa Sul, Brasília - DF"]}
+/>
+
+// Tarefa (interactive)
+<TaskComponent
+  type="tarefa"
+  checked={checked}
+  onCheckedChange={setChecked}
+  badge="Urgente"
+  badgeVariant="secondary"
+  title="Ligar para o lead"
+  meta={["Hoje, 15:00", <Separator />, <><User /> Ana Carolina</>]}
+/>
 ```
 
 <Tip>
@@ -47,20 +56,6 @@ import {
 
 A scheduled visit card featuring a time slot on the left, a status badge, and the client's name and address on the right. The left indicator bar is **green** (emerald-500).
 
-```tsx
-<TaskComponent type="visita">
-  <TaskComponentTimeSlot>
-    <span className="text-lg font-bold leading-none text-primary">14:00</span>
-    <TaskComponentBadge>hoje</TaskComponentBadge>
-  </TaskComponentTimeSlot>
-  <TaskComponentContent>
-    <TaskComponentTitle>Marcos Oliveira</TaskComponentTitle>
-    <TaskComponentDescription>SQS 308 Bloco A, Apartamento 302</TaskComponentDescription>
-    <TaskComponentDescription className="font-normal">Asa Sul, Brasília - DF</TaskComponentDescription>
-  </TaskComponentContent>
-</TaskComponent>
-```
-
 <Canvas of={Stories.Visita} />
 
 <DocDivider />
@@ -69,125 +64,37 @@ A scheduled visit card featuring a time slot on the left, a status badge, and th
 
 A to-do task card with a circular checkbox, urgency badge, task title, and a metadata row showing date/time and the associated lead. The left indicator bar is **purple** (violet-500). The checkbox is interactive — clicking it toggles the done state.
 
-```tsx
-<TaskComponent type="tarefa" done={checked}>
-  <TaskComponentCheckbox checked={checked} onCheckedChange={setChecked} />
-  <TaskComponentContent>
-    <TaskComponentBadge variant="secondary">Urgente</TaskComponentBadge>
-    <TaskComponentTitle>Ligar para o lead</TaskComponentTitle>
-    <TaskComponentMeta>
-      <TaskComponentMetaItem>Hoje, 15:00</TaskComponentMetaItem>
-      <Separator orientation="vertical" className="!h-5" />
-      <TaskComponentMetaItem>
-        <User className="size-4" /> Ana Carolina
-      </TaskComponentMetaItem>
-    </TaskComponentMeta>
-  </TaskComponentContent>
-</TaskComponent>
-```
-
 <Canvas of={Stories.Tarefa} />
 
 <DocDivider />
 
-## Anatomy
+## API
 
-Each type has a distinct structure, but both share the same root container:
+### Visita (type="visita")
 
-<DocGrid columns={2}>
-  <div>
-    **Visita**
-    ```
-    TaskComponent (type="visita")
-    ├── ██ Indicator bar (green)
-    └── Flex
-        ├── TaskComponentTimeSlot
-        │   ├── Time text
-        │   └── TaskComponentBadge
-        └── TaskComponentContent
-            ├── TaskComponentTitle
-            └── TaskComponentDescription (×N)
-    ```
-  </div>
-  <div>
-    **Tarefa**
-    ```
-    TaskComponent (type="tarefa")
-    ├── ██ Indicator bar (purple)
-    └── Flex
-        ├── TaskComponentCheckbox
-        └── TaskComponentContent
-            ├── TaskComponentBadge
-            ├── TaskComponentTitle
-            └── TaskComponentMeta
-                └── TaskComponentMetaItem (×N)
-    ```
-  </div>
-</DocGrid>
+<DocPropsTable
+  rows={[
+    { prop: "type", type: '"visita"', required: "Yes", description: "Visit type" },
+    { prop: "done", type: "boolean", required: "No", description: "When true, applies 50% opacity" },
+    { prop: "timeSlot", type: "{ time: ReactNode; badge?: ReactNode }", required: "Yes", description: "Time display and optional badge" },
+    { prop: "title", type: "ReactNode", required: "Yes", description: "Client name" },
+    { prop: "descriptions", type: "ReactNode[]", required: "Yes", description: "Address lines" },
+    { prop: "className", type: "string", required: "No", description: "Additional CSS classes" },
+  ]}
+/>
 
-<DocDivider />
+### Tarefa (type="tarefa")
 
-## Props
-
-### TaskComponent (root)
-
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `type` | `"visita"` \| `"tarefa"` | `"visita"` | Controls the indicator bar color and inner layout gap. |
-| `done` | `boolean` | `false` | When `true`, applies 50% opacity to the entire card. |
-
-### TaskComponentCheckbox
-
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `checked` | `boolean` | `false` | Whether the checkbox is checked. |
-| `onCheckedChange` | `(checked: boolean) => void` | — | Callback fired when the checkbox is toggled. |
-
-### TaskComponentBadge
-
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `variant` | `"default"` \| `"secondary"` | `"default"` | `default` uses primary colors (e.g. "hoje" badge). `secondary` uses muted tones (e.g. "Urgente" badge). |
-
-<DocDivider />
-
-## Sub-components
-
-<DocGrid columns={2}>
-  <SubComponentCard
-    name="TaskComponent"
-    description="Root container with colored indicator bar and done state."
-  />
-  <SubComponentCard
-    name="TaskComponentTimeSlot"
-    description="64px centered column for time and badge (Visita)."
-  />
-  <SubComponentCard
-    name="TaskComponentCheckbox"
-    description="Circular checkbox with checked/unchecked states (Tarefa)."
-  />
-  <SubComponentCard
-    name="TaskComponentContent"
-    description="Vertical flex container for the main text content."
-  />
-  <SubComponentCard
-    name="TaskComponentBadge"
-    description="Pill badge with 'default' and 'secondary' variants."
-  />
-  <SubComponentCard
-    name="TaskComponentTitle"
-    description="Bold primary text — client name or task title."
-  />
-  <SubComponentCard
-    name="TaskComponentDescription"
-    description="Secondary muted text — address, location details."
-  />
-  <SubComponentCard
-    name="TaskComponentMeta"
-    description="Horizontal row for metadata items with icon support."
-  />
-  <SubComponentCard
-    name="TaskComponentMetaItem"
-    description="Individual metadata item within the meta row."
-  />
-</DocGrid>
+<DocPropsTable
+  rows={[
+    { prop: "type", type: '"tarefa"', required: "Yes", description: "Task type" },
+    { prop: "done", type: "boolean", required: "No", description: "When true, applies 50% opacity" },
+    { prop: "checked", type: "boolean", required: "No", description: "Checkbox state" },
+    { prop: "onCheckedChange", type: "(checked: boolean) => void", required: "No", description: "Checkbox toggle callback" },
+    { prop: "badge", type: "ReactNode", required: "No", description: 'Urgency badge (e.g. "Urgente")' },
+    { prop: "badgeVariant", type: '"default" | "secondary"', required: "No", description: "Badge style" },
+    { prop: "title", type: "ReactNode", required: "Yes", description: "Task title" },
+    { prop: "meta", type: "ReactNode[]", required: "Yes", description: "Metadata items (date, assignee, etc.)" },
+    { prop: "className", type: "string", required: "No", description: "Additional CSS classes" },
+  ]}
+/>

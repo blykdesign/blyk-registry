@@ -1,6 +1,6 @@
-import { Meta, Canvas, Controls, ArgTypes } from '@storybook/addon-docs/blocks'
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks'
 import * as Stories from './imovel-card.stories'
-import { DocDivider, ThemeBadge, Tip, DocGrid, SubComponentCard } from '../doc-display'
+import { DocDivider, DocPropsTable, ThemeBadge, Tip } from '../doc-display'
 
 <Meta of={Stories} />
 
@@ -13,8 +13,6 @@ import { DocDivider, ThemeBadge, Tip, DocGrid, SubComponentCard } from '../doc-d
 
 A real estate property card designed to display a property listing with image, highlight tags, price, address, and feature badges.
 
-Built as a compound component following the same pattern as `Card` and `IndicatorCard`, giving you full control over the layout and composition.
-
 ## Installation
 
 ```bash
@@ -24,50 +22,21 @@ npx shadcn@latest add "https://registry.blyk.design/r/df-imoveis/imovel-card.jso
 ## Usage
 
 ```tsx
-import {
-  ImovelCard,
-  ImovelCardImage,
-  ImovelCardContent,
-  ImovelCardTags,
-  ImovelCardTag,
-  ImovelCardPrice,
-  ImovelCardAddress,
-  ImovelCardFeatures,
-} from "@/components/ui/imovel-card"
-```
+import { ImovelCard } from "@/components/ui/imovel-card"
+import { Star, Bed, Bath, Car, Maximize2 } from "lucide-react"
 
-```tsx
-<ImovelCard>
-  <ImovelCardImage
-    src="/photo.jpg"
-    alt="Foto do imóvel"
-  />
-  <ImovelCardContent>
-    <ImovelCardTags>
-      <ImovelCardTag>
-        <Star /> Destaque
-      </ImovelCardTag>
-    </ImovelCardTags>
-    <ImovelCardPrice>R$ 500.000</ImovelCardPrice>
-    <ImovelCardAddress>
-      SQS 308 Bloco A, Apartamento 302 - Asa Sul
-    </ImovelCardAddress>
-    <ImovelCardFeatures>
-      <ImovelCardTag variant="ghost">
-        <Bed /> 3
-      </ImovelCardTag>
-      <ImovelCardTag variant="ghost">
-        <Bath /> 2
-      </ImovelCardTag>
-      <ImovelCardTag variant="ghost">
-        <Car /> 1
-      </ImovelCardTag>
-      <ImovelCardTag variant="ghost">
-        <Maximize2 /> 200m²
-      </ImovelCardTag>
-    </ImovelCardFeatures>
-  </ImovelCardContent>
-</ImovelCard>
+<ImovelCard
+  image={{ src: "/photo.jpg", alt: "Foto do imóvel" }}
+  tags={[{ icon: <Star />, label: "Destaque" }]}
+  price="R$ 500.000"
+  address="SQS 308 Bloco A, Apartamento 302 - Asa Sul"
+  features={[
+    { icon: <Bed />, label: "3" },
+    { icon: <Bath />, label: "2" },
+    { icon: <Car />, label: "1" },
+    { icon: <Maximize2 />, label: "200m²" },
+  ]}
+/>
 ```
 
 <Tip>
@@ -86,7 +55,7 @@ The full property card with image, highlight tags, price, address, and feature b
 
 ### Without Tags
 
-Tags are optional — simply omit `ImovelCardTags` when there are no highlights.
+Tags are optional — simply omit the `tags` prop when there are no highlights.
 
 <Canvas of={Stories.WithoutTags} />
 
@@ -104,39 +73,15 @@ Multiple cards in a responsive grid that wraps automatically.
 
 <DocDivider />
 
-## Sub-components
+## API
 
-<DocGrid columns={2}>
-  <SubComponentCard
-    name="ImovelCard"
-    description="Root container with border, shadow, rounded corners, and overflow hidden."
-  />
-  <SubComponentCard
-    name="ImovelCardImage"
-    description="Property photo with 3:2 aspect ratio and object-fit cover."
-  />
-  <SubComponentCard
-    name="ImovelCardContent"
-    description="Content area with vertical padding and gap."
-  />
-  <SubComponentCard
-    name="ImovelCardTags"
-    description="Flex row for highlight tag badges."
-  />
-  <SubComponentCard
-    name="ImovelCardTag"
-    description='Badge with "default" (filled primary) and "ghost" (text only) variants.'
-  />
-  <SubComponentCard
-    name="ImovelCardPrice"
-    description="Price display (text-3xl, semibold)."
-  />
-  <SubComponentCard
-    name="ImovelCardAddress"
-    description="Address text (text-sm, muted)."
-  />
-  <SubComponentCard
-    name="ImovelCardFeatures"
-    description="Flex row for feature badges (bedrooms, baths, parking, area)."
-  />
-</DocGrid>
+<DocPropsTable
+  rows={[
+    { prop: "image", type: "{ src: string; alt: string }", required: "Yes", description: "Property photo URL and alt text" },
+    { prop: "tags", type: "Array<{ icon?: ReactNode; label: ReactNode }>", required: "No", description: "Highlight badges (e.g. Destaque, Assinado, Seguro)" },
+    { prop: "price", type: "ReactNode", required: "Yes", description: "Price display" },
+    { prop: "address", type: "ReactNode", required: "Yes", description: "Property address" },
+    { prop: "features", type: "Array<{ icon?: ReactNode; label: ReactNode }>", required: "No", description: "Feature badges (bedrooms, baths, parking, area)" },
+    { prop: "className", type: "string", required: "No", description: "Additional CSS classes for the root" },
+  ]}
+/>

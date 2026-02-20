@@ -1,16 +1,6 @@
 import React from "react"
 import type { Meta, StoryObj } from "@storybook/react-vite"
-import {
-  TaskComponent,
-  TaskComponentTimeSlot,
-  TaskComponentCheckbox,
-  TaskComponentContent,
-  TaskComponentBadge,
-  TaskComponentTitle,
-  TaskComponentDescription,
-  TaskComponentMeta,
-  TaskComponentMetaItem,
-} from "@/registry/df-imoveis/components/ui/task-component"
+import { TaskComponent } from "@/registry/df-imoveis/components/ui/task-component"
 import { Separator } from "@/registry/base/components/ui/separator"
 import { User } from "lucide-react"
 
@@ -28,8 +18,6 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-/* ── Visita ────────────────────────────────────────────── */
-
 export const Visita: Story = {
   name: "Visita",
   render: () => (
@@ -38,83 +26,70 @@ export const Visita: Story = {
         <span className="text-xs font-medium text-muted-foreground">
           Done: No
         </span>
-        <TaskComponent type="visita">
-          <TaskComponentTimeSlot>
-            <span className="text-lg font-bold leading-none text-primary">
-              14:00
-            </span>
-            <TaskComponentBadge>hoje</TaskComponentBadge>
-          </TaskComponentTimeSlot>
-          <TaskComponentContent>
-            <TaskComponentTitle>Marcos Oliveira</TaskComponentTitle>
-            <TaskComponentDescription>
-              SQS 308 Bloco A, Apartamento 302 - Asa Sul
-            </TaskComponentDescription>
-            <TaskComponentDescription className="font-normal">
-              Asa Sul, Brasília - DF
-            </TaskComponentDescription>
-          </TaskComponentContent>
-        </TaskComponent>
+        <TaskComponent
+          type="visita"
+          timeSlot={{
+            time: (
+              <span className="text-lg font-bold leading-none text-primary">
+                14:00
+              </span>
+            ),
+            badge: "hoje",
+          }}
+          title="Marcos Oliveira"
+          descriptions={[
+            "SQS 308 Bloco A, Apartamento 302 - Asa Sul",
+            "Asa Sul, Brasília - DF",
+          ]}
+        />
       </div>
 
       <div className="flex flex-col gap-2">
         <span className="text-xs font-medium text-muted-foreground">
           Done: Yes
         </span>
-        <TaskComponent type="visita" done>
-          <TaskComponentTimeSlot>
-            <span className="text-lg font-bold leading-none text-muted-foreground">
-              14:00
-            </span>
-            <span className="text-xs font-medium leading-normal text-muted-foreground">
-              hoje
-            </span>
-          </TaskComponentTimeSlot>
-          <TaskComponentContent>
-            <TaskComponentTitle className="text-muted-foreground">
-              Marcos Oliveira
-            </TaskComponentTitle>
-            <TaskComponentDescription>
-              SQS 308 Bloco A, Apartamento 302 - Asa Sul
-            </TaskComponentDescription>
-            <TaskComponentDescription className="font-normal">
-              Asa Sul, Brasília - DF
-            </TaskComponentDescription>
-          </TaskComponentContent>
-        </TaskComponent>
+        <TaskComponent
+          type="visita"
+          done
+          timeSlot={{
+            time: (
+              <span className="text-lg font-bold leading-none text-muted-foreground">
+                14:00
+              </span>
+            ),
+            badge: "hoje",
+          }}
+          title="Marcos Oliveira"
+          descriptions={[
+            "SQS 308 Bloco A, Apartamento 302 - Asa Sul",
+            "Asa Sul, Brasília - DF",
+          ]}
+        />
       </div>
     </div>
   ),
 }
 
-/* ── Tarefa ────────────────────────────────────────────── */
-
-function InteractiveTarefa({
-  defaultChecked = false,
-}: {
-  defaultChecked?: boolean
-}) {
+function InteractiveTarefa({ defaultChecked = false }: { defaultChecked?: boolean }) {
   const [checked, setChecked] = React.useState(defaultChecked)
   return (
-    <TaskComponent type="tarefa" done={checked}>
-      <TaskComponentCheckbox checked={checked} onCheckedChange={setChecked} />
-      <TaskComponentContent>
-        <TaskComponentBadge variant="secondary">Urgente</TaskComponentBadge>
-        <TaskComponentTitle
-          className={checked ? "text-muted-foreground" : undefined}
-        >
-          Ligar para o lead
-        </TaskComponentTitle>
-        <TaskComponentMeta>
-          <TaskComponentMetaItem>Hoje, 15:00</TaskComponentMetaItem>
-          <Separator orientation="vertical" className="!h-5" />
-          <TaskComponentMetaItem>
-            <User className="size-4" />
-            Ana Carolina
-          </TaskComponentMetaItem>
-        </TaskComponentMeta>
-      </TaskComponentContent>
-    </TaskComponent>
+    <TaskComponent
+      type="tarefa"
+      done={checked}
+      checked={checked}
+      onCheckedChange={setChecked}
+      badge="Urgente"
+      badgeVariant="secondary"
+      title="Ligar para o lead"
+      meta={[
+        "Hoje, 15:00",
+        <Separator key="sep" orientation="vertical" className="!h-5" />,
+        <>
+          <User className="size-4" />
+          Ana Carolina
+        </>,
+      ]}
+    />
   )
 }
 
@@ -126,48 +101,42 @@ export const Tarefa: Story = {
         <span className="text-xs font-medium text-muted-foreground">
           Done: No
         </span>
-        <TaskComponent type="tarefa">
-          <TaskComponentCheckbox />
-          <TaskComponentContent>
-            <TaskComponentBadge variant="secondary">
-              Urgente
-            </TaskComponentBadge>
-            <TaskComponentTitle>Ligar para o lead</TaskComponentTitle>
-            <TaskComponentMeta>
-              <TaskComponentMetaItem>Hoje, 15:00</TaskComponentMetaItem>
-              <Separator orientation="vertical" className="!h-5" />
-              <TaskComponentMetaItem>
-                <User className="size-4" />
-                Ana Carolina
-              </TaskComponentMetaItem>
-            </TaskComponentMeta>
-          </TaskComponentContent>
-        </TaskComponent>
+        <TaskComponent
+          type="tarefa"
+          badge="Urgente"
+          badgeVariant="secondary"
+          title="Ligar para o lead"
+          meta={[
+            "Hoje, 15:00",
+            <Separator key="sep" orientation="vertical" className="!h-5" />,
+            <>
+              <User className="size-4" />
+              Ana Carolina
+            </>,
+          ]}
+        />
       </div>
 
       <div className="flex flex-col gap-2">
         <span className="text-xs font-medium text-muted-foreground">
           Done: Yes
         </span>
-        <TaskComponent type="tarefa" done>
-          <TaskComponentCheckbox checked />
-          <TaskComponentContent>
-            <TaskComponentBadge variant="secondary">
-              Urgente
-            </TaskComponentBadge>
-            <TaskComponentTitle className="text-muted-foreground">
-              Ligar para o lead
-            </TaskComponentTitle>
-            <TaskComponentMeta>
-              <TaskComponentMetaItem>Hoje, 15:00</TaskComponentMetaItem>
-              <Separator orientation="vertical" className="!h-5" />
-              <TaskComponentMetaItem>
-                <User className="size-4" />
-                Ana Carolina
-              </TaskComponentMetaItem>
-            </TaskComponentMeta>
-          </TaskComponentContent>
-        </TaskComponent>
+        <TaskComponent
+          type="tarefa"
+          done
+          checked
+          badge="Urgente"
+          badgeVariant="secondary"
+          title="Ligar para o lead"
+          meta={[
+            "Hoje, 15:00",
+            <Separator key="sep" orientation="vertical" className="!h-5" />,
+            <>
+              <User className="size-4" />
+              Ana Carolina
+            </>,
+          ]}
+        />
       </div>
 
       <div className="flex flex-col gap-2">

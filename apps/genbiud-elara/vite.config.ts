@@ -33,7 +33,7 @@ export default defineConfig({
       },
       {
         find: "@",
-        replacement: join(ROOT, "registry/base"),
+        replacement: join(APP_ROOT, "src"),
       },
     ],
   },

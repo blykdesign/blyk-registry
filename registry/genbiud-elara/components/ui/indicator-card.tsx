@@ -2,10 +2,25 @@ import * as React from "react"
 
 import { cn } from "@/lib/utils"
 
+export interface IndicatorCardProps extends Omit<React.ComponentProps<"div">, "children"> {
+  icon?: React.ReactNode
+  label: React.ReactNode
+  value: React.ReactNode
+  badge?: React.ReactNode
+  badgeClassName?: string
+  description?: React.ReactNode
+}
+
 function IndicatorCard({
   className,
+  icon,
+  label,
+  value,
+  badge,
+  badgeClassName,
+  description,
   ...props
-}: React.ComponentProps<"div">) {
+}: IndicatorCardProps) {
   return (
     <div
       data-slot="indicator-card"
@@ -14,92 +29,47 @@ function IndicatorCard({
         className
       )}
       {...props}
-    />
-  )
-}
-
-function IndicatorCardIcon({
-  className,
-  ...props
-}: React.ComponentProps<"div">) {
-  return (
-    <div
-      data-slot="indicator-card-icon"
-      className={cn(
-        "flex items-center justify-center size-8 text-muted-foreground [&_svg]:size-8",
-        className
+    >
+      {icon && (
+        <div
+          data-slot="indicator-card-icon"
+          className="flex items-center justify-center size-8 text-muted-foreground [&_svg]:size-8"
+        >
+          {icon}
+        </div>
       )}
-      {...props}
-    />
-  )
-}
-
-function IndicatorCardLabel({
-  className,
-  ...props
-}: React.ComponentProps<"span">) {
-  return (
-    <span
-      data-slot="indicator-card-label"
-      className={cn("text-sm text-muted-foreground", className)}
-      {...props}
-    />
-  )
-}
-
-function IndicatorCardValue({
-  className,
-  ...props
-}: React.ComponentProps<"div">) {
-  return (
-    <div
-      data-slot="indicator-card-value"
-      className={cn(
-        "flex items-center gap-2",
-        className
+      <span
+        data-slot="indicator-card-label"
+        className="text-sm text-muted-foreground"
+      >
+        {label}
+      </span>
+      <div data-slot="indicator-card-value" className="flex items-center gap-2">
+        <span
+          data-slot="indicator-card-number"
+          className="text-3xl font-semibold leading-tight tracking-tight text-foreground"
+        >
+          {value}
+        </span>
+        {badge && (
+          <span
+            data-slot="indicator-card-badge"
+            className={cn(
+              "inline-flex items-center gap-1 rounded-full border border-border bg-background px-2 py-0.5 text-xs font-medium text-foreground [&_svg]:size-3",
+              badgeClassName
+            )}
+          >
+            {badge}
+          </span>
+        )}
+      </div>
+      {description && (
+        <div data-slot="indicator-card-description" className="mt-1">
+          {description}
+        </div>
       )}
-      {...props}
-    />
+    </div>
   )
 }
 
-function IndicatorCardNumber({
-  className,
-  ...props
-}: React.ComponentProps<"span">) {
-  return (
-    <span
-      data-slot="indicator-card-number"
-      className={cn(
-        "text-3xl font-semibold leading-tight tracking-tight text-foreground",
-        className
-      )}
-      {...props}
-    />
-  )
-}
-
-function IndicatorCardBadge({
-  className,
-  ...props
-}: React.ComponentProps<"span">) {
-  return (
-    <span
-      data-slot="indicator-card-badge"
-      className={cn(
-        "inline-flex items-center gap-1 rounded-full border border-border bg-background px-2 py-0.5 text-xs font-medium text-foreground [&_svg]:size-3",
-        className
-      )}
-      {...props}
-    />
-  )
-}
-
-export {
-  IndicatorCard,
-  IndicatorCardIcon,
-  IndicatorCardLabel,
-  IndicatorCardValue,
-  IndicatorCardNumber,
-  IndicatorCardBadge,
-}
+export { IndicatorCard }
