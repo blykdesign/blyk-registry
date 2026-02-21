@@ -20,7 +20,7 @@ const config: StorybookConfig = {
     "../stories/**/*.mdx",
     "../stories/**/*.stories.@(ts|tsx)",
   ],
-  staticDirs: [],
+  staticDirs: [join(ROOT, "storybook-assets")],
 
   addons: [
     getAbsolutePath("@storybook/addon-themes"),
