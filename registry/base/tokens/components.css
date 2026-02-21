@@ -1,0 +1,7 @@
+/* Base — Component-specific token fallbacks */
+
+:root {
+  --card-radius: var(--radius, 0.5rem);
+  --indicator-card-min-width: 16rem;
+  --card-width: 342px;
+}

@@ -12,7 +12,7 @@
     "baseUrl": ".",
     "paths": {
       "@/components/ui/*": ["../../registry/base/components/ui/*"],
-      "@/components/ui/indicator-card": ["../../registry/genbiud-elara/components/ui/indicator-card"],
+      "@/components/ui/indicator-card": ["../../registry/df-imoveis/components/ui/indicator-card"],
       "@/lib/*": ["../../lib/*"],
       "@/hooks/*": ["../../registry/base/components/hooks/*"],
       "@/*": ["./src/*"]

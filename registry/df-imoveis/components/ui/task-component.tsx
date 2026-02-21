@@ -41,7 +41,7 @@ const taskComponentBadgeVariants = cva(
 )
 
 export interface TaskComponentVisitaProps
-  extends Omit<React.ComponentProps<"div">, "children"> {
+  extends Omit<React.ComponentProps<"div">, "children" | "title"> {
   type: "visita"
   done?: boolean
   timeSlot: { time: React.ReactNode; badge?: React.ReactNode }
@@ -50,7 +50,7 @@ export interface TaskComponentVisitaProps
 }
 
 export interface TaskComponentTarefaProps
-  extends Omit<React.ComponentProps<"div">, "children"> {
+  extends Omit<React.ComponentProps<"div">, "children" | "title"> {
   type: "tarefa"
   done?: boolean
   checked?: boolean

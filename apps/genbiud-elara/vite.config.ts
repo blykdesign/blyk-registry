@@ -17,7 +17,7 @@ export default defineConfig({
     alias: [
       {
         find: "@/components/ui/indicator-card",
-        replacement: join(ROOT, "registry/genbiud-elara/components/ui/indicator-card.tsx"),
+        replacement: join(ROOT, "registry/df-imoveis/components/ui/indicator-card.tsx"),
       },
       {
         find: "@/components/ui",

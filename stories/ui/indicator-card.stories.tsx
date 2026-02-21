@@ -108,6 +108,11 @@ const sampleCards = (
 )
 
 export const GridScroll: Story = {
+  args: {
+    icon: <UserPlus />,
+    label: "Novos Leads",
+    value: "12",
+  },
   decorators: [
     (Story) => (
       <div className="max-w-full">
@@ -123,6 +128,11 @@ export const GridScroll: Story = {
 }
 
 export const GridStack: Story = {
+  args: {
+    icon: <UserPlus />,
+    label: "Novos Leads",
+    value: "12",
+  },
   decorators: [
     (Story) => (
       <div className="max-w-full">

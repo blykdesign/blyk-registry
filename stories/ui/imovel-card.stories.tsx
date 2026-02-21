@@ -73,6 +73,15 @@ export const MinimalFeatures: Story = {
 }
 
 export const Grid: Story = {
+  args: {
+    image: {
+      src: "https://placehold.co/684x456/e2e8f0/64748b?text=Im%C3%B3vel",
+      alt: "Foto do imóvel",
+    },
+    price: "R$ 500.000",
+    address: "SQS 308 Bloco A - Asa Sul",
+    features: [],
+  },
   decorators: [
     (Story) => (
       <div className="max-w-full">

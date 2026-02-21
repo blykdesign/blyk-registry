@@ -28,7 +28,8 @@
     "stories/**/*.ts",
     "stories/**/*.tsx",
     "lib/**/*.ts",
-    ".storybook/**/*.ts"
+    ".storybook/**/*.ts",
+    "env.d.ts"
   ],
   "exclude": [
     "node_modules",

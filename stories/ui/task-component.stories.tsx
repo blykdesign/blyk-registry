@@ -18,8 +18,20 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Visita: Story = {
+export const Visita = {
   name: "Visita",
+  args: {
+    type: "visita" as const,
+    timeSlot: {
+      time: <span className="text-lg font-bold">14:00</span>,
+      badge: "hoje",
+    },
+    title: "Marcos Oliveira",
+    descriptions: [
+      "SQS 308 Bloco A, Apartamento 302 - Asa Sul",
+      "Asa Sul, Brasília - DF",
+    ],
+  },
   render: () => (
     <div className="flex flex-col gap-6">
       <div className="flex flex-col gap-2">
@@ -93,8 +105,15 @@ function InteractiveTarefa({ defaultChecked = false }: { defaultChecked?: boolea
   )
 }
 
-export const Tarefa: Story = {
+export const Tarefa = {
   name: "Tarefa",
+  args: {
+    type: "tarefa" as const,
+    badge: "Urgente",
+    badgeVariant: "secondary" as const,
+    title: "Ligar para o lead",
+    meta: ["Hoje, 15:00"],
+  },
   render: () => (
     <div className="flex flex-col gap-6">
       <div className="flex flex-col gap-2">
